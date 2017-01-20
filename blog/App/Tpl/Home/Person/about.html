@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .blogitem table{
+    padding-top:30px;
+    font-size:14px;
+    margin-left:10px;
+    padding-bottom: 200px;
+  }
+.blogitem table tr{
+  height:30px;
+  line-height: 30px;
+}
+.modifyAbout{
+  padding-left:10px;
+  padding-right:10px;
+  height:35px;
+  line-height: 35px;
+  border-radius: 5px;
+  display: inline-block;
+  color:#ff4400;
+  border:1px solid #ccc;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+.modifyAbout:hover{
+  background-color: #fafafa;
+  color:#333;
+}
+</style>
+</head>
+<body onload="">
+<include file="head" />
+<!-- 主体 -->
+<div class="mainContent2">
+    <aside>
+            <div class="avatar">
+      <if condition="$ilist['arcimg']">
+          <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+      </if>
+        <a href="<{:U('about')}>/id/<{$id}>"><span><{$li['nicheng']}></span></a>
+      </div>
+      <section class="topspaceinfo">
+      <!-- 昵称 -->
+        <h1>
+          <if condition="$li['nicheng']">
+            <{$li['nicheng']}>
+          <else />
+            <{$id}>
+          </if>
+        </h1>
+        <p><{$li['introduce']}></p>
+      </section>
+      <div class="userinfo"> 
+        <p class="q-fans"> 粉丝：<a href="<{:U('friend')}>?id=<{$id}>" target="_blank">
+      <if condition="$fans">
+        <{$fans}>
+      <else/>0
+      </if>
+        </a></p> 
+      <if condition="$care['tofans'] eq 1">
+        <p class="btns">
+        <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+        <span id="careHim">已关注</p>
+      <else/>
+        <if condition="$idnubmer neq $id">
+          <p class="btns">
+          <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+          <span  id="careHim"><a href="JavaScript:void(0);" onclick="carehim()" >关注</a></span></p> 
+        </if>
+      </if>
+      </div> 
+      <section class="taglist">
+         <h2>全部分类</h2>
+         <ul>
+         <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>/id/<{$id}>/cid/<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem">
+    <h2 style="padding-top:10px;padding-left:10px;border-bottom:1px solid #ccc;text-align:center;">关于我</h2>
+      <table>
+      <tr>
+        <th align="right" width="100">博客昵称:</th>
+        <td>
+        <if condition="$plist['nicheng'] eq ''">
+          这个人真懒,什么都不说
+        <else />
+          <{$plist['nicheng']}>
+        </if>
+        </td>
+      </tr>
+        <tr>
+          <th align="right">真实姓名:</th>
+          <td><{$plist['real_name']}></td>
+        </tr>
+        <tr>
+          <th align="right">性　　别:</th>
+          <td>
+          <if condition="$plist['sex'] eq 1">
+            男
+          <else/>
+            女
+          </if>
+          </td>
+        </tr>
+<!--         <tr>
+            <th align="right">生　　日:</th>
+            <td>
+          <{$plist['birthday']}>
+            </td>
+          </tr> -->          
+        <tr>
+          <th align="right">现 居 地:</th>
+          <td><{$plist['live']}></td>
+        </tr> 
+        <tr>
+          <th align="right">自我介绍:</th>
+          <td><{$plist['introduce']}></td>
+        </tr>               
+        <tr>
+          <th align="right">Q Q:</th>
+          <td><{$plist['qq']}></td>
+        </tr>  
+        <tr>
+          <th align="right">邮　　箱:</th>
+          <td><{$plist['email']}></td>
+        </tr> 
+        <tr>
+          <th align="right">兴　　趣:</th>
+          <td>
+            <{$plist['intersting']}>
+          </td>
+        </tr> 
+    <if condition="($idnubmer eq $id) and $id!=''">
+        <tr>
+          <td colspan="2">
+            <a href="<{:U('modifyAbout')}>?id=<{$id}>" class="modifyAbout">修改资料</a>
+          </td>
+        </tr>
+    </if>
+      </table>
+    </div>  
+  </div>
+  <!-- 这里是底部 -->
+  <include file="footer" />
+</body>
+</html>

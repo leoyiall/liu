@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .blogitem table{
+    padding-top:30px;
+    margin-left:60px;
+    text-align: left;
+    font-size:14px;
+    padding-bottom: 200px;
+  }
+.blogitem table tr{
+  height:30px;
+  line-height: 30px;
+}
+.modifyAbout{
+  padding-left:10px;
+  padding-right:10px;
+  height:35px;
+  line-height: 35px;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-block;
+  color:#333;
+  border:1px solid #ccc;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+.modifyAbout:hover{
+  background-color: #fafafa;
+  color:#333;
+}
+.input_style{
+	width:200px;
+	height:25px;
+	line-height: 25px;
+	outline: none;
+	border:1px solid #ccc;
+	padding-left:2px;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<include file="head" />
+<div class="mainContent2">
+<aside>
+  <div class="avatar">
+  <if condition="$ilist['arcimg']">
+      <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+  </if>
+    <a href="<{:U('about')}>/id/<{$id}>"><span><{$li['nicheng']}></span></a>
+  </div>
+  <section class="topspaceinfo">
+  <!-- 昵称 -->
+    <h1>
+      <if condition="$li['nicheng']">
+        <{$li['nicheng']}>
+      <else />
+        <{$id}>
+      </if>
+    </h1>
+    <p><{$li['introduce']}></p>
+  </section>
+      <div class="userinfo"> 
+              <p class="q-fans"> 粉丝：<a href="<{:U('friend')}>?id=<{$id}>" target="_blank">
+            <if condition="$fans">
+              <{$fans}>
+            <else/>0
+            </if>
+              </a></p> 
+            <if condition="$care['tofans'] eq 1">
+              <p class="btns">
+              <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+              <span id="careHim">已关注</p>
+            <else/>
+              <if condition="$idnumber neq $id">
+                <p class="btns">
+                <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+                <span  id="careHim"><a href="JavaScript:void(0);" onclick="carehim()" >关注</a></span></p> 
+              </if>
+            </if>
+            </div> 
+      <section class="taglist">
+         <h2>全部分类</h2>
+         <ul>
+          <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>/id/<{$id}>/cid/<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem">
+    <h2 style="padding-left:20px;margin-top:20px;border-bottom:1px solid #ccc;">博客资料</h2>
+   <form action="<{:U('saveBase')}>" method="post" enctype="multipart/form-data">
+      <table>
+      <tr>
+        <th>头像:</th>
+        <td>
+      <if condition="$ili['arcimg']">
+        <img src="__PUBLIC__/Uploads/<{$ili['arcimg']}>" alt="" width="100" height="100"><br>
+      </if>
+          <input type="file" name="photo">
+          <input type="hidden" name="arcimg" value="<{$ili['arcimg']}>">
+        </td>
+      </tr>
+      <tr>
+        <th>空间标题:</th>
+        <td>
+          <input type="text" name="blogTitle" autofocus class="input_style" value="<{$ili['blogTitle']}>">
+        	<input type="hidden" name="idnumber" value="<{$idnumber}>">
+        </td>
+      </tr>
+        <tr>
+          <th>空间介绍:</th>
+          <td>
+		<textarea name="blogIntroduce"  cols="42" rows="5" sytle="font-size:14px;padding-left:3px;"><{$ili['blogIntroduce']}></textarea>
+          </td>
+        </tr>               
+        <tr>
+          <td colspan="2">
+            <input type="submit" class="modifyAbout" value="保存资料" style="cursor:pointer;">
+          </td>
+        </tr>
+      </table>
+    </form>
+    </div>  
+  </div>
+<!-- 底部 -->
+<include file="footer" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+ <script type="text/javascript">
+  function carehim(){
+    $.get("<{:U('careHim')}>?id=<{$id}>",'',function(e){
+      alert(e.info);
+      $("#careHim").html("已关注");
+    });
+  }
+ </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .blogitem table{
+    width:400px;
+    padding-top:30px;
+    margin-left:60px;
+    text-align: left;
+    font-size:14px;
+    padding-bottom: 200px;
+  }
+.blogitem table tr{
+  height:30px;
+  line-height: 30px;
+}
+.modifyAbout{
+  padding-left:10px;
+  padding-right:10px;
+  height:35px;
+  line-height: 35px;
+  border-radius: 5px;
+  background-color: #eee;
+  display: inline-block;
+  color:#ff4400;
+  border:1px solid #ccc;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+.modifyAbout:hover{
+  background-color: #96CEB4;
+  color:#333;
+}
+.input_style{
+	width:200px;
+	height:25px;
+	line-height: 25px;
+	outline: none;
+	border:1px solid #ccc;
+	padding-left:2px;
+}
+.blogitem h1{
+  font-family: "微软雅黑";
+  padding:10px;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+.blogitem textarea{
+  font-size: 16px;
+  padding-left: 3px;
+}
+#sub{
+  padding-left: 20px;
+  padding-right: 20px;
+  height:35px;
+  line-height:35px;
+  background-color: #fafafa;
+  outline: none;
+  border:1px solid #ccc;
+  cursor:pointer;
+  border-radius: 5px;
+}
+#messageList{
+  width:100%;
+  padding:10px;
+  overflow: hidden;
+  *zoom:1;
+}
+#messageList .left{
+  float:left;
+}
+#messageList .right_say{
+  width:87%;
+  padding:10px;
+  font-size:12px;
+  float:left;
+}
+#messageList ul{
+  border-top: 1px solid #ccc;
+}
+#messageList ul li{
+  margin-top:10px;
+  overflow: hidden;
+  *zoom:1;
+  border-bottom: 1px solid #ccc;
+}
+#messageList .right_say h3{
+  margin-top: 0px;
+}
+.times{
+  font-size: 12px;
+  color:#666;
+  float: right;
+  margin-right: 10px;
+  margin-top:20px;
+}
+.times a{
+  color:#7190FF;
+}
+.times a:hover{
+  color:#333;
+}
+.reAnswer{
+  width:100%;
+  overflow: hidden;
+  *zoom:1;
+  color:#666;
+  padding:5px;
+}
+.reForm input[type='text']{
+  width:80%;
+  margin:0 auto;
+  height:30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border:1px solid #eee;
+  outline: none;
+ border-radius: 3px;
+}
+.reForm .subOn{
+  padding:0 10px;
+  outline: none;
+  border:1px solid #ccc;
+  background-color: #fff;
+  height:30px;
+  line-height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reForm .subOn:hover{
+  background-color: #fafafa;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<include file="head" />
+<div class="mainContent2">
+    <aside>
+      <div class="avatar">
+      <if condition="$ilist['arcimg']">
+          <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+      </if>
+        <a href="<{:U('about')}>/id/<{$id}>"><span><{$li['nicheng']}></span></a>
+      </div>
+      <section class="topspaceinfo">
+      <!-- 昵称 -->
+        <h1>
+          <if condition="$li['nicheng']">
+            <{$li['nicheng']}>
+          <else />
+            <{$id}>
+          </if>
+        </h1>
+        <p><{$li['introduce']}></p>
+      </section>
+      <div class="userinfo"> 
+        <p class="q-fans"> 粉丝：<a href="<{:U('friend')}>?id=<{$id}>" target="_blank">
+      <if condition="$fans">
+        <{$fans}>
+      <else/>0
+      </if>
+        </a></p> 
+      <if condition="$care['tofans'] eq 1">
+        <p class="btns">
+        <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+        <span id="careHim">已关注</p>
+      <else/>
+        <if condition="$idnumber neq $id">
+          <p class="btns">
+          <!-- <a href="<{:U('privateMessage')}>?id=<{$id}>" target="_blank" >私信</a> -->
+          <span  id="careHim"><a href="JavaScript:void(0);" onclick="carehim()" >关注</a></span></p> 
+        </if>
+      </if>
+      </div> 
+      <section class="taglist">
+         <h2>全部分类</h2>
+         <ul>
+         <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>?id=<{$id}>&cid=<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem">
+    <h1>留言板</h1>
+      <form action="<{:U('saveMessage')}>" id="myForm" method="post">
+        <textarea rows="8" cols="84" style="margin-left:20px;" name="message" id="message" placeholder="请输入您想对我说的话..." autofocus></textarea>
+      <center>
+        <input type="hidden" name="ids" value="<{$id}>">
+        <input type="button" id="sub" value="留言" align="right">
+      </center>
+      </form>
+  <div id="messageList">
+    <ul>
+    <if condition="!$mlist">
+      <li style="text-align:center;">还没有留言,快来坐沙发吧。</li>
+    </if>
+    <volist name="mlist" id="vv">
+      <li>
+        <div class="left">
+          <a href="<{:U('index')}>?id=<{$vv.person_id}>"><img src="__PUBLIC__/Uploads/<{$vv['arcimg']}>" width="50" height="50" alt="xx"></a>
+        </div>
+        <div class="right_say">
+          <h3>
+          <!-- 如果不存在昵称就显示它的id号 -->
+        <if condition="$vv['nicheng']">
+         <a href="<{:U('index')}>?id=<{$vv.person_id}>" style="color:#333;"><{$vv['nicheng']}></a>
+          <else />
+          <a href="<{:U('index')}>?id=<{$vv.person_id}>" style="color:#333;"><{$vv['person_id']}></a>
+        </if>
+          说:</h3>
+          <p>
+            <{$vv['message']}>
+          </p>
+          <span class="times">
+            <?php echo date("Y-m-d H:i:s",$vv['sendTime']);?>
+          </span>
+          <span class="times">
+          <if condition="$idnum eq $id && $idnum!=''">
+            <a href="javascript:void(0);" link="<{:U('delMessage')}>?id=<{$idnum}>&mid=<{$vv.mid}>" onclick="delMessage(this)">删除</a>
+          </if>
+         </span> 
+         </div>
+          <!-- <div class="reAnswer">
+          <form action="<{:U('saveAnswer')}>" method="post" class="reForm" id="answerForm"> 
+            <input type="text" class="reAnswerBox" name="respone" placeholder="您想对我也说点什么?" id="answer">
+            <input type="hidden" name="mwho" value="<{$vv.person_id}>">
+            <input type="hidden" name="bm_id" value="<{$vv.mid}>">
+            <input type="hidden" name="id" value="<{$id}>">
+            <input type="button" value="回复" onclick="saveAnswer(this)" class="subOn">
+          </form> 
+          </div> -->
+        <volist name="answer" id="vo">
+          <if condition="$vo['bm_id'] eq $vv['mid']">
+           <div class="reAnswer">
+              <div class="left">
+                <b><a href="<{:U('index')}>?id=<{$vo.person_id}>" style="color:#333;"><{$vo.nicheng}></a></b>回复说:
+              </div>
+              <div class="right_say">
+                <{$vo.message}>
+              <span class="times">
+          <if condition="$idnum eq $id && $idnum!=''">
+            <a href="javascript:void(0);" link="<{:U('delMessage')}>?id=<{$idnum}>&mid=<{$vo.mid}>" onclick="delMessage(this)">删除</a>
+          </if>
+          <?php echo date("Y-m-d H:i:s",$vo['sendTime']);?>
+              </span>
+              </div>
+           </div>
+          </if>
+        </volist>
+      </li>
+    </volist>
+    </ul>
+  </div>
+    <div class="pages"><{$show}></div>
+    </div>  
+  </div>
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+   <script type="text/javascript">
+    function carehim(){
+      $.get("<{:U('careHim')}>?id=<{$id}>",'',function(e){
+        alert(e.info);
+        $("#careHim").html("已关注");
+      });
+    }
+   </script>
+  <script type="text/javascript">
+  $("#sub").on("click",function(){
+    if($("#message").val()==''){
+      alert("留言内容不能为空!");
+      return;
+    }
+    <if condition="!$idnum">
+      alert('请登录!');
+      window.location.href="<{:U('Common/login')}>";
+      return;
+    </if>
+    $("#myForm").submit();
+  });
+  // 执行删除留言
+  function delMessage(obj){
+    if(confirm("是否删除该留言?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }    
+  }
+  </script>
+<!-- 底部 -->
+<include file="footer" />
+</body>
+</html>
