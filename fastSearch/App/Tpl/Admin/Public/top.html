@@ -1,0 +1,34 @@
+ <!-- 头部导航 -->
+  <nav class="navbar navbar-default" style="position:fixed;width:100%;overflow:hidden;*zoom:1;z-index:10;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+			<img src="__PUBLIC__/images/logo.png" alt="快搜" style="margin-top:-10px;">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="__ROOT__/index.php">前台首页<span class="sr-only">(current)</span></a></li>
+          <li><a href="<{:U('index')}>">后台首页</a></li>
+        </ul>
+        <!-- 右侧 -->
+        <div class="nav navbar-nav navbar-right">
+             <div class="head_img fl">
+                <a href="" title="我"><img src="__PUBLIC__/images/333.jpg" width="40" height="40"  alt="xxx"></a>
+                <div class="link_me fr">
+                   <a href=""><{$otherName}></a>
+                   <a href="<{:U('Login/logout')}>">退出</a>
+                </div>
+             </div>
+
+         </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>

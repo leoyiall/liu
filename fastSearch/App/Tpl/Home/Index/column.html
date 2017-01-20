@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>快搜栏目——快速搜索你想要的</title>
+  <link rel="shortcut icon" href="__PUBLIC__/images/so.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">
+  <!-- 引用bootstrap -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+  <!-- 头部导航 -->
+  <nav class="navbar navbar-default" style="position:fixed;width:100%;overflow:hidden;*zoom:1;z-index:10;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+			<img src="__PUBLIC__/images/logo.png" alt="快搜" style="margin-top:-10px;">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="<{:U('index')}>">首页<span class="sr-only">(current)</span></a></li>
+          <li><a href="<{:U('lists')}>">文章</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search" style="margin-left:50px;" action="<{:U('search')}>" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="快速搜索您需要的内容" name="so" style="width:300px;">
+          </div>
+          <button type="submit" class="btn btn-default">快搜</button>
+        </form>
+        <!-- 右侧 -->
+        <ul class="nav navbar-nav navbar-right">
+
+        <if condition="$who">
+          <a href="__ROOT__/index.php/admin" style="line-height:50px;"><img src="__PUBLIC__/images/333.jpg"  width="30" height="30" style="border-radius:50%;margin-right:5px;border:1px solid #ccc;"><b><{$who}></b></a>
+          <else />
+           <li><a href="<{:U('Admin/Login/index')}>">登录</a></li>
+         </if>
+
+         </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+	
+	<!-- 主体 -->
+	<div class="container">
+	<div class="inPosition div2_top">
+		当前位置：<a href="<{:U('index')}>">首页</a> >><a href="<{:U('lists')}>">栏目列表</a> >> <{$cs[0]['cName']}>
+	</div>
+	<div class="bg-info">
+		<p style="line-height:30px;text-align:center;font-size:20px;"><b><{$cs[0]['cName']}></b></p>
+		<p style="text-indent:2em;padding-bottom:10px;"><{$cs[0]['cIntroduce']}></p>
+	</div>
+	<!-- 左边文章栏目 -->
+		<div class="list_left fl">
+			<!-- 内容块 -->
+		<foreach name="data" item="vv">
+			<div class="list_kuai">
+				<h4>
+				<foreach name="ss" item="s">
+				<if condition="$s['id'] == $vv['sid']">
+					<span class="color_red">[<{$s.state}>]</span>
+				</if>
+				</foreach>
+				<a href="<{:U('article')}>/id/<{$vv.id}>" title="<{$vv.title}>"><{$vv.title}></a></h4>
+				<div class="list_summary">
+				
+					<div class="list_say">
+					<div class="list_about">
+						发布时间：<{$vv.date}> / 分类：
+						<foreach name="cs" item="c">
+						<if condition="$c['id'] == $vv['cid']">
+							<{$c.cName}>
+						</if>
+						</foreach>
+						 / 作者:<{$who}> /
+					</div>
+						<{$vv.summary}>
+					</div>
+				</div>
+			</div>
+		</foreach>
+			<!-- 内容块结束 -->
+		
+			<!-- 内容块结束 -->
+			<div class="list_page">
+				<nav>
+				   <{$page}>
+				</nav>
+			</div>
+		</div>
+	<!-- 右边文章推荐 -->
+		<div class="list_right  fr">
+			<div class="nav_title"><h4>置顶文章</h4></div>
+			<ul class="list_box">
+				<foreach name="top" item="t">
+				<li><span class="color_red">▷</span> <a href="<{:U('article')}>/id/<{$vv.id}>" title="<{$t.title}>"><{$t.title}></a></li>
+				</foreach>
+			</ul>
+		</div>
+	</div><!-- container -->
+	<div class="footer div2_top">
+		版权所有 © by leo
+	</div>
+ </body>
+</html>

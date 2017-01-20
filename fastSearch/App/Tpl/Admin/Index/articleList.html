@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>快搜首页——快速搜索你想要的</title>
+  <link rel="shortcut icon" href="__PUBLIC__/images/so.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin.css">
+  <!-- 引用bootstrap -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/check1.js"></script>
+ </head>
+ <body>
+  <!-- 头部导航 -->
+ <include file="Public:top" />  
+	
+	<!-- 主体 -->
+	<div class="conWidth">
+      <!-- 右边内容 -->
+      <div class="right_con fr">
+          <div class="right_intro">
+           <table class="table table-hover">
+    <tr>
+      <th>id</th>
+      <th>标题</th>
+      <th>栏目</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+    <foreach name="list" item="vo">
+    <tr>
+      <td><{$vo.id}></td>
+      <td>
+        <a href="__ROOT__/index.php/Index/article/id/<{$vo.id}>" target="_blank"><{$vo.title}></a>
+      </td>
+
+      <td>
+      <foreach name="cs" item="v">
+        <if condition="$v['id'] eq $vo['cid']">
+        <{$v.cName}>
+        </if>
+      </foreach>
+      </td>
+      <td>
+      <foreach name="ss" item="s">
+        <if condition="$s['id'] == $vo['sid']">
+        <{$s.state}>
+        </if>
+      </foreach>
+      </td>
+      <td>
+        <a href="javascript:void(0)" data-link="<{:U('modifyArticle')}>?id=<{$vo.id}>" class="btn btn-default" onclick="treat(this,'是否修改栏目?')">修改</a>
+        <a href="javascript:void(0)" data-link="<{:U('delArticle')}>?id=<{$vo.id}>" class="btn btn-default" onclick="treat(this,'是否删除栏目?')">删除</a>
+      </td>
+    </tr>
+  </foreach>
+  <tr>
+    <td colspan="6" style="text-align:center;"><{$page}></td>
+  </tr>
+  </table>
+           </div>
+      </div>  
+      <!-- 左边导航 -->
+      <div class="left_nav fl">
+        <include file="Public:left" /> 
+      </div>
+
+    </div><!-- container -->
+
+    <div class="footer div2_top">
+      版权所有 © by leo
+    </div>
+   </body>
+  </html>

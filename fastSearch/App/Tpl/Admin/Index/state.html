@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>快搜首页——快速搜索你想要的</title>
+  <link rel="shortcut icon" href="__PUBLIC__/images/so.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin.css">
+  <!-- 引用bootstrap -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/check1.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/check.js"></script>
+ </head>
+ <body>
+  <!-- 头部导航 -->
+ <include file="Public:top" />  
+	
+	<!-- 主体 -->
+	<div class="conWidth">
+      <!-- 右边内容 -->
+      <div class="right_con fr">
+          <div class="right_intro">
+              <table class="table table-hover">
+                <tr>
+                  <th>id</th>
+                  <th>状态名称</th>
+                  <th>操作</th>
+                </tr>
+                <form action="<{:U('Index/addstate')}>" method="post"> 
+                  <tr>
+                  <th></th>
+                  <th>    
+                    <input type="text" class="form-control" name="state" onblur="modify(this,<{$vo.id}>)">
+                  </th>
+                  <th>
+                  <input class="btn btn-default" type="submit"  id="add" value="添加状态">
+                  </th>
+                </tr>
+                </form> 
+             <foreach name="list" item="vo">
+                <tr>
+                  <td><{$vo.id}></td>
+                  <td>
+                    <input type="text" class="form-control" name="s<{$vo.id}>" value="<{$vo.state}>" onblur="modify(this,<{$vo.id}>)">
+                  </td>
+                  <td>
+                    <a href="javascript:void(0)" data-link="<{:U('delstate')}>?id=<{$vo.id}>" class="btn btn-default" onclick="treat(this,'是否删除栏目?')" >删除</a>
+                  </td>
+                </tr>
+              </foreach>
+              </table>
+           </div>
+      </div>  
+      <!-- 左边导航 -->
+      <div class="left_nav fl">
+     <include file="Public:left" />  
+      </div>
+
+    </div><!-- container -->
+
+    <div class="footer div2_top">
+      版权所有 © by leo
+    </div>
+    <script type="text/javascript">
+    // ajax执行修改类别
+    function modify(obj,sid){
+      $.ajax({ 
+        url: "<{:U('Index/modifyState')}>",
+        type : "post", 
+        datatype:'json',
+        data : {
+          id : sid,
+          state : $(obj).val()
+        },
+        success: function(e){
+          if(e.status == 1){
+              alert(e.info);
+          }
+        },
+        error:function(e){
+          if(e.status == 0){
+              alert(e.info);
+          }
+        },
+      });
+        
+      }
+    </script>
+   </body>
+  </html>

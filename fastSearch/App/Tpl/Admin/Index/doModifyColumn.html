@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>快搜首页——快速搜索你想要的</title>
+  <link rel="shortcut icon" href="__PUBLIC__/images/so.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin.css">
+  <!-- 引用bootstrap -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+ </head>
+ <body>
+  <!-- 头部导航 -->
+  <include file="Public:top" />	
+	<!-- 主体 -->
+	<div class="conWidth">
+      <!-- 右边内容 -->
+      <div class="right_con fr">
+          <div class="right_intro">
+ <h3 class="text-center">修改文章分类</h3>
+  <form class="form-horizontal" action="<{:U('doModifyCate')}>" method="post">
+    <div class="form-group">
+    <input type="text" name="id" value="<{$arr['0']['id']}>" style="display:none;">
+      <label for="inputEmail3" class="col-sm-2 control-label">分类名称</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail3" name="cName" value="<{$arr['0']['cName']}>" placeholder="文章名称">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">所属栏目</label>
+      <div class="col-sm-10">
+        <select name="cid" style="border:1px solid #333;">
+        <foreach name="cc" item="vo">
+          <option value="<{$vo.id}>"><{$vo.cName}></option>
+        </foreach>
+        </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">栏目说明</label>
+        <div class="col-sm-10">
+    <textarea  name="cIntroduce" cols="100%" rows="5" style="border:1px solid #ccc;"><{$arr['0']['cIntroduce']}></textarea>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">修改文章分类</button>
+        <input type="reset" class="btn btn-default" value="重置">
+      </div>
+    </div>
+  </form>
+           </div>
+      </div>  
+      <!-- 左边导航 -->
+      <div class="left_nav fl">
+          <include file="Public:left" /> 
+      </div>
+
+    </div><!-- container -->
+
+    <div class="footer div2_top">
+      版权所有 © by leo
+    </div>
+   </body>
+  </html>
