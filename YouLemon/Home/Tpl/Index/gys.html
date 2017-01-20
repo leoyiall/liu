@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城供应商分类——快速寻找供应商</title> 
+</head>
+
+<body>
+<!-- 商城头部 -->
+	<include file="Public:head"/>
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images/icon/down.png"></h3>			
+				</div>
+
+			<ul class="nav fl">
+				<li><a href="__APP__/Index" title="首页" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" title="供应商">供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="shoppingCart comWidth">
+	<div class="shopping_item">
+		<h3 class="shopping_tit">供应商分类<span class="ys_tiao">(选择分类后可以快速找到对应类型供应商!)</span></h3>
+		<div class="shopping_cont padding_shop">
+		<div class="leftdiv">
+			<volist name="so" id="vo">
+                    <dl>
+                        <dt><a href="__APP__/Index/gys_list?lname=<{$key}>"><{$key}></a></dt>
+                        <dd>
+                        <volist name="vo" id="ss">
+                           	  <a href="__APP__/Index/gys_list?lid=<{$ss.lei_id}>&lid2=<{$ss.l2_id}>&lname=<{$ss.lei_name}>"><{$ss.lei2_name}></a>
+                          </volist>  	  
+                        </dd>
+                    </dl>
+            </volist>
+        </div>
+		</div>
+	</div>
+</div>
+
+<!-- 侧边栏 -->
+<include file="Public:cebian"/>
+<!-- 以下是底部 -->
+<include file="Public:footer"/>
+</body>
+</html>

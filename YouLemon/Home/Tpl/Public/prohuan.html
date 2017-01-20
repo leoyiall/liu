@@ -1,0 +1,60 @@
+
+<link rel="stylesheet" href="__PUBLIC__/Css/common.css" />
+<link rel="stylesheet" href="__PUBLIC__/Css/jd.css" />
+<style>
+.zxx_body .zxx_constr {width: 1210px;}
+</style>
+
+
+<div class="zxx_body">
+	<div class="zxx_constr">
+    	<!--  body of jd.html -->
+        <div class="jd_body">
+        	<div id="jdAdSlide" class="jd_ad_slide">
+            	<img src="__PUBLIC__/Images/rBEhVlJ5oCUIAAAAAAE4O585pSAAAFGKgINDgcAAThT749.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhVlJ4ugUIAAAAAADNu0WERsYAAFE9ABekBAAAM3T074.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhUlJzCqoIAAAAAAE7yTNr8uEAAE2ggLjA1QAATvh176.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhVVJ40jMIAAAAAAEESo4hULIAAFFRgKzU_IAAQRi366.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhVlJ5oCUIAAAAAAE4O585pSAAAFGKgINDgcAAThT749.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhVlJ5mUEIAAAAAAFZ8YVO0RYAAFGEwKl9xAAAVoJ892.jpg" class="jd_ad_img">
+                <img data-src="__PUBLIC__/Images/rBEhVlJ5sGsIAAAAAAEw4mmfc50AAFGdwOMkwIAATD6787.jpg" class="jd_ad_img">
+                <div id="jdAdBtn" class="jd_ad_btn"></div><!-- add active -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/Js/jquery.min.js"></script>
+<script src="__PUBLIC__/Js/jquery-powerSwitch.js"></script>
+<script>
+// 大的图片广告
+// 根据图片创建id,按钮元素等，实际开发建议使用JSON数据类似
+var htmlAdBtn = '';
+$("#jdAdSlide img").each(function(index, image) {
+	var id = "adImage" + index;
+	htmlAdBtn = htmlAdBtn + '<a href="javascript:" class="jd_ad_btn_a" data-rel="'+ id +'">'+ (index + 1) +'</a>';
+	image.id = id;
+});
+$("#jdAdBtn").html(htmlAdBtn).find("a").powerSwitch({
+	eventType: "hover",
+	classAdd: "active",
+	animation: "fade",
+	autoTime: 5000,
+	onSwitch: function(image) {
+		if (!image.attr("src")) {
+			image.attr("src", image.attr("data-src"));	
+		}
+	}
+}).eq(0).trigger("mouseover");
+
+// 便民服务
+$("#servNav a").powerSwitch({
+	classAdd: "active",
+	eventType: "hover",
+	onSwitch: function() {
+		$("#pointLine").animate({ "left": $(this).position().left}, 200);
+	}
+});
+</script>
+</body>
+</html>

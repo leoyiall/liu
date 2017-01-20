@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+<title>You柠檬商城店铺列表</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/gllist.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<head>
+<body>
+<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 右边代码 -->
+	<div id="ht_list">
+				<!-- 列表开始 -->
+					<div id="gl_list">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+						<td colspan="7" class="gl_tou">店铺列表</td>
+							</tr>
+							<tr>
+								<th>ID</th>
+								<th>用户账号</th>
+								<th>店名</th>
+								<th>店铺电话</th>
+								<th>头像</th>
+								<th>供应商</th>
+								<th width="200">操作</th>
+							</tr>
+							<volist name="all" id="vv">
+							<tr>
+								<td><{$vv.store_id}></td>
+								<td><{$vv.username}></td>
+								<td><{$vv.storeName}></td>
+								<td><{$vv.storePhone}></td>
+								<td><img src="__PUBLIC__/Images/tou/<{$vv.storeImg}>" width="30" height="30"></td>
+								<td>
+									<equal name="vv.gong_id" value="0">无供应商</equal>
+								</td>
+								<td>
+								<ul>
+								<!-- 审批开通店铺 -->
+								<equal name="vv.is_kai" value="1">
+									<a href="__APP__/Houshop/shenhe?name='<{$vv.username}>'&id=2" ><li class="btn_se">通过审核</li></a>
+									<a href="__APP__/Houshop/shenhe?name='<{$vv.username}>'&id=0" ><li class="btn_se">不通过</li></a>
+								</equal>
+								<!-- 开通后封店 -->
+								<equal name="vv.is_kai" value="2">
+									<a href="__APP__/Houshop/shenhe?name='<{$vv.username}>'&id=3" onclick="return confirm('确认封店吗?');"><li class="del">封店</li></a>
+								</equal>
+								<!-- 封店后重新开启 -->
+								<equal name="vv.is_kai" value="3">
+									<a href="__APP__/Houshop/shenhe?name='<{$vv.username}>'&id=2" onclick="return confirm('确认重新开启店铺?');"><li class="del btn_se" >开启</li></a>
+								</equal>								
+								</ul>
+								</td>
+							</tr>
+							</volist>
+							<tr>
+								<td colspan="7">
+									<{$page}>
+								</td>
+							</tr>					
+						</table>
+					</div>
+		</div>
+	</div>
+</body>
+</html>

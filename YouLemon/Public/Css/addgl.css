@@ -1,0 +1,76 @@
+
+ #ht_gl{
+	width:400px;
+	height:auto;
+	margin:0 auto;
+	margin-top:50px;
+	text-align: center;
+	border-radius: 10px;
+	background:rgba(255,255,255,0.6);
+	box-shadow: 2px 2px 10px #ccc;
+	padding-bottom:10px;
+}
+#ht_gl .ht_biaoti img{
+	margin-top:15px;
+	width:30px;
+	height:30px;
+	float:left;
+	margin-left:140px;
+}
+#ht_gl .ht_biaoti .tj{
+	float:left;
+	line-height: 60px;
+	margin-left:10px;
+}
+/*管理员标题*/
+#ht_gl .ht_biaoti{
+	width:400px;
+	height:50px;
+	font-size:16px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	text-align: center;
+}
+/*管理员表单css*/
+#ht_gl #ht_lie{
+	width:400px;
+	height:auto;
+	margin-top:10px;
+}
+#ht_gl #ht_lie p{
+	width:100%;
+	height:auto;
+	line-height:40px;
+	text-align: center;
+	font-size:14px;
+	font-family: "宋体";
+}
+#ht_gl #ht_lie .ww{
+	display: block;
+	float:left;
+	margin-left:68px;
+	line-height:20px;
+	margin-top:10px;
+}
+#ht_gl #ht_lie textarea{
+	float:left;
+	font-size:14px;
+	font-family: "宋体";
+}
+#ht_gl #ht_lie p input{
+	width:200px;
+	height:25px;
+	font-size:15px;
+}
+#ht_gl #ht_lie .anniu{
+	margin-top:15px;
+	width:80px;
+	height:30px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size:15px;
+	color:#fff;
+	font-weight: bold;
+	background:url("../images/yy.png");
+	border:none;
+}

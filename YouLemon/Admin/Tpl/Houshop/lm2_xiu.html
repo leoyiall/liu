@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+<title>You柠檬商城修改二级分类</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.sort1.value==""){
+  		formYan.sort1.focus();
+		formYan.sort1.style.background="#F92659"
+  		return false; 
+ 	  }
+}
+</script>
+<head>
+<body>
+<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 后台首页右边代码 -->
+	<div id="ht_addld">
+		<div id="ht_gl">
+			<div class="ht_biaoti">
+				<img src="__PUBLIC__/Images/logo.png" ><span class="tj">修改二级分类</span>
+			</div>
+			<div id="ht_lie">
+			<form action="__APP__/Houshop/modify_two?lm2_name=<{$lm2_name}>" method="post" name="myform" onsubmit="return checkform();">
+				<p>一级分类名:
+					<select name="fenlei" style="border:1px solid #555;">
+					<option  value="<{$lei_id}>"><{$lei_name}></option>
+					<volist name="arr" id="vv">
+						<option  value="<{$vv.lei_id}>"><{$vv.lei_name}></option>
+					</volist>
+					</select>
+				</p>
+				<p>二级分类名:<input type="text" placeholder="二级分类名称" value="<{$lm2_name}>" name="sort2" class="person_wen"/></p>
+				<input type="submit" value="修改分类" class="anniu"  />
+				<input type="reset"  class="anniu" value="重置" />
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

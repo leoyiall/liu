@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城<{$result['shopName']}></title> 
+
+</head>
+
+<body class="grey">
+<!-- 商城头部 -->
+	<include file="Public:head"/>
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images//icon/down.png"></h3>			
+				</div>
+
+			<ul class="nav fl">
+				<li><a href="__APP__/Index" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" >供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div class="userPosition comWidth">
+	<strong><a href="__APP__/Index">首页</a></strong>
+	<span>&nbsp;&gt;&gt;&nbsp;</span>
+	<a href="__APP__/Index/gys"><{$lei_bie}></a>
+	<span>&nbsp;&gt;&gt;&nbsp;</span>
+	<em><{$result['shopName']}></em>
+</div>
+<div class="description_info comWidth">
+	<div class="description clearfix">
+		<div class="leftArea">
+			<div class="description_imgs">
+				<div class="big">
+					<img src="__PUBLIC__/Images/shop/<{$result['shopImage']}>" width="300" height="300" alt="<{$result['shopName']}>">
+				</div>
+				<ul class="des_smimg clearfix">
+					<li><a href="#"><img src="__PUBLIC__/Images/shop/<{$result['shopImage']}>" width="54" height="54" class="active" alt="<{$result['shopName']}>"></a></li>
+					<li><a href="#"><img src="__PUBLIC__/Images/shop/<{$shopImg['shopImg']}>" width="50" height="54" alt="<{$result['shopName']}>"></a></li>
+					<li><a href="#"><img src="__PUBLIC__/Images/shop/<{$shopImg['shopImg2']}>" width="50" height="54" alt="<{$result['shopName']}>"></a></li>
+					<li><a href="#"><img src="__PUBLIC__/Images/shop/<{$shopImg['shopImg3']}>" width="50" height="54" alt="<{$result['shopName']}>"></a></li>
+					<li><a href="#"><img src="__PUBLIC__/Images/shop/<{$shopImg['shopImg4']}>" width="50" height="54" alt="<{$result['shopName']}>"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="rightArea">
+			<div class="des_content">
+				<h3 class="des_content_tit"><{$result['shopName']}></h3>
+				<div class="dl clearfix">
+					<div class="dt">原价</div>
+					<div class="dd clearfix"><span class="des_money"><em>￥</em><{$result['shopPrice']}></span></div>
+				</div>
+				<div class="dl clearfix">
+					<div class="dt">会员价</div>
+					<div class="dd clearfix"><span class="des_money"><em>￥</em><{$result['shopHuanjia']}></span></div>
+				</div>
+<!-- 				<div class="dl clearfix">
+					<div class="dt">优惠</div>
+					<div class="dd clearfix"><span class="hg"><i class="hg_icon">满换购</i><em>购ipad加价优惠够配件或USB充电插座</em></span></div>
+				</div> -->
+				<div class="des_position">
+<!-- 					<div class="dl clearfix">
+						<div class="dt">送到</div>
+						<div class="dd clearfix">
+							<div class="select">
+								<h3>海淀区五环内</h3><span></span>
+								<ul class="show_select">
+									<li>上帝</li>
+									<li>五道口</li>
+									<li>上帝</li>
+								</ul>
+							</div>
+							<span class="theGoods">有货，可当日出货</span>
+						</div>
+					</div> -->
+					<div class="dl clearfix">
+						<div class="dt colorSelect">商品编码</div>
+						<div class="dd clearfix">
+							<div class="des_number2">
+								<{$result['shopNum']}>	
+							</div>						
+						</div>
+					</div>
+					<div class="dl clearfix">
+						<div class="dt colorSelect">选择类型</div>
+						<div class="dd clearfix">
+							<div class="des_item ">  
+								<{$re.type1}>
+							</div>
+							<div class="des_item ">  
+								<{$re.type2}>
+							</div>
+							<div class="des_item ">  
+								<{$re.type3}>
+							</div>
+							<div class="des_item ">  
+								<{$re.type4}>
+							</div>							
+						</div>
+					</div>
+					<div class="dl clearfix">
+						<div class="dt des_select_more">选择尺寸</div>
+						<div class="dd clearfix ">
+<!-- 							<div class="des_item des_item_sm des_item_acitve">
+								WIFI 16GB
+							</div>-->
+							<div class="des_item ">
+								<{$re.size1}>
+							</div>
+							<div class="des_item ">
+								<{$re.size2}>
+							</div>
+							<div class="des_item ">
+								<{$re.size3}>
+							</div>
+							<div class="des_item ">
+								<{$re.size4}>
+							</div>
+							
+						</div> 
+					</div>
+					<div class="dl clearfix">
+						<div class="dt colorSelect">选择颜色</div>
+						<div class="dd clearfix">
+							<div class="des_item ">  
+								<{$re.color1}>
+							</div>
+							<div class="des_item ">  
+								<{$re.color2}>
+							</div>
+							<div class="des_item ">  
+								<{$re.color3}>
+							</div>
+							<div class="des_item ">  
+								<{$re.color4}>
+							</div>							
+						</div>
+					</div>
+					<div class="dl">
+						<div class="dt des_num">数量</div>
+						<div class="dd clearfix">
+							<div class="des_number2" >
+ 							<!--	<div class="reduction">-</div>
+								<div class="des_input">
+									<input type="text">
+								</div>
+								<div class="plus">+</div>--> 
+								<{$result['shopShu']}>
+							</div>
+
+							<!-- <span class="xg">限购<em>9</em>件</span> -->
+						</div>
+					</div>
+				</div>
+<!-- 				<div class="des_select">
+					已选择 <span>"白色|WIFI 16G"</span>
+				</div> -->
+		<!--	<div class="shop_buy">
+					<a href="#" class="buy_zhi" style="color:#fff;">选择供应商</a>
+					<span class="line"></span>
+					 	<a href="#" class="buy_btn"></a>
+				</div> -->
+				<div class="notes">
+					注意：此商品可提供普通发票，不提供增值税发票。
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hr_15"></div>
+	<div class="conWidth" style="width:1000px;margin:0 auto;">
+	<div class="rightArea" style="width:1000px;margin:0 auto;">
+		<div class="des_infoContent">
+			<ul class="des_tit">
+				<li class="active"><span>产品介绍</span></li>
+				<li><span>产品评价(0)</span></li>
+			</ul>
+			<div class="hr_25"></div>
+			<div class="info_text">
+				<div class="info_tit"></div>
+					<{$result['shopSay']}>
+				
+			</div>
+		</div>
+	<div class="hr_25"></div>
+</div>
+</div>
+<!-- 侧边栏 -->
+<include file="Public:cebian"/>
+<!-- 以下是底部 -->
+<include file="Public:footer"/>
+</body>
+</html>

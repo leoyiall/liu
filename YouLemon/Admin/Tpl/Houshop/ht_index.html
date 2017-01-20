@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+	<title>You柠檬商城后台首页</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+
+<head>
+<body>
+	<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 后台首页右边代码 -->
+	<div id="ht_index">
+			<!-- 头部管理员介绍 -->
+		<div id="wel">
+			<div class="ht_tou">
+				<div class="ht_img fl">
+					<a href="__APP__/Houshop/ht_person"><img src="__PUBLIC__/Images/tou/<{$img}>" width="100" height="100"></a> 
+				</div>
+				<div class="ht_right fl">
+					<table>
+						<tr>
+							<td align="right"><h3>管理员姓名:</h3></td>
+							<td align="left"><{$who}></td>
+						</tr>
+						<tr>
+							<td colspan="2">欢饮您<{$shenfen}><{$who}></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		<!-- 后台首页功能列表 -->
+		<div class="ht_list">
+			<ul>
+				<a href="__APP__/Houshop/ht_setall"><li>
+					<div class="ht_up">
+					<img src="__PUBLIC__/Images/kf.png" width="200" height="200"></div>
+					<div class="ht_down">分类管理</div>
+				</li></a>
+				<a href="__APP__/Houshop/ht_yhlist"><li>
+					<div class="ht_up">
+					<img src="__PUBLIC__/Images/yh.png" width="200" height="200"></div>
+					<div class="ht_down">用户管理</div>
+				</li></a>
+				<a href="__APP__/Houshop/ht_storelist"><li>
+					<div class="ht_up">
+					<img src="__PUBLIC__/Images/sd.png" width="200" height="200"></div>
+					<div class="ht_down">商店管理</div>
+				</li></a>
+				<a href="__APP__/Houshop/ht_gonglist"><li>
+					<div class="ht_up">
+					<img src="__PUBLIC__/Images/gys.png" width="200" height="200"></div>
+					<div class="ht_down">供应商管理</div>
+				</li></a>
+			</ul>
+		</div>
+	</div>
+		</div>
+
+</body>
+</html>

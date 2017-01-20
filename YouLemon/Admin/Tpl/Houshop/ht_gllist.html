@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+<title>You柠檬商城管理员列表</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/gllist.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<head>
+<body>
+<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 管理员管理右边代码 -->
+	<div id="ht_list">
+			<!-- 头部开始 -->
+		<div id="list_tou">
+			<div id="list_add">
+				<!-- 头部人员数 -->
+				<div class="list_kuai">
+					<img src="__PUBLIC__/Images/user.png">
+					<span class="wen"><{$count}></span>
+					<p>管理员人数</p>
+					</div>
+				<!-- 添加管理员 -->
+			<a href="ht_addgl.php">
+				<div class="list_yy">
+					<img src="__PUBLIC__/Images/adduser.png">
+					<span class="wz">添加管理员</span>
+					</div>
+				</a>
+				</div>
+			</div>
+				<!-- 管理员列表开始 -->
+					<div id="gl_list">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+						<td colspan="7" class="gl_tou">管理员列表</td>
+							</tr>
+							<tr>
+								<th>ID</th>
+								<th>管理员账号</th>
+								<th>管理员类型</th>
+								<th>管理员邮箱</th>
+								<th>管理员手机</th>
+								<th>管理员头像</th>
+								<th width="200">操作</th>
+							</tr>
+							<volist name="all" id="vv">
+							<tr>
+								<td><{$vv.user_id}></td>
+								<td><{$vv.username}></td>
+								<td>管理员</td>
+								<td><{$vv.email}></td>
+								<td><{$vv.phone}></td>
+								<td><img src="__PUBLIC__/Images/tou/<{$vv.img}>" width="30" height="30"></td>
+								<td>
+								<ul>
+									<a href="__APP__/Houshop/modify?id='<{$vv.user_id}>'" ><li class="xg">修改</li></a>
+									<a href="__APP__/Houshop/del?id='<{$vv.user_id}>'" onclick="return confirm('确认删除吗?');"><li class="del">删除</li></a>
+								</ul>
+								</td>
+							</tr>
+							</volist>
+							<tr>
+								<td colspan="7">
+									<{$page}>
+								</td>
+							</tr>					
+						</table>
+					</div>
+		</div>
+	</div>
+</body>
+</html>

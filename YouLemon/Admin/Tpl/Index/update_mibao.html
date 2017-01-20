@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城旧密保认证</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+<script>
+	function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.mibao1.value==""){
+  		formYan.mibao1.focus();
+  		formYan.mibao1.style.background="#F92659"  
+  		return false; 
+ 	  }
+ 	if (formYan.mibao2.value==""){
+  		formYan.mibao2.focus();   
+  		formYan.mibao2.style.background="#F92659" 
+  		return false; 
+ 	  }
+	}
+</script>
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right">
+		<div class="main_xinxi">
+			<div class="main_title">
+				原密保验证
+			</div>
+			<div class="main_list">
+				<div class="reg_biao">
+			<form action="__ROOT__/admin.php/Index/mibao_yan" method="post"  name="myform" onsubmit="return checkform();">
+				<table border="0">
+					<tr>
+						<td colspan="2"><span class="ys_tiao">*请填写您的旧密保答案</span></td>
+					</tr>
+					<tr>
+						<td colspan="2">密保问题1:您初中班主任叫什么名字?</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="text" name="mibao1" placeholder="您原来密保1答案" class="person_wen"></td>
+					</tr>
+					<tr>
+						<td colspan="2">密保问题2:您的宠物叫什么名字?</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="text" name="mibao2" placeholder="您原来密保2答案" class="person_wen">
+					<input type="text" name="number" value="3" hidden>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="下一步" class="next next2"></td>
+					</tr>
+				</table>
+			</form>
+			</div>
+			</div>
+		</div>
+	</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

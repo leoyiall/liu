@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城提交订单</title> 
+</head>
+
+<body>
+<!-- 商城头部 -->
+	<include file="Public:head"/>
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images//icon/down.png"></h3>			
+				</div>
+			<ul class="nav fl">
+				<li><a href="__APP__/Index/index" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" >供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="shoppingCart comWidth">
+	<div class="shopping_item">
+		<h3 class="shopping_tit">收货地址<span class="ys_tiao">(如果为空白说明您未在个人资料中填写收货地址!)</span></h3>
+		<div class="shopping_cont padding_shop">
+			<ul class="shopping_list">
+				<li><span class="shopping_list_text"><em>*</em>选择地区：</span>
+					<div class="select">
+						<h3>中国</h3><span></span>
+						<ul class="show_select">
+							<li></li>
+						</ul>
+					</div>
+				</li>
+				<li><span class="shopping_list_text"><em>*</em>详细地址：</span><input type="text" value="<{$zhe.xiangArea}>" class="input input_b"></li>
+				<li><span class="shopping_list_text"><em>*</em>邮　编：</span><input type="text" value="<{$zhe.youBian}>" class="input input_s"></li>
+				<li><span class="shopping_list_text"><em>*</em>收 货 人：</span><input type="text" value="<{$zhe.who}>" class="input"></li>
+				<li><span class="shopping_list_text"><em>*</em>手	机：</span><input type="text" value="<{$zhe.phone}>" class="input"><span class="cart_tel">&nbsp;或固定电话：</span><input type="text" value="<{$zhe.guPhone}>" class="input input_s"><span class="jian"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="hr_25"></div>
+	<div class="shopping_item">
+		<h3 class="shopping_tit">送货清单</h3>
+		<div class="shopping_cont pb_10">
+			<div class="cart_inner">
+				<div class="cart_head clearfix">
+					<div class="cart_item2 t_name2">商品名称</div>
+					<div class="cart_item t_price">单价</div>
+					<div class="cart_item t_return">返现</div>
+					<div class="cart_item t_num">数量</div>
+					<div class="cart_item t_subtotal">小计</div>
+				</div>
+				<div class="cart_cont clearfix">
+					<div class="cart_item t_name">
+						<div class="cart_shopInfo clearfix">
+							<img src="__PUBLIC__/Images/shop/<{$arr.shopImage}>" alt="<{$arr.shopName}>">
+							<div class="cart_shopInfo_cont">
+								<p class="cart_link"><a href="__ROOT__/index.php/Index/shopIntroduce?shopId=<{$arr.shop_id}>&iup=<{$arr.is_up}>&shnum=<{$arr.shopNum}>&shname=<{$arr.shopName}>&shimg=<{$arr.shopImage}>&shname=<{$arr.shopName}>&lname=<{$arr.lei_name}>&ss=<{$arr.storeName}>" target="_blank"><{$arr.shopName}></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="cart_item t_price">
+						<{$arr.shopHuanjia}>
+					</div>
+					<div class="cart_item t_return">0</div>
+					<div class="cart_item t_num">1</div>
+					<div class="cart_item t_subtotal t_red"><{$arr.shopHuanjia}></div>
+				</div>
+				<form action="__APP__/Index/ok" method="post">
+				<div class="cart_message">
+					给卖家留言:<input type="text" name="liuyan" placeholder="我想对卖家说..." class="input input_b">
+				</div>
+
+				<div class="cart_cont cart_no_bor clearfix">
+					<div class="cart_item t_name">
+						<div class="cart_shopInfo clearfix">
+							<img src="__PUBLIC__/Images/shop/<{$arr.shopImage}>" alt="<{$arr.shopName}>">
+							<div class="cart_shopInfo_cont">
+								<p class="cart_link" style="margin-left:10px;"><a href="https://www.alipay.com/">微信支付</a></p>
+								<p class="cart_info" style="margin-left:10px;"><a href="https://www.alipay.com/">支付宝支付</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hr_25"></div>
+	<div class="shopping_item">
+		<h3 class="shopping_tit" >订单结算</h3>
+		<div class="shopping_cont padding_shop clearfix">
+			<div class="cart_count fr">
+				<div class="cart_rmb">
+					<i>总计：</i><span>￥<{$arr.shopHuanjia}></span>
+				</div>
+				<div class="cart_btnBox">
+					<a href="__APP__/Index/ok?uu=<{$uu}>&&sid=<{$arr.shop_id}>"><input type="button" class="cart_btn" value="提交订单" onclick="return confirm('您确定提交订单？');"></a>
+				</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 侧边栏 -->
+<include file="Public:cebian"/>
+<!-- 以下是底部 -->
+<include file="Public:footer"/>
+</body>
+</html>

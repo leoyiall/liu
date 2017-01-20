@@ -1,0 +1,209 @@
+#ht_list{width:90%;height:100%;margin-left:160px;
+	margin-top:76px;clear:both;float:left;
+	background:#fff;position:fixed;
+}
+#list_tou{
+	width:100%;
+	height:120px;
+}
+#list_tou .list_kuai{
+	width:300px;
+	height:90px;
+	background:#27A9E3;
+	margin:20px auto auto 20px;
+	float:left;
+}
+#list_tou  img{
+	float:left;
+	margin:20px auto auto 30px;
+}
+#list_tou .list_kuai .wen{
+	font-size:25px;
+	color:#fff;
+	font-weight: bold;
+	font-family: "宋体";
+	float:left;
+	margin-left:25px;
+	margin-top:20px;
+	text-align: center;
+}
+#list_tou .list_kuai p{
+	float:left;
+	margin-top:50px;
+	margin-left:-35px;
+	font-size:13px;
+	font-weight: normal;
+	color:#fff;
+	font-family: "微软雅黑";
+}
+#list_tou .list_kuai:hover{
+	background:#2F3437;
+}
+#list_tou .list_yy{
+	width:220px;
+	height:90px;
+	background:#27A9E3;
+	margin:20px auto auto 20px;
+	float:left;
+	background:#28B779;
+}
+#list_tou .list_kuai .wz{
+	float:left;
+	font-size:16px;
+	margin-top:40px;
+}
+#list_tou .list_yy .wz{
+	float:left;
+	font-size:14px;
+	margin-top:45px;
+	color:#fff;
+	font-weight: bold;
+	margin-left:5px;
+}
+#list_tou .list_yy:hover{
+	background:#2F3437;
+}
+/*管理员列表*/
+#gl_list{
+	width:95%;
+	height:auto;
+	margin:0 auto;
+	margin-top:10px;
+	border:1px solid #CCCCCC;
+	border-bottom: none;
+}
+#gl_list table{
+	width:100%;
+	height:auto;
+	background:#fff;
+}
+#gl_list .gl_tou{
+	font-size:18px;
+	font-family: "微软雅黑";
+	padding-left:10px;
+	height:50px;
+	border-bottom: 1px solid #ccc;
+	background:#EEEEEE;
+	text-align: left;
+	border-left:none;
+	border-right:none;
+}
+#gl_list th{
+	height:40px;
+	border-bottom: 1px solid #ccc;
+	background:#EEEEEE;
+}
+#gl_list td{
+	height:40px;
+	text-align:center;
+	border: 1px solid #ccc;
+	border-top:none;
+}
+#gl_list td a{
+	text-decoration: none;
+	font-size:15px;
+	font-family: "微软雅黑";
+	color:#000;
+}
+#gl_list td a:hover{
+	color:blue;
+}
+ table tr:nth-child(odd){
+	background:#F4F4F4;
+}
+#gl_list tr:hover{
+	background:#E5E5E5;
+}
+table .kuang{
+	width:200px;
+	height:40px;
+	margin:0 auto;
+	border:1px solid #000;
+}
+ul li{float:left;}
+li{
+	list-style-type: none;
+}
+#gl_list table .xg{
+	line-height: 30px;
+	width:50px;
+	height:30px;
+	text-align: center;
+	background:#B0D17A;
+	/*box-shadow: 1px 1px 5px #ccc;*/
+	margin-left:40px;
+}
+#gl_list table .xg:hover{
+	background:#73BF1D;
+}
+#gl_list table .del{
+	line-height: 30px;
+	width:50px;
+	height:30px;
+	text-align: center;
+	background:#F73B5D;
+	margin-left:20px;
+/*	box-shadow: 1px 1px 5px #eee;*/
+}
+#gl_list table .del:hover{
+	background:red;
+}
+/*信件管理标题分隔线*/
+table .fenkai th{
+	border-right:1px solid #ccc;
+}
+/*信件标题打开浏览信件a的颜色*/
+#gl_list table .yanse td a{
+	color:blue;
+}
+#gl_list table .yanse td a:hover{
+	color:red;
+}
+#gl_list table .yanse ul a{
+	color:#000;
+}
+#gl_list table .yanse ul a:hover{
+	color:blue;
+}
+/*专业部分的css修饰*/
+#gdzy{
+	width:250px;
+	height:30px;
+	float: left;
+}
+#gdzy .zy{
+	line-height: 30px;
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+#gdzy .lie .dell{
+	float:left;
+	display: block;
+	width:40px;
+	height:30px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align: center;
+	line-height: 30px;
+	color:#fff;
+	background:red;
+	margin-left:2px;
+}
+#gdzy .lie .xxgg{
+	display: block;
+	width:40px;
+	height:30px;
+	padding-left:5px;
+	padding-right:5px;
+	background:green;
+	line-height: 30px;
+	color:#fff;
+}
+#gdzy .lie .xxgg:hover{
+	color:#000;
+}
+#gdzy .lie .dell:hover{
+	color:#000;
+}

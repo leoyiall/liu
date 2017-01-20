@@ -1,0 +1,30 @@
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Style/reset.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Style/main.css">
+  <link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+<!-- 头部 -->
+<div class="headerBar">
+  <div class="topBar">
+    <div class="comWidth">
+      <div class="rightArea">
+      <if condition="$who neq null">
+              <a href="__ROOT__/admin.php/Index/index"><{$who}></a>&nbsp;&nbsp;<a href="__ROOT__/admin.php/Index/back">退出</a>
+        <else /> 
+          欢迎来到You柠檬商城！<a href="__ROOT__/admin.php/Index/login">[登录]</a><a href="__ROOT__/admin.php/Index/reg">[注册]</a>  
+      </if>
+        <a href="__ROOT__/index.php/Index/gouwuche?ww=<{$who}>" class="zhu_ys">购物车</a>|<a href="__ROOT__/admin.php/Store/index" class="zhu_ys">我的店铺</a>|<a href="__ROOT__/admin.php/Gong/index" class="zhu_ys">我是供应商</a>
+      </div>
+    </div>
+  </div>
+  <div class="logoBar">
+    <div class="comWidth">
+      <div class="logo fl">
+        <a href="__ROOT__/index.php/Index"><img src="__PUBLIC__/Images/logo.png" alt="You柠檬商城" class="fl"></a><h3 class="logo_zi fl">You柠檬商城</h3>
+      </div>
+      <div class="search_box fl">
+        <form action="__ROOT__/index.php/Index/search" method="post">
+          <input type="text" class="search_text fl" name="shopName" placeholder="最新最时尚的商品尽在You柠檬">
+          <input type="submit" value="搜 索" class="search_btn fr">
+        </form>
+      </div>
+    </div>
+  </div>

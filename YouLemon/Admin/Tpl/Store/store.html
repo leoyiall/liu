@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城店铺资料</title> 
+  <link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+
+  <script type="text/javascript">
+		onload=function(){
+
+			// var ms=mdtool.messager();
+			// 	ms.send("修改成功");
+			var im=mdtool.ImageEditer();//使用父窗口变量
+			var file=document.getElementById("file");
+			var img=document.getElementById("img");
+			file.onchange=function(e){
+				if(file.files.length<=0){
+					return;
+				}
+				im.setBlob(file.files[0],function(data){
+					console.log(data);
+					if(data.bool){
+						im.zoom(80,80,function(e){
+							//console.log(e["result"][0]);
+							img.src=e["result"][0];
+
+						});
+					}
+				});
+			}
+		}
+
+		</script>
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header_dian" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left_store" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right">
+	<div class="person_main">
+		<div class="person_title">
+			店铺资料
+		</div>
+		<div class="person_list">
+			<ul>
+			<form action="__APP__/Store/do_save" method="post" enctype="multipart/form-data">
+				<li class="ling">
+					<div class="person_left fl">商店头像:</div>
+					<div class="person_right fl">
+					<input type="file" style="display:none;" id="file" name="img">
+					<img src="__PUBLIC__/Images/tou/<{$storeImg}>" id="img">
+			<label for="file">
+				<div class="person_bian">编辑头像</div></a>
+			</label>
+					</div>
+				</li>
+				<li>
+					<div class="person_left fl">店铺名称:</div>
+					<div class="person_ww fl">
+					<input type="text" class="person_wen"  name="storeName" placeholder="请输入商店名称" value="<{$storeName}>">
+					</div>
+				</li>
+				<li>
+					<div class="person_left fl">商店地址:</div>
+					<div class="person_ww fl">
+					<input type="text" class="person_wen" placeholder="您还没输入商店地址" name="storeAddress" value="<{$storeAddress}>">
+					</div>
+				</li>
+				<li>
+					<div class="person_left fl">联系电话:</div>
+					<div class="person_ww fl">
+					<input type="text" class="person_wen" placeholder="您还没输入商店电话" name="storePhone" value="<{$storePhone}>">
+					</div>
+				</li>
+				<li>
+					<div class="person_left fl">商店类别:</div>
+					<div class="person_sex fl">
+					<select name="lei_store" class="xuan">
+							<option value="<{$lei_store}>"><{$lei_store}></option>
+							<volist name="sall" id="lol">
+								<option value="<{$lol.lei_name}>"><{$lol.lei_name}></option>
+							</volist>
+					</select><span class="ys_tiao">只能选择一个大分类!</span>
+					</div>
+				</li>
+				<div class="person_left fl">商店供应商:</div>
+					<div class="person_ww" style="line-height:30px;">
+						<{$gongName}>
+					</div>
+				<li style="margin-top:30px;">
+				<input type="submit" name="baocun" class="btn btn_se" value="保存资料">
+				</li>
+				</form>
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

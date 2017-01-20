@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城店铺介绍</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/public.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:head" />
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images//icon/down.png"></h3>			
+				</div>
+
+			<ul class="nav fl">
+				<li><a href="__APP__/Index" title="首页" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" title="供应商">供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="shopping_item" style="border:none;width:1000px;margin:0 auto;">
+		<h3 class="shopping_tit" style="background:#fff;margin-bottom:10px;font-size:14px;">当前位置:<a href="__APP__/Index/index">首页</a> &gt;&gt;<{$lname}><{$lei_name}></a>&gt;&gt;<{$arr['storeName']}></h3>
+</div>
+	<!-- 供应商介绍页 -->
+	<div class="main_right">
+		<div class="store_tou">
+				<div class="store_img fl">
+					<img src="__PUBLIC__/Images/tou/<{$arr['storeImg']}>" title="<{$gongName}>" width="200" height="200">
+				</div>
+				<div class="store_right fl">
+					<table >
+						<tr>
+							<td align="right"><h4>店铺名称：</h4></td>
+							<td align="left"><{$arr['storeName']}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>店主名字：</h4></td>
+							<td align="left"><{$realy}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>商店类型：</h4></td>
+							<td align="left">
+								<{$lei_name}>
+							</td>
+						</tr>
+						<tr>
+							<td align="right"><h4>商店地址：</h4></td>
+							<td align="left"><{$arr['storeAddress']}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>联系电话：</h4></td>
+							<td align="left"><{$arr['storePhone']}></td>
+						</tr>
+
+					</table>
+				</div>
+			</div>
+
+			<!-- 消息部分的代码-->
+			<div class="store_xiao">
+				<div class="store_jie">
+					<span class="store_xx fl">商店商品列表</span>			
+				</div>
+				<div class="store_list">
+					<ul>
+					<volist name="shop" id="vv">
+						<a href="__ROOT__/index.php/Index/shopIntroduce?shopId=<{$vv.shop_id}>&iup=<{$vv.is_up}>&shnum=<{$vv.shopNum}>&shname=<{$vv.shopName}>&shimg=<{$vv.shopImage}>&shname=<{$vv.shopName}>&lname=<{$vv.lei_name}>&ss=<{$vv.storeName}>" target="_blank">
+						<li>
+							<div class="shopping_top">
+		<img src="__PUBLIC__/Images/shop/<{$vv.shopImage}>" width="220" height="161">
+							</div>	
+						<p class="ys_hong">￥<{$vv.shopPrice}>
+						<span class="te_name" style="color:#000;">&nbsp;&nbsp; <{$vv.shopName}>
+						<!--< a href="__ROOT__/index.php/Index/shopIntroduce?shopId=<{$vv.shop_id}>&iup=<{$vv.is_up}>&shnum=<{$vv.shopNum}>&shname=<{$vv.shopName}>&shimg=<{$vv.shopImage}>&shname=<{$vv.shopName}>&lname=<{$vv.lei_name}>&ss=<{$vv.storeName}>" target="_blank"><img src="__PUBLIC__/Images/shop/<{$vv.shopImage}>" title="<{$vv.shopName}>" target="_blank">
+								<{$vv.shopName}></a> -->
+						</span>
+						</p>
+						</li></a>
+					</volist>				
+					</ul>
+				</div>
+		<div class="shoppingCart comWidth">
+			<div class="shopping_item shopYe" style="border:none;text-align:center;clear:both;padding-top:20px;">
+				<!-- <{$page}> -->
+			</div>
+		</div>
+			</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城发布供应商商品</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+  <script type="text/javascript"  src="__PUBLIC__/Js/jquery-1.5.1.js"></script>
+  <!-- 引用fceditor编辑器的配置 -->
+  <link rel="stylesheet" href="__PUBLIC__/ckeditor/themes/default/default.css" />
+  <link rel="stylesheet" href="__PUBLIC__/ckeditor/plugins/code/prettify.css" />
+  <script charset="utf-8" src="__PUBLIC__/ckeditor/kindeditor.js"></script>
+  <script charset="utf-8" src="__PUBLIC__/ckeditor/lang/zh_CN.js"></script>
+  <script charset="utf-8" src="__PUBLIC__/ckeditor/plugins/code/prettify.js"></script>
+  <script>
+    KindEditor.ready(function(K) {
+      var editor1 = K.create('textarea[name="content"]', {
+        cssPath : '__PUBLIC__/ckeditor/plugins/code/prettify.css',
+        uploadJson : '__PUBLIC__/ckeditor/php/upload_json.php',
+        fileManagerJson : '__PUBLIC__/ckeditor/php/file_manager_json.php',
+        allowFileManager : true,
+        afterCreate : function() {
+          var self = this;
+          K.ctrl(document, 13, function() {
+            self.sync();
+            K('form[name=example]')[0].submit();
+          });
+          K.ctrl(self.edit.doc, 13, function() {
+            self.sync();
+            K('form[name=example]')[0].submit();
+          });
+        }
+      });
+      prettyPrint();
+    });
+		onload=function(){
+
+			// var ms=mdtool.messager();
+			// 	ms.send("修改成功");
+			var im=mdtool.ImageEditer();//使用父窗口变量
+			var file=document.getElementById("file");
+			var img=document.getElementById("img");
+			file.onchange=function(e){
+				if(file.files.length<=0){
+					return;
+				}
+				im.setBlob(file.files[0],function(data){
+					console.log(data);
+					if(data.bool){
+						im.zoom(80,80,function(e){
+							//console.log(e["result"][0]);
+							img.src=e["result"][0];
+
+						});
+					}
+				});
+			}
+		}
+    
+  </script>
+
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header_dian" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left_store" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right main_height">
+		<div class="person_list">
+<div id="Con2">
+	<!--按扭开始-->
+	<div id="button" >
+		<a  class="ys_tiao"><h1>发布供应商商品</h1></a>
+	</div>
+	<!--按扭结束-->
+
+	<!-- 发布自己的商品开始-->
+	<div id="content2">
+		<div class="txt_con"  style="display:block;">
+			<form action="__APP__/Store/shopAll" method="post" enctype="multipart/form-data">
+			<table>
+				<tr class="te_gao">
+					<td  align="right"><h3>商品编号:</h3></td>
+					<td>
+						<input type="text" name="shopNumber" class="person_wen"  placeholder="请输入商品编号">
+					</td>
+				</tr>	
+				<tr class="te_gao">
+					<td  align="right"><h3>商品id号:</h3></td>
+					<td><input type="text" name="shopName" class="person_wen"  placeholder="请输入商品id号"><span class="ys_tiao">请联系您的供应商获得</span></td>
+				</tr>		
+				<tr>
+					<td  colspan="2"><input type="submit" value="发布该商品" class="ys_lan btn"></td>
+				</tr>		
+			</table>
+			</form>
+		</div>
+		
+	</div>
+	<!--内容区结束-->
+</div>
+			
+	</div>
+	</div>
+</div>
+
+
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

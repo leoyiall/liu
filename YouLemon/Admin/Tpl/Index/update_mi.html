@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城个人密码修改</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+<script>
+	function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.j_pass.value==""){
+  		formYan.j_pass.focus();
+  		formYan.j_pass.style.background="#F92659"  
+  		return false; 
+ 	  }
+ 	if (formYan.pass1.value==""){
+  		formYan.pass1.focus();   
+  		formYan.pass1.style.background="#F92659" 
+  		return false; 
+ 	  }
+ 	if (formYan.pass.value==""){
+  		formYan.pass.focus();   
+  		formYan.pass.style.background="#F92659" 
+  		return false; 
+ 	  }
+	}
+</script>
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right">
+		<div class="main_xinxi">
+			<div class="main_title">
+				修改密码
+			</div>
+			<div class="main_list">
+				<div class="reg_biao">
+			<form action="__ROOT__/admin.php/Index/update" method="post" name="myform" onsubmit="return checkform();">
+				<table border="0">
+					<tr>
+						<td>旧 密 码:</td>
+						<td><input type="password" name="j_pass" onfocus="this" placeholder="请输入现在的密码" class="person_wen"></td>
+					</tr>
+					<tr>
+						<td>新 密 码:</td>
+						<td><input type="password" name="pass1" onfocus="this" placeholder="请输入新密码" class="person_wen"></td>
+					</tr>
+					<tr>
+						<td>确认密码:</td>
+						<td><input type="password" name="pass"  placeholder="请确认密码" class="person_wen">
+						<input type="text" name="number" value="1" hidden></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="修改密码"  class="next next2 hand"></td>
+					</tr>
+				</table>
+			</form>
+			</div>
+			</div>
+		</div>
+	</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

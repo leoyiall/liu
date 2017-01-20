@@ -1,0 +1,37 @@
+   <link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+ <script type="text/javascript" src="__PUBLIC__/Js/MDtool.js"></script>
+ <!-- 顶部介绍 -->
+  	<div class="Top_Jie">
+  	  <div class="conWidth">
+  		<div class="Top_left fl ">
+			<a href="__ROOT__/index.php/Index" class="active" style="color:#EE0A3B">You柠檬商城首页</a>
+  		</div>
+  		<div class="Top_right fr">
+			<div class="Top_me">
+				<if condition="$who eq null">
+					<a href="__APP__/Index/login">登录</a><a href="__APP__/Index/reg">注册</a>
+				<else/>
+					<a href="__APP__/Index/index"><{$who}></a><a href="__APP__/Index/back">退出</a>
+			</if>
+			</div>
+			<a href="__APP__/Store/index">我的店铺</a><span class="Top_gou"><a href="">购物车</a></span>
+  		</div>
+  	  </div>
+  	</div>
+<!-- 顶部个人信息 -->
+	<div class="Top_mid Top_yanse">
+		<div class="conWidth">
+			<div class="Top_logo fl">
+				<a href="__ROOT__/index.php"><img src="__PUBLIC__/Images/logo.png" alt="You柠檬商城"></a>
+			</div>
+			<span class="Top_biao fl"><a href="__APP__/Store/">店铺主页</a></span>
+		<!-- 搜索部分 -->
+			<div class="Top_sou fr">
+			<form action="__ROOT__/index.php/Index/search" method="post">
+				<input type="text" class="Top_so" placeholder="最新最时尚的商品尽在You柠檬" name="shopName">
+				<input type="submit" class="Top_btn" value="搜索">
+			</form>
+			</div>
+		</div>
+	</div>
+        

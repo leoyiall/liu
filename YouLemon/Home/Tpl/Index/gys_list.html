@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城<{$lei_name}>供应商列表</title> 
+</head>
+
+<body>
+<!-- 商城头部 -->
+	<include file="Public:head"/>
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images//icon/down.png"></h3>			
+				</div>
+
+			<ul class="nav fl">
+				<li><a href="__APP__/Index" title="首页" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" title="供应商">供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="shoppingCart comWidth" >
+<div class="shopping_item" style="border:none;">
+		<h3 class="shopping_tit" style="background:#fff;margin-bottom:10px;font-size:14px;">当前位置:<a href="__APP__/Index/index">首页</a> &gt;&gt;<a href="__APP__/Index/gys">供应商</a> &gt;&gt;<{$lname}></h3>
+</div>
+	<div class="shopping_item" style="border:none;">
+		<h3 class="shopping_tit" style="border:1px solid #ccc;">供应商列表<span class="ys_tiao">(请根据您的店铺类型进行选择供应商！)</span></h3>
+	<volist name="arr" id="vo">
+		<div class="shopping_cont padding_shop2">
+		<div class="leftdiv">
+			<div class="shopLiebiao">
+				<div class="shopGu shopRb fl">
+				<div class="shop_tu fl">
+					<a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><img src="__PUBLIC__/Images/tou/<{$vo.gongImg}>" width="200" height="205" title=""></a>
+				</div>
+					<div class="shop_xinxi fl">
+						<ul>
+							<li><h3><a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><{$vo.gongName}></a></h3></li>
+							<li>供应商编号：<a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><{$vo.gong_id}></a></li>
+							<li>供应商类型:<a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><{$vo.lei_gong}></a></li>
+							<li>供应商地址:<a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><{$vo.gongAddress}></a></li>
+							<li>联系号码:<a href="__APP__/Index/gysIntroduce?gid=<{$vo.gong_id}>&gname=<{$vo.gongName}>&glei=<{$vo.lei_gong}>&phone=<{$vo.gongPhone}>&add=<{$vo.gongAddress}>&pit=<{$vo.gongImg}>"><{$vo.gongPhone}></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- 供应商列表 -->
+				<div class="shopGu_right fr">
+				<volist name="shop" id="vv">
+					<div class="shopXiao fl">
+						<a href="__ROOT__/index.php/Index/introduce?shopId=<{$vv.shop_id}>&number=<{$vv.shopNum}>&pname=<{$vv.shopName}>&ss=<{$vv.username}>&lname=<{$vv.lei_name}>" target="__blank"><img src="__PUBLIC__/Images/shop/<{$vv.shopImage}>"  title="<{$vv.shopName}>"></a>
+						<p class="ys_hong">￥<{$vv.shopPrice}> <span class="te_name"><a href="__ROOT__/index.php/Index/introduce?shopId=<{$vv.shop_id}>" target="__blank"><{$vv.shopName}></a></span></p>
+					</div>
+				</volist>
+				</div>
+			</div>
+        </div>
+	</div>
+		</volist>	
+		
+		<div class="shoppingCart comWidth">
+			<div class="shopping_item shopYe" style="border:none;text-align:center;">
+				<{$page}>
+			</div>
+		</div>
+</div>
+</div>
+
+<!-- 侧边栏 -->
+<include file="Public:cebian"/>
+<!-- 以下是底部 -->
+<include file="Public:footer"/>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+<title>You柠檬商城分类管理</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.sort1.value==""){
+  		formYan.sort1.focus();
+		formYan.sort1.style.background="#F92659"
+  		return false; 
+ 	  }
+}
+</script>
+<head>
+<body>
+<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 后台首页右边代码 -->
+	<div id="ht_list">
+		<div class="gl_list">
+			<div class="gundong">
+			<table cellpadding="0" cellspacing="0" class="biaoge">
+					<tr>
+						<td colspan="3" class="gl_tou"><h3>&nbsp;栏目类别管理</h3></td>
+					</tr>
+					<tr>
+						<th width="100">栏目一</th>
+						<th>栏目二</th>
+						<th width="100">操作</th>
+					</tr>
+					<volist name="so" id="vo">
+					<tr align="left">
+						<td><{$key}></td>
+						<td align="left">
+							<volist name="vo" id="ss">
+<!-- 								<if condition="$vo.lei_id eq $ss.lei_id">
+									<span class="yf">&nbsp;&nbsp;<{$ss.lei2_name}>&nbsp;<a href="">修改</a>|<a href="">删除</a></span>
+								</if> -->
+									<span class="yf"> <{$ss.lei2_name}>&nbsp;<a href="__APP__/Houshop/lm2_xiu?lid=<{$ss.l2_id}>">(修改</a>|<a href="__APP__/Houshop/lm2_shan?lid=<{$ss.l2_id}>" onclick="return confirm('确定要删除?');">删除</a>)</span>									
+							</volist>
+						</td>
+						<td ><a href="__APP__/Houshop/lm_xiu?lid=<{$ss.lei_id}>">修改</a>|<a href="__APP__/Houshop/lm_shan?lid=<{$ss.lei_id}>" onclick="return confirm('确定要删除?');">删除</a></td>
+					</tr>
+					</volist>
+			</table>	
+			</div>		
+		</div>
+	</div>
+</body>
+</html>

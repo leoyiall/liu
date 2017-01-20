@@ -1,0 +1,55 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+	<title>You柠檬商城后台登录</title>
+</head>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/login.css" />
+<script>
+	function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.username.value==""){
+  		formYan.username.focus();
+		formYan.username.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	if (formYan.password.value==""){
+  		formYan.password.focus();   
+  		formYan.password.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	if (formYan.yanzheng.value==""){
+  		formYan.yanzheng.focus();   
+  		formYan.yanzheng.style.background="#F92659"
+  		return false; 
+ 	  }
+	}
+</script>
+<body>
+<!-- 登录框-->
+	<div id="Login">
+		<p class="biao">You柠檬商城后台<span class="dl">登录</span></p>
+		<div class="deng">
+		<form action="__APP__/Houshop/do_login" method="post"  name="myForm" onsubmit="return checkform();">
+		<input type="text" name="username" placeholder="登录用户名" class="shu">
+		<input type="password" name="password" placeholder="登录密码" class="shu">
+		<div id="yzz">
+		<input type="text" name="yanzheng" placeholder="验证码" class="yz">
+		<img src='__APP__/Houshop/verify' onclick='this.src=this.src+"?"+Math.random' width="80" height="30"/>
+		</div>
+	<input type="submit" name="sub"  class="sub" value="登录" ><br>
+		<input type="reset" name="reset"  class="re"  value="重置">
+		</form>
+		</div>
+		<!-- 底部的样式-->
+
+	</div>
+	<div id="footer">
+		版权 由You柠檬所有©
+	</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城个人店铺主页</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header_dian" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left_store" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right">
+		<div class="store_tou">
+				<div class="store_img fl">
+					<a href="__APP__/Store/store" alt="编辑资料"><img src="__PUBLIC__/Images/tou/<{$storeImg}>" alt="商店图片" width="200" height="200"></a>
+				</div>
+				<div class="store_right fr">
+					<table >
+						<tr>
+							<td align="right"><h4>店铺名称：</h4></td>
+							<td align="left"><{$storeName}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>店主名字：</h4></td>
+							<td align="left"><{$nicheng}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>商店类型：</h4></td>
+							<td align="left">
+								<{$lei_store}>
+							</td>
+						</tr>
+						<tr>
+							<td align="right"><h4>商店地址：</h4></td>
+							<td align="left"><{$storeAddress}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>联系电话：</h4></td>
+							<td align="left"><{$storePhone}></td>
+						</tr>
+						<tr>
+							<td align="right"><h4>供 应 商：</h4></td>
+						<td align="left">						
+								<{$gongName}>
+						</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!-- 消息部分的代码-->
+			<div class="store_xiao">
+				<div class="store_jie">
+					<span class="store_xx fl">订单消息</span>
+					<span class="store_more fr"><a href="">更多</a></span>				
+				</div>
+				<div class="store_list">
+					<ul>
+						<li><a href=""><span class=" fr">[2015-11-19 10:25:30]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:10]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:09]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:08]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:07]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:06]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:05]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+						<li><a href=""><span class="fr">[2015-11-19 10:25:04]</span>海尔电冰箱被YouYou订购，注意处理订单</a></li>
+					</ul>
+				</div>
+			</div>`
+	</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

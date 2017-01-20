@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+<title>You柠檬商城修改用户</title>
+	<link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+<link href="__PUBLIC__/Css/public.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/reset.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.user.value==""){
+  		formYan.user.focus();
+		formYan.user.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	if (formYan.pass.value==""){
+  		formYan.pass.focus();   
+  		formYan.pass.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	if (formYan.nicheng.value==""){
+  		formYan.nicheng.focus();
+  		formYan.nicheng.style.background="#F92659" 
+  		return false; 
+ 	  }
+ 	if (formYan.email.value==""){
+  		formYan.email.focus();   
+  		formYan.email.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	if (formYan.phone.value==""){
+  		formYan.phone.focus();   
+  		formYan.phone.style.background="#F92659"
+  		return false; 
+ 	  }
+	}
+if (formYan.mibao1.value==""){
+  		formYan.mibao1.focus();
+  		formYan.mibao1.style.background="#F92659"  
+  		return false; 
+ 	  }
+ 	if (formYan.mibao2.value==""){
+  		formYan.mibao2.focus();   
+  		formYan.mibao2.style.background="#F92659" 
+  		return false; 
+ 	  }
+ 	 }
+</script>
+<head>
+<body>
+<!-- 引用后台头部 -->
+	<include file="Public:ht_top"/>
+	<!-- 引用后台左边 -->
+	<div id="ht_left">
+	<include file="Public:ht_left"/>
+	</div>
+	<!-- 后台首页右边代码 -->
+	<div id="ht_addld">
+		<div id="ht_gl">
+			<div class="ht_biaoti">
+				<img src="__PUBLIC__/Images/logo.png" ><span class="tj">修改商城用户</span>
+			</div>
+			<div id="ht_lie">
+			<form action="__APP__/Houshop/domodify" method="post" name="myform" onsubmit="return checkform();">
+				<p>用 户 名:<input type="text" placeholder="管理员用户名" value="<{$username}>" name="user" class="person_wen"/></p>
+				<p>密　　码:<input type="password" placeholder="管理员密码"  name="pass" class="person_wen"/></p>
+				<p>昵　　称:<input type="text" placeholder="管理员昵称" value="<{$nicheng}>" name="nicheng" class="person_wen"/></p>
+				<p>邮　　箱:<input type="text" placeholder="管理员的邮箱" value="<{$email}>" name="email" class="person_wen"/></p>
+				<p>手机号码:<input type="text" placeholder="管理员的手机号码" value="<{$phone}>" name="phone" class="person_wen"/></p>
+				<input type="submit" value="修改用户" class="anniu"  />
+				<input type="reset"  class="anniu" value="重置" />
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

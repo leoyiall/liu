@@ -1,0 +1,158 @@
+*{margin:0;padding:0;}
+body{
+	background:url("../Images/bg.jpg");
+}
+/* 圆CSS */
+#Login{
+	width:450px;
+	height:400px;
+/* 	border:5px solid #fff; */
+	margin:0 auto;
+	margin-top:20px;
+	border-radius: 50%;
+	box-shadow: 0 0 10px #ddd;
+	background:rgba(255,255,255,0.5);
+	padding-top:50px;
+}
+
+/* 头部LOGO的CSS */
+#Login .biao{
+	width:190px;
+	height:50px;
+	font-size:19px;
+	font-weight: bolder;
+	font-family: "微软雅黑";
+	line-height: 50px;
+	color:#00A835;
+	margin:0 auto;
+}
+#Login .dl{
+	color:#82A63C;
+}
+/* 这里是登录框的总CSS */
+#Login .deng{
+	width:355px;
+	height:300px;
+	margin:0 auto;
+}
+/* 这里是输入用户名框 */
+#Login .deng .shu{
+	width:335px;
+	height:40px;
+	border-radius:20px;
+	margin-top:20px;
+	font-size:18px;
+	border:1px solid #ddd;
+	padding-left:15px;
+	color:#000;
+	outline: none;/*这个可以去掉表框的外边框*/
+}
+#Login .deng .shu:hover{
+	border-radius:20px;
+	border:1px solid #000;
+}
+
+/* 这里是验证码CSS */
+#Login .deng .yz{
+	width:60px;
+	height:30px;
+	outline: none;
+	font-size:16px;
+}
+#Login .deng #yzz{
+	width:150px;
+	height:40px;
+	margin:0 auto;
+	position:relative;
+	margin-top:20px;
+}
+#Login .deng #yzz img{
+	position: absolute;
+	top:2px;
+	right:0px;
+	cursor: pointer;
+}
+/* 这里是记住密码部分CSS */
+#Login .deng .zhong{
+	width:230px;
+	height:30px;
+	text-align:center;
+	font-size:14px;
+	line-height:30px;
+	margin-top:10px;
+	margin-left:40px;
+}
+#Login .deng .zhong a{
+	color:#000;
+	text-decoration: none;
+	float:right;
+}
+#Login .deng .zhong a:hover{
+	color:blue;
+	text-decoration: underline;
+}
+#Login .deng .zhong a:active{
+	color:#000;
+}
+
+/* 这里是登录的CSS */
+#Login .deng .sub{
+	width:100px;
+	height:30px;
+	border-radius:10px;
+	cursor: pointer;
+	margin-left:10px;
+	margin-top:17px;
+	border:1px solid #ccc;
+background: #06B0B9;
+	float:left;
+	margin-left:50px;
+	box-shadow:0 0 10px #ccc;
+	color:#fff;
+	font-weight: bold;
+}
+#Login .deng .sub:hover{
+	background:#02A2AA;	
+}
+/* 这里是重置的CSS */
+#Login .deng .re{
+	width:100px;
+	height:30px;
+	border-radius:10px;
+	cursor: pointer;
+	border:1px solid #fff;
+	margin-left:20px;
+	font-weight: bold;
+	background:#ddd;
+	box-shadow: 0 0 5px #ccc;
+}
+#Login .deng .re:hover{
+	background:#999;
+}
+/* 这里是底部没有注册的CSS */
+#Login #di{
+	width:260px;
+	height:30px;
+	margin:0 auto;
+	margin-top:10px;
+	font-size:14px;
+	line-height:30px;
+}
+#Login #di a{
+	font-size:20px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+#Login #di a:hover{
+	color:red;
+}
+/* 底部版权CSS */
+#footer{
+	width:100%;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	font-size:15px;
+	color:#000;
+	margin-top:7px;
+}

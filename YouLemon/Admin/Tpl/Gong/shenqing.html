@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬申请成为供应商</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+  <link rel="icon" type="image/png" href="__PUBLIC__/Images/logo.ico">
+	<script type="text/javascript">
+// 	window.onload=function(){
+// 		var send=document.getElementById("send");
+// 		var times=60;
+// 		var timer=null;
+// 	send.onclick=function(){
+// 		send.value="申请成功";
+// 		send.disabled=true;		
+// 		send.style.background="#ccc";
+// 	}
+// }
+function checkform(){
+		var formYan = document.myform;
+ 	if (formYan.you.value==""){
+  		formYan.you.focus();
+		formYan.you.style.background="#F92659"
+  		return false; 
+ 	  }
+ 	 }
+</script>
+
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header" />
+<!-- 中间注册 -->	
+	 <div class="conWidth">
+		<div class="reg_biao">
+			<form action="__ROOT__/admin.php/Gong/do_shen" method="post" name="myform" onsubmit="return checkform();">
+				<table border="0">
+					<tr>
+						<td><span class="da_who"><{$who}></span>，您好：<p class="tishi">您还没申请成为供应商，需要申请管理员审核后才能成为供应商！申请后我们将会在24小时内给您开通。</p>
+						<p class="tishi">感谢您对You柠檬商城的支持</p>
+					</tr>
+					<tr>
+						<td>供应商名称:<input type="text"  name="you" class="person_wen" placeholder="请输入供应商名称"></td></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="申请开通" id="send" class="next shen_qing next2"></td>
+					</tr>
+				</table>
+			</form>
+			</div>
+		</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城商品搜索页</title> 
+</head>
+
+<body>
+
+<!-- 商城头部 -->
+	<include file="Public:head"/>
+<div class="navBox">
+		<div class="comWidth clearfix">
+			<div class="shopClass fl">
+				<h3>全部商品分类&nbsp;&nbsp;<img src="__PUBLIC__/Images//icon/down.png"></h3>			
+				</div>
+
+			<ul class="nav fl">
+				<li><a href="__APP__/Index" title="首页" class="ac  mive">首页</a></li>
+				<li><a href="__APP__/Index/gys" title="供应商">供应商</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="comWidth clearfix products">
+
+	<div class="rightArea">
+		<div class="screening_box">
+		<div class="hr_15"></div>
+		<div class="addInfo">
+			<div class="address" style="line-height:30px;font-size:14px;">
+					您搜索的与<span class="ys_tiao"><{$shopName}></span>的商品有以下
+			</div>
+		</div>
+		<div class="products_list screening_list_more clearfix">
+
+		<volist name="shop" id="vv">
+			<div class="item">
+				<div class="item_cont">
+					<div class="img_item" style="margin-top:10px;">
+						<a href="__ROOT__/index.php/Index/shopIntroduce?shopId=<{$vv.shop_id}>&iup=<{$vv.is_up}>&shnum=<{$vv.shopNum}>&shname=<{$vv.shopName}>&shimg=<{$vv.shopImage}>&shname=<{$vv.shopName}>&lname=<{$vv.lei_name}>&ss=<{$vv.storeName}>" target="_blank"><img src="__PUBLIC__/Images/shop/<{$vv.shopImage}>" alt="<{$vv.shopName}>" ></a>
+					</div>
+					<p><a href="__ROOT__/index.php/Index/shopIntroduce?shopId=<{$vv.shop_id}>&iup=<{$vv.is_up}>&shnum=<{$vv.shopNum}>&shname=<{$vv.shopName}>&shimg=<{$vv.shopImage}>&shname=<{$vv.shopName}>&lname=<{$vv.lei_name}>&ss=<{$vv.storeName}>" target="_blank"><{$vv.shopName}></a></p>
+					<p class="money">￥<{$vv.shopPrice}></p>
+					<p><a href="" class="addCar">加入购物车</a></p>
+				</div>
+			</div>
+		</volist>
+
+		</div>
+	</div>
+		<div class="hr_25"></div>
+		<div class="page">
+			<!-- <a href="#">上一页</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><span class="hl">...</span><a href="#">200</a><a href="#">下一页</a><span class="morePage">共200页，到第</span><input type="text" class="pageNum"><span class="ye">页</span><input type="button" value="确定" class="page_btn"> -->
+			<!-- <{$page}> -->
+		</div>
+	</div>
+</div>
+
+<!-- 侧边栏 -->
+<include file="Public:cebian"/>
+<!-- 以下是底部 -->
+<include file="Public:footer"/>
+</body>
+</html>

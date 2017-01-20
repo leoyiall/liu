@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="leo">
+  <meta name="Keywords" content="you柠檬商城">
+  <meta name="Description" content="You柠檬电子商城快速购物">
+  <title>You柠檬商城个人主页</title> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/admin.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/reset.css">
+
+ </head>
+ <body>
+ <!-- 头部 -->
+	<include file="Public:header" />
+	 	<div class="conWidth">
+<!-- 左侧导航 -->
+	<include file="Public:left" />
+	<!-- 首页右侧部分 -->
+	<div class="main_right">
+		<div class="main_Jie">
+			<div class="main_ren">
+				<div class="main_zuo fl">
+					<div class="main_pit fl">
+					<a href="__APP__/Index/person">
+						<img src="__PUBLIC__/Images/tou/<{$img}>" width="60" height="60" alt="">
+					</a>
+					</div>
+					<div class="main_name fl"><a href="__APP__/Index/person"><{$who}></a></div>
+<!-- 					<div class="main_qian fl">柠檬的味道~</div> -->
+				</div>
+				<div class="main_you fr">
+					<a href="__APP__/Index/address">消息<span class="ys_tiao">1000</span></a>
+					<a href="__APP__/Index/address">我的收货地址</a>
+					<a href="__APP__/Index/store">我的店铺</a>
+					<a href="__APP__/Index/gongying">我是供应商</a>
+				</div>
+			</div>
+			<div class="main_shoufa">
+					<a href="">待付款</a>
+					<a href="">待发货</a>
+					<a href="">待收货</a>
+					<a href="">待评价</a>
+					<a href="" style="border-right:none;">退款</a>
+			</div>			
+		</div>
+
+		<!-- 欢迎界面 -->
+			<div class="welcome">
+				You柠檬商城欢迎您<span class="wel_y"><{$who}></span>,今天的你记得微笑哦!:)  >>><span class="wel_y"><a href="__ROOT__/index.php">GO</a></span>
+			</div>
+	</div>
+	</div>
+		<!-- 底部版权 -->
+<include file="Public:footer" />
+ </body>
+</html>
