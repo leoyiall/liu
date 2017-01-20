@@ -1,0 +1,36 @@
+[ 2015-12-30T22:17:56+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=pushArticle
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined offset: 1451485076 E:\wampServer\www\myapp\projects\lanyueOS\thinkphp3.2.3\ThinkPHP\Library\Org\Md\varConfig.class.php 第 36 行.
+
+[ 2015-12-30T22:17:57+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-30T22:18:12+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-30T22:18:54+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-30T22:18:55+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-30T22:18:57+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+
+[ 2015-12-30T22:26:15+08:00 ] 127.0.0.1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0zMC9iMWI4MDc5MjA0NTU5MzQxNTZkODdjYTVmMTg2M2ZlZA%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+

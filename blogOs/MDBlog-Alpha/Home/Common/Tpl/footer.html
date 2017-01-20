@@ -1,0 +1,32 @@
+<div style="margin-top:100px;clear:both"></div>
+<style type="text/css">
+.footer{
+	background: #212326;
+	color:#838383;
+}
+</style>
+<div class="container-full">
+	<div class="row">
+		<div class="col-12 footer">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<p align="center"><strong>友情链接：</strong>
+					<?php $sys_menu=C('SYSTEM.app_navs'); ?>
+					<foreach name="sys_menu.blogroll" item="nav">
+						<a href="{$nav}" target="_blank">{$key}</a>&nbsp;
+					</foreach>
+				</p>
+				
+				<p align="center">
+					<strong>联系：</strong>
+					QQ:1752295326&nbsp;
+					GitHub:<a href="https://github.com/mengdu/" target="_blank">mengdu</a>
+				</p>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<div class="col-12 footer">
+			<p align="center">Copyright © 2014-2015 mdblog All Rights Reserved. <a href="{:U('Admin/index')}">管理</a></p>
+		</div>
+	</div>
+</div>

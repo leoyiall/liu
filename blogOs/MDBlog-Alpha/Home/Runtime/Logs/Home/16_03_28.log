@@ -1,0 +1,5 @@
+[ 2016-03-28T20:11:20+08:00 ] ::1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0yMi8xODFmNWEyNDE3ODQwZTFlYzA3ZTBhNmUxMDViNmY2NQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+

@@ -1,0 +1,83 @@
+/**
+*	登录模块样式 login.module.css
+*	2015-9-17 19:27;
+*	@author:lanyue
+**/
+
+#login_box{
+	position: relative;
+	left: 0;
+	right: 0;
+	height: auto;
+	overflow: hidden;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	/*background:#F6F6F6;
+	box-shadow: 0 0 10px rgba(33,35,38,0.5);
+	border:solid 1px #FAFAFA;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.18);
+  	border: solid 1px rgba(255, 255, 255, 0.5);*/
+}
+
+.title_bg{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	text-indent: 5px;
+	line-height: 30px;
+	color:#646464;
+	/*background: #FDFDFD;*/
+	border-bottom: solid 1px #E8E8E8;
+}
+.title_bg .iconfont{
+	position: absolute;
+	top: 0px;
+	right: 5px;
+}
+#login_box .item{
+	width: 100%;
+	height: 49px;
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+#login_box .item .uid,
+#login_box .item .pwd,
+#login_box .item .code_bg .checkcode{
+	width: 100%;
+	height: 100%;
+	font-size: 1em;
+}
+#login_box .item .code_bg{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-right: 150px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+#login_box .item .code_bg .codeimg{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 120px;
+	height: 40px;
+	border: solid 1px #E7E7E7;
+}
+#login_box .item .remenber{
+	float: left;
+}
+#login_box .item .register{
+	float: right;
+}
+#login_box .item .register a{
+	color: #3189DE;
+}
+#login_box .item .submit{
+	width: 60%;
+	height: 100%;
+	display: block;
+	margin:0 auto;
+}

@@ -1,0 +1,22 @@
+[ 2017-01-18T17:11:13+08:00 ] ::1 /lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=pushArticle
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined offset: 1484730673 D:\wamp\www\lanyueOS\thinkphp3.2.3\ThinkPHP\Library\Org\Md\varConfig.class.php 第 36 行.
+
+[ 2017-01-18T17:11:15+08:00 ] ::1 /lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNy0wMS0xOC9iMmQ1MmU5MWIwNDIyM2FlZWNkMTg4Yjk3NWQwNTBjZQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-01-18T17:17:32+08:00 ] ::1 /lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=pushArticle
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined offset: 1484731052 D:\wamp\www\lanyueOS\thinkphp3.2.3\ThinkPHP\Library\Org\Md\varConfig.class.php 第 36 行.
+
+[ 2017-01-18T17:17:33+08:00 ] ::1 /lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNy0wMS0xOC85NDg2ZmEwODU0ZjU4OTQ0N2E3ZGY5ODQyNjM3MmU5YQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+

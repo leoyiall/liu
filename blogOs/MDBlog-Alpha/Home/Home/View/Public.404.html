@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=0,maximum-scale=1,user-scalable=0">
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-touch-fullscreen" content="yes"><!--"添加到主屏幕“后，全屏显示 -->
+  	<meta name="apple-mobile-web-app-capable" content="yes" /><!--这meta的作用就是删除默认的苹果工具栏和菜单栏。-->
+  	<title>{:C("BLOG_CONFIG.blog_name")}的博客—{:C("SYSTEM.app_name")}个人博客</title>
+  	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/md-ui.css"/>
+  	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/font-awesome.css"/>
+	<script src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<include file="Home/Common/Tpl/nav.html" />
+	<div class="jumbotron-blue">
+		<h1 align="center">\(404)/</h1>
+		<p align="center">{:C('SYSTEM.app_404')}</p>
+		<h1></h1>
+		<p>{:C('BLOG_CONFIG.blog_name')}的博客——{:C('BLOG_CONFIG.blog_introduce')}</p>
+	</div>
+	<include file="Home/Common/Tpl/footer.html" />
+</body>
+</html>

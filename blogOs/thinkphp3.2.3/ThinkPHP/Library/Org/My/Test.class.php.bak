@@ -1,0 +1,13 @@
+<?php
+//定义命名空间(定义了会自动加载)
+namespace Org\My;
+class Test {
+	public $name="Test";
+	public function c(){
+		$info=array(
+			"name"=>"lanyue",
+			"time"=>"2015-09-04",
+			"info"=>"自定义类",
+		);
+	}
+}

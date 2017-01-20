@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=0,maximum-scale=1,user-scalable=0">
+        <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-touch-fullscreen" content="yes"><!--"添加到主屏幕“后，全屏显示 -->
+        <meta name="apple-mobile-web-app-capable" content="yes" /><!--这meta的作用就是删除默认的苹果工具栏和菜单栏。-->
+        <title>{:C("BLOG_CONFIG.blog_name")}的博客—{:C("SYSTEM.app_name")}个人博客</title>
+        <script src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+        <link rel="stylesheet" href="__COMMON__/md.editor/css/editormd.preview.css" />
+        <link rel="stylesheet" href="__COMMON__/Common/Css/md-ui.css" />
+    </head>
+    <body>
+        <include file="Home/Common/Tpl/nav.html" />
+        <div class="container">
+            <div class="row">
+                <div class="12">
+                    <ul class="crumbs">
+                        <li>当前位置：</li>
+                        <li><a href=""><i class="fa fa-home fa-lg"></i>Home</a></li>
+                        <li class="separate">&frasl;</li>
+                        <li><a href="">文章详情</a></li>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <div class="lump">
+                        <div class="lump-content">
+                            <div class="detail">
+                                <div class="detail-title"><p class="title">{$article['title']}</p></div>
+                                <div class="detail-about">
+                                    <span>时间：{:date('Y-m-d H:i:s',$article['time'])}</span>
+                                    <span>author：{:C('BLOG_CONFIG.blog_name')}</span>
+                                    <span class="fa fa-eye">浏览:0</span>
+                                    <span>类型:{$article['type']}</span>
+                                </div>
+                                <style type="text/css">
+                                    .editormd-html-preview{
+                                        background: none;
+                                    }
+                                    #custom-toc-container{
+                                        background: #F9F9F9;;
+                                    }
+                                </style>
+                                <div class="detaill-content">
+                                    <div class="markdown-body editormd-preview-container" id="custom-toc-container">目录</div>
+                                    <div id="preview_box">
+                                        <div id="editormd-view">
+                                           <textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail-about">
+                                    <span>时间：{:date('Y-m-d H:i:s',$article['time'])}</span>
+                                    <span>author：{:C('BLOG_CONFIG.blog_name')}</span>
+                                    <span class="fa fa-eye">浏览:0</span>
+                                    <span>类型:{$article['type']}</span>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="panel">
+                        <div class="panel-title"><i class="fa fa-file-text-o"></i>&nbsp;<strong>文章分类</strong></div>
+                        <div class="panel-content">
+                            <!--目录-->
+                            <ul class="catalogue">
+                                <foreach name="classify" item="class">
+                                <li><a href="#"><strong>{$key}</strong></a>
+                                    <ul class="catalogue">
+                                        <foreach name="class" item="arl">
+                                            <li><a href="{:U('Article/preview',array(
+                                            'aid'=>$arl["url"],
+                                        ),'html')}" target="_blank">{$arl['title']}</a></li>
+                                        </foreach>
+                                    </ul>
+                                </li>
+                                </foreach>
+                            </ul>
+                        </div>
+                        <div class="panel-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="__COMMON__/md.editor/lib/marked.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/prettify.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/raphael.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/underscore.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/sequence-diagram.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/flowchart.min.js"></script>
+        <script src="__COMMON__/md.editor/lib/jquery.flowchart.min.js"></script>
+        <script src="__COMMON__/md.editor/js/editormd.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var EditormdView;
+                $.get("{$markdown_url}",function(markdown){
+                    //创建一个预览
+				    EditormdView = editormd.markdownToHTML("editormd-view", {
+                        markdown        : markdown,//+ "\r\n" + $("#append-test").text(),
+                        //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+                        htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                        //toc             : false, //关闭目录
+                        tocm            : true,    // Using [TOCM]创建下拉目录
+                        tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+                        //gfm             : false,
+                        //tocDropdown     : true,
+                        // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+                        emoji           : true,
+                        taskList        : true,
+                        tex             : true,  // 默认不解析
+                        flowChart       : true,  // 默认不解析
+                        sequenceDiagram : true,  // 默认不解析
+                    });
+                });
+            });
+        </script>
+        <include file="Home/Common/Tpl/footer.html" />
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<head>
+		<title>网页标题</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src=""></script>
+		<script  type="text/javascript"></script>
+		<link href="" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./css/editormd.css" />
+		<style type="text/css">
+		 *{margin:0 auto}
+
+		</style>
+	</head>
+	<body>
+		<div id="editor"></div>
+		<div class="btns">
+			<button id="goto-line-btn">Goto line 90</button>
+			<button id="show-btn">Show editor</button>
+			<button id="hide-btn">Hide editor</button>
+			<button id="get-md-btn">Get Markdown</button>
+			<button id="get-html-btn">Get HTML</button>
+			<button id="watch-btn">Watch</button>
+			<button id="unwatch-btn">Unwatch</button>
+			<button id="preview-btn">Preview HTML (Press Shift + ESC cancel)</button>
+			<button id="fullscreen-btn">Fullscreen (Press ESC cancel)</button>
+			<button id="show-toolbar-btn">Show toolbar</button>
+			<button id="close-toolbar-btn">Hide toolbar</button>
+			<button id="toc-menu-btn">ToC Dropdown menu</button>
+			<button id="toc-default-btn">ToC default</button>
+			<button id="get-preview-html">get preview html</button>
+		</div>
+		 <script src="./js/jquery-2.1.3.min.js"></script>
+        <script src="./js/editormd.js"></script> 
+		<script type="text/javascript">
+            $(function() {
+                    var testEditor = editormd("editor", {
+								width: "90%",
+								height: 740,
+								path : './lib/',					//lib文件路径
+								//theme : "dark",					//toobar主题
+								//previewTheme : "dark",			//预览框主题
+								//editorTheme : "pastel-on-dark",	//编辑框主题
+								//markdown : "hello",				//设置markdown内容
+								codeFold : true,					//开启编辑区代码折叠
+								//syncScrolling : false,
+								saveHTMLToTextarea : true,			//保存 HTML 到 Textarea
+								searchReplace : true,				//开启搜索
+								//readOnly : true,					//开启只读 默认关闭
+								//watch : false,					//关闭实时预览
+								htmlDecode : "style,script,iframe|on*",//开启 HTML 标签解析(过滤)，为了安全性，默认不开启（true时不过滤 慎用）    
+								//toolbar  : false,					//关闭工具栏
+								//previewCodeHighlight : false,		// 关闭预览的代码块高亮，默认开启
+								emoji : true,						//开启表情 默认关闭
+								taskList : true,
+								toc : false,						
+								tocm : true,						// Using [TOCM] 
+								tex : true,							// 开启科学公式TeX语言支持，默认关闭
+								flowChart : true,					// 开启流程图支持，默认关闭
+								sequenceDiagram : true,				// 开启时序/序列图支持，默认关闭,
+								//dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
+								//dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
+								//dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
+								//dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
+								//dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+								imageUpload : true,
+								imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+								imageUploadURL : "./php/upload.php",
+								//事件
+								/*onload : function() {
+									console.log('onload', this);
+									//this.fullscreen();
+									//this.unwatch();
+									//this.watch().fullscreen();
+
+									//this.setMarkdown("#PHP");
+									//this.width("100%");
+									//this.height(480);
+									//this.resize("100%", 640);
+								}*/
+							});
+                //console.log(testEditor.getMarkdown());       // 获取 Markdown 源码
+                //console.log(testEditor.getHTML());           // 获取 Textarea 保存的 HTML 源码
+                //console.log(testEditor.getPreviewedHTML());  // 获取预览窗口里的 HTML，在开启 watch 且没有开启 saveHTMLToTextarea 时使用
+				$("#goto-line-btn").bind("click", function(){
+                    testEditor.gotoLine(90);
+                });
+                
+                $("#show-btn").bind('click', function(){
+                    testEditor.show();
+                });
+                
+                $("#hide-btn").bind('click', function(){
+                    testEditor.hide();
+                });
+                
+                $("#get-md-btn").bind('click', function(){
+                    alert(testEditor.getMarkdown());
+                });
+                
+                $("#get-html-btn").bind('click', function() {
+                    alert(testEditor.getHTML());
+                });                
+                
+                $("#watch-btn").bind('click', function() {
+                    testEditor.watch();
+                });                 
+                
+                $("#unwatch-btn").bind('click', function() {
+                    testEditor.unwatch();
+                });              
+                
+                $("#preview-btn").bind('click', function() {
+                    testEditor.previewing();
+                });
+                
+                $("#fullscreen-btn").bind('click', function() {
+                    testEditor.fullscreen();
+                });
+                
+                $("#show-toolbar-btn").bind('click', function() {
+                    testEditor.showToolbar();
+                });
+                
+                $("#close-toolbar-btn").bind('click', function() {
+                    testEditor.hideToolbar();
+                });
+                
+                $("#toc-menu-btn").click(function(){
+                    testEditor.config({
+                        tocDropdown   : true,
+                        tocTitle      : "目录 Table of Contents",
+                    });
+                });
+                
+                $("#toc-default-btn").click(function() {
+                    testEditor.config("tocDropdown", false);
+                });
+				$("#get-preview-html").click(function() {
+                    alert($(".markdown-body").html());
+					console.log($(".markdown-body").html());
+                });
+            });
+        </script>
+	</body>
+</html>

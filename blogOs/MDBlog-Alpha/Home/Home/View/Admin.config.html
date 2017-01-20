@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit|ie-stand|ie-comp">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{:C("BLOG_CONFIG.blog_name")}的博客后台管理</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/md-ui.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/login.module.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/font-awesome.css">
+	<script type="text/javascript" src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+	<style type="text/css">
+	 	body{
+	 		background: #F9F9F9;
+	 	}
+	 	.nav_box .nav{
+	 		padding:5px;
+	 	}
+	</style>
+</head>
+<body>
+	<include file="Home/Common/Tpl/nav.html" />
+	<div class="container-full">
+		<div class="row nav_box">
+			<div class="navbar navbar-white">
+				<div class="navbar-header">
+					<a href="#" class="nav-btn"><i class="fa fa-list"></i></a>
+				</div>
+				<div class="nav-box">
+					<ul class="nav-left-list">
+						<li class="nav"><a href="{:U('Admin/index')}"><i class="fa fa-tachometer fa-1x"></i>仪表盘</a></li>
+						<li class="nav"><a href="{:U('Admin/user')}"><i class="fa fa-users fa-1x"></i>用户管理</a></li>
+						<li class="nav"><a href="{:U('Admin/article')}" ><i class="fa fa-file-word-o fa-1x"></i>文章管理</a></li>
+						<li class="nav"><a href="{:U('Admin/config')}" class="now"><i class="fa fa-cogs fa-x"></i>博客配置</a></li>
+					</ul>
+				</div>
+				<div class="menu">
+					<ul class="nav-right-list">
+						<li class="nav"><a href="{:U('Admin/user',array('change'=>session('mdblog_user')))}">{:session('mdblog_user')}</a></li>
+						<li class="nav"><a href="{:U('Public/logout')}">退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+	<style>
+		.select{
+			width: 40px;
+		}
+		.manage{
+			width: 130px;
+		}
+
+	</style>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="row">
+					<form action="{:U('Admin/setconfig')}" method="POST">
+					<div class="panel">
+						<div class="panel-title"><i class="fa fa-cogs fa-x"></i>&nbsp;<strong>基本配置</strong></div>
+						<div class="panel-content">
+							<label data-before="博客名字:" data-after="*博客名字">
+								<input type="hidden" name="basis" value="1">
+			 					<input type="text" placeholder="输入博客名字" name="blog_name" class="input-lg" value='{:C("BLOG_CONFIG.blog_name")}'>
+			 				</label>
+						</div>
+						<div class="panel-content">
+							<label data-before="博客介绍:" data-after="*博客介绍">
+			 					<textarea  placeholder="博客介绍" class="input-lg" name="blog_introduce" style="width:50%;height:100px;">{:C("BLOG_CONFIG.blog_introduce")}</textarea>
+			 				</label>
+						</div>
+						<div class="note-warning">配置文件在：<code>webroot/mdblog/Home/Common/conf/system/myconf.php</code>,手动修改配置文件请注意，严格遵循json语法。</div>
+						<div class="panel-footer">
+							<label><span class="btn-blue">保存修改</span><input  type="submit" name="sub" style="display:none"></label>
+						</div>
+					</div>
+					</form>
+					<style type="text/css">
+						.r{
+							height: 50px;
+						}
+						.item{
+							text-align: right;
+						}
+					</style>
+
+					<div class="panel">
+						<div class="panel-title"><i class="fa fa-cogs fa-x"></i>&nbsp;<strong>导航链接</strong></div>
+						<?php $blog_navs=C('BLOG_CONFIG.blog_menus'); ?>
+							<div class="note-blue">目前有{:count($blog_navs)}个链接，建议不要创建太多，不然导航会溢出。</div>
+						<div class="panel-content">
+							<table class="table-data">
+								<tbody>
+									
+									<tr class="thead">
+										<td >链接名字</td>
+										<td >链接地址</td>
+										<td class="manage">操作</td>
+									</tr>
+									<foreach name="blog_navs" item="nav" >
+										<tr>
+											<td><a href="{$nav}" target="_blank">{$key}</a></td>
+											<td>{$nav}</td>
+											<td>
+												<a href="{:U('Admin/setconfig',array('dellink'=>1,link=>$key))}"><span class="btn-del">删除</span></a>
+											</td>
+										</tr>
+									</foreach>
+								</tbody>
+							</table>
+						</div>
+						<div class="line"></div>
+						<div class="panel-content">
+						<form action="{:U('Admin/setconfig')}" method="POST">
+							<table align="center">
+								<tbody>
+									<tr class="r">
+										<td class="item"><strong>链接名字</strong>：</td>
+										<td><input type="text" placeholder="链接名字" name="link_name" class="input-lg" value=""></td>
+										<input type="hidden"  name="addlink"  value="1">
+									</tr>
+									<tr class="r">
+										<td class="item"><strong>链接地址</strong>：</td>
+										<td><input type="text" placeholder="链接地址" name="link" class="input-lg" value=""></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><button type="submit">添加链接</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						</div>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <include file="Home/Common/Tpl/footer.html" />
+</body>
+</html>

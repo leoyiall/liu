@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit|ie-stand|ie-comp">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{:C("BLOG_CONFIG.blog_name")}的博客后台管理</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/md-ui.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/login.module.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/font-awesome.css">
+	<script type="text/javascript" src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+	<style type="text/css">
+	 	body{
+	 		background: #F9F9F9;
+	 	}
+	 	.nav_box .nav{
+	 		padding:5px;
+	 	}
+	</style>
+</head>
+<body>
+	<include file="Home/Common/Tpl/nav.html" />
+	<div class="container-full">
+		<div class="row nav_box">
+			<div class="navbar navbar-white">
+				<div class="navbar-header">
+					<a href="#" class="nav-btn"><i class="fa fa-list"></i></a>
+				</div>
+				<div class="nav-box">
+					<ul class="nav-left-list">
+						<li class="nav"><a href="{:U('Admin/index')}" class="now"><i class="fa fa-tachometer fa-1x"></i>仪表盘</a></li>
+						<li class="nav"><a href="{:U('Admin/user')}"><i class="fa fa-users fa-1x"></i>用户管理</a></li>
+						<li class="nav"><a href="{:U('Admin/article')}"><i class="fa fa-file-word-o fa-1x"></i>文章管理</a></li>
+						<li class="nav"><a href="{:U('Admin/config')}" ><i class="fa fa-cogs fa-x"></i>博客配置</a></li>
+					</ul>
+				</div>
+				<div class="menu">
+					<ul class="nav-right-list">
+						<li class="nav"><a href="{:U('Admin/user',array('change'=>session('mdblog_user')))}">{:session('mdblog_user')}</a></li>
+						<li class="nav"><a href="{:U('Public/logout')}">退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-12">
+				<center>
+					<img src="__COMMON__/Common/Images/mylogo.png" alt="" class="responsive-img">
+				</center>
+			</div>
+		</div>
+	</div>
+    <include file="Home/Common/Tpl/footer.html" />
+</body>
+</html>

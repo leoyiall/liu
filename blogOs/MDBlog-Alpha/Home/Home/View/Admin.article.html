@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit|ie-stand|ie-comp">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{:C("BLOG_CONFIG.blog_name")}的博客后台管理</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/md-ui.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/login.module.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/font-awesome.css">
+	<script type="text/javascript" src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+	<style type="text/css">
+	 	body{
+	 		background: #F9F9F9;
+	 	}
+	 	.nav_box .nav{
+	 		padding:5px;
+	 	}
+
+	</style>
+</head>
+<body>
+	<include file="Home/Common/Tpl/nav.html" />
+	<div class="container-full">
+		<div class="row nav_box">
+			<div class="navbar navbar-white">
+				<div class="navbar-header">
+					<a href="#" class="nav-btn"><i class="fa fa-list"></i></a>
+				</div>
+				<div class="nav-box">
+					<ul class="nav-left-list">
+						<li class="nav"><a href="{:U('Admin/index')}"><i class="fa fa-tachometer fa-1x"></i>仪表盘</a></li>
+						<li class="nav"><a href="{:U('Admin/user')}"><i class="fa fa-users fa-1x"></i>用户管理</a></li>
+						<li class="nav"><a href="{:U('Admin/article')}" class="now"><i class="fa fa-file-word-o fa-1x"></i>文章管理</a></li>
+						<li class="nav"><a href="{:U('Admin/config')}" ><i class="fa fa-cogs fa-x"></i>博客配置</a></li>
+					</ul>
+				</div>
+				<div class="menu">
+					<ul class="nav-right-list">
+						<li class="nav"><a href="{:U('Admin/user',array('change'=>session('mdblog_user')))}">{:session('mdblog_user')}</a></li>
+						<li class="nav"><a href="{:U('Public/logout')}">退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+	<style>
+		.select{
+			width: 40px;
+		}
+		.manage{
+			width: 130px;
+		}
+	</style>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+					<!--文章列表-->
+					<div class="panel">
+						<div class="panel-title"><i class="fa fa-file-text-o"></i>&nbsp;<strong>文章列表</strong></div>
+						<div class="panel-content">
+							<table class="table-data">
+								<tbody>
+									<tr class="thead">
+										<td class="select">选择</td>
+										<td >id</td>
+										<td >类型</td>
+										<td >标题</td>
+										<td >时间</td>
+										<td class="manage">操作</td>
+									</tr>
+									<foreach name="articles" item="article">
+									<tr>
+										<td>
+											<input type="checkbox" >
+										</td>
+										<td>{$article['time']}</td>
+										<td>{$article['type']}</td>
+										<td><a href="{:U('Article/preview',array('aid'=>$article['url']))}" target="_blank">{$article['title']}</a></td>
+										<td>{:date('Y-m-d H:i:s',$article['time'])}</td>
+										<td>
+											<a href="{:U('Article/editor',array('url'=>$article['url'],'aid'=>$article['time']))}"><span class="btn-add">修改</span></a>
+											<a href="{:U('Admin/setconfig',array('delarticle'=>1,'aid'=>$key,'url'=>$article['url'],'file'=>$article['filename']))}"><span class="btn-del">删除</span></a>
+										</td>
+									</tr>
+									</foreach>
+								</tbody>
+							</table>
+							<center>
+								<!-- <ul class="page-box page">
+									<li><a href="#">«</a></li>
+									<li><a href="#">1</a></li>
+									<li class="page-active"><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li class="page-disabled"><a href="#">»</a></li>
+								</ul> -->
+								{$pages}
+							</center>
+						</div>
+						<div class="panel-footer"></div>
+					</div>
+					<!--文章统计-->
+					<div class="panel">
+						<div class="panel-title"><i class="fa fa-cogs fa-x"></i>&nbsp;<strong>文章统计</strong></div>
+						<div class="panel-content">
+							<div class="col-6">
+							<strong>按时间：</strong>
+							<table class="table-data">
+								<tbody>
+									<tr class="thead">
+										<td >时间</td>
+										<td >文章数</td>
+									</tr>
+									<?php $articleall=0; ?>
+									<foreach name="record" item="article">
+									<tr>
+										<td>{$key}</td>
+										<td>{:count($article)}篇</td>
+									</tr>
+									<?php $articleall+=count($article); ?>
+									</foreach>
+									<tr>
+										<td>总数</td>
+										<td>{$articleall}篇</td>
+									</tr>
+								</tbody>
+							</table>
+							</div>
+							<div class="col-6">
+							<strong>按类型：</strong>
+							<table class="table-data">
+								<tbody>
+									<tr class="thead">
+										<td >类型</td>
+										<td >文章数</td>
+									</tr>
+									<foreach name="classify" item="article">
+									<tr>
+										<td>{$key}</td>
+										<td>{:count($article)}篇</td>
+									</tr>
+									</foreach>
+								</tbody>
+							</table>
+							</div>
+						</div>
+						<div class="panel-footer"></div>
+					</div>
+					<style type="text/css">
+						.r{
+							height: 50px;
+						}
+						.item{
+							text-align: right;
+						}
+					</style>
+					<!--文章设置-->
+					<div class="panel">
+						<div class="panel-title"><i class="fa fa-cogs fa-x"></i>&nbsp;<strong>文章设置</strong></div>
+						<div class="panel-content">
+							<table class="table-data">
+								<tbody>
+									<tr class="thead">
+										<td >id</td>
+										<td >类型</td>
+										<td class="manage">操作</td>
+									</tr>
+									<foreach name="types" item="type">
+									<tr>
+										<td>{$key}</td>
+										<td>{$type}</td>
+										<td>
+											<a href="{:U('Admin/setconfig',array('deltype'=>1,'type_id'=>$key))}"><span class="btn-del">删除</span></a>
+										</td>
+									</tr>
+									</foreach>
+								</tbody>
+							</table>
+						</div>
+						<div class="panel-content">
+							<form action="{:U('Admin/setconfig')}" method="POST">
+								<table align="center">
+									<tbody>
+										<tr class="r">
+											<td class="item"><strong>类型id</strong>：</td>
+											<td><input type="text" placeholder="类型id" name="type_id" class="input-lg" value=""></td>
+											<input type="hidden" name="addtype" value="1">
+										</tr>
+										<tr class="r">
+											<td class="item"><strong>类型名称</strong>：</td>
+											<td><input type="text" placeholder="类型名称" name="type_name" class="input-lg" value=""></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td><button type="submit">添加文章类型</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+						<div class="panel-footer"></div>
+					</div>
+
+			</div>
+		</div>
+	</div>
+    <include file="Home/Common/Tpl/footer.html" />
+</body>
+</html>

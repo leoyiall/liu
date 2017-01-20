@@ -1,0 +1,20 @@
+[ 2016-05-07T00:07:58+08:00 ] ::1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0yMi8xODFmNWEyNDE3ODQwZTFlYzA3ZTBhNmUxMDViNmY2NQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+
+[ 2016-05-07T00:08:35+08:00 ] ::1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0yMi8xODFmNWEyNDE3ODQwZTFlYzA3ZTBhNmUxMDViNmY2NQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-07T00:08:37+08:00 ] ::1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0yMi8xODFmNWEyNDE3ODQwZTFlYzA3ZTBhNmUxMDViNmY2NQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-07T00:08:42+08:00 ] ::1 /myapp/projects/lanyueOS/MDBlog-Alpha/index.php?m=Home&c=Article&a=markdown&url=MjAxNS0xMi0yMy8wZTZiYmJlNmM0Yzc1YmU3OTVhZmVjZTg4OWM5OGZhZQ%3D%3D
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<if condition="$num lt 120">
+		{//true}
+		<p>true</p>
+		{//false}
+		<p>false</p>
+	</if>
+	<hr>
+	<for start="0" end="10" step="1" name="i">
+		<li>{$i}test</li>
+	</for>
+	<foreach name="arr" item="value" >
+	    arr[{$key}]={$value}<br>
+	</foreach>
+	<hr>
+	<volist name="arr" id="value" key="k" mod="2">
+	<eq name="id" value="info">
+		{$id}.ed
+		<hr>
+	</eq>
+	<li>{$k}.{$key}:{$value}</li>
+		
+	</volist>
+</body>
+</html>

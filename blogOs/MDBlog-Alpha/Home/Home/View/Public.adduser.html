@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit|ie-stand|ie-comp">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{:C("BLOG_CONFIG.blog_name")}的博客后台管理</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="__COMMON__/Common/Css/md-ui.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/login.module.css">
+	<link rel="stylesheet" href="__COMMON__/Common/Css/font-awesome.css">
+	<script type="text/javascript" src="__COMMON__/Common/Js/jquery-2.1.3.min.js"></script>
+	<style type="text/css">
+	 	body{
+	 		background: #F9F9F9;
+	 	}
+	 	.nav_box .nav{
+	 		padding:5px;
+	 	}
+	</style>
+</head>
+<body>
+	<include file="Home/Common/Tpl/nav.html" />
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="note-warning">你的博客还没增加管理用户，请增加一个管理用户</div>
+				<div class="panel">
+					<div class="panel-title"><i class="fa fa-cogs fa-x"></i>&nbsp;<strong>修改用户</strong></div>
+					<div class="panel-content">
+						<style type="text/css">
+							.r{
+								height: 50px;
+							}
+							.item{
+								text-align: right;
+							}
+						</style>
+						<form action="{:U('Public/adduser')}" method="POST" name="admin">
+						<table align="center">
+							<tr></tr>
+							<tr class="r">
+								<td class="item"><strong>用户名</strong>：</td>
+								<td><input type="text" placeholder="用户名" name="user" class="input-lg" value=""></td>
+							</tr>
+							<tr class="r">
+								<td class="item"><strong>密码</strong>：</td>
+								<td><input type="password" placeholder="密码" name="pwd" class="input-lg" value=""></td>
+							</tr>
+							<tr class="r">
+								<td class="item"><strong>确认密码</strong>：</td>
+								<td><input type="password" placeholder="确认密码" name="pwd1" class="input-lg" value=""></td>
+							</tr>
+							<tr class="r">
+								<td class="item"><strong>验证码</strong>：</td>
+								<td>
+									<input type="text" placeholder="验证码" name="code" class="input-lg" value="" style="width:100px;">
+									<img src="{:U('Public/Verify')}" class="codeimg" alt="code" style="  width: 100px;height: 28px;border: solid 1px #DFDFDF;vertical-align: bottom;"onclick="this.src=this.src">
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><button type="submit">提交</button></td>
+							</tr>
+						</table>
+						</form>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <include file="Home/Common/Tpl/footer.html" />
+</body>
+</html>

@@ -1,0 +1,36 @@
+<script>
+	$(document).ready(function(){
+		$(".navbar .navbar-header .nav-btn").click(function(){
+			$(this).parent().parent().children(".nav-box").slideToggle(500);
+			$(this).parent().parent().children(".menu").slideToggle(500);
+		});
+	});
+</script>
+<div class="navbar navbar-blue">
+	<div class="navbar-header">
+		<a href="{:C('SYSTEM.app_link')}" class="nav-title" target="_blank"><strong>{:C('SYSTEM.app_name')}博客</strong></a>
+		<a href="#" class="nav-btn"><i class="fa fa-list"></i></a>
+	</div>
+	<div class="nav-box">
+		<ul class="nav-left-list">
+			<li class="nav"><a href="{:U('Index/index')}"><i class="fa fa-home"></i>首页</a></li>
+			<li class="nav"><a href="{:U('Article/index')}">编辑</a></li>
+			<li class="nav"><a href="{:U('Admin/index')}">管理</a></li>
+			<?php $sys_menu=C('SYSTEM.app_navs');$user_menu=C('BLOG_CONFIG');?>
+			<foreach name="sys_menu.menus" item="menu">
+				<li class="nav"><a href="{$menu}" target="_blank">{$key}</a></li>
+			</foreach>
+			<foreach name="user_menu.blog_menus" item="menu">
+				<li class="nav"><a href="{$menu}" target="_blank">{$key}</a></li>
+			</foreach>
+			<li class="nav"><a href="#">关于</a></li>
+		</ul>
+	</div>
+	
+	<!-- <div class="menu">
+		<ul class="nav-right-list">
+			<li class="nav"><a href="#">登录</a></li>
+			<li class="nav"><a href="#">关于</a></li>
+		</ul>
+	</div> -->
+</div>
