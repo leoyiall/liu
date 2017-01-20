@@ -1,0 +1,149 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+<style type="text/css">
+  #page a{
+	padding:3px 10px;
+  }
+</style>
+<!-- 主体内容 -->
+			<div class="header_top addcolor">
+		<div class="module_div c13">
+			<div class="banner_div curindex">
+				<div class="mainCol padding15px clearfix">
+					<div class="banner_top_img">
+					</div>
+					<div class="banner_middle" style="cursor:default">
+						<div class="banner_log" style="margin-top:80px;">
+							<span><img src="__PUBLIC__/Uploads/programme/<{$p['logo']}>" width="80" height="80" alt="" data-bd-imgshare-binded="1"></span><em><{$p['title']}> </em>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="nav" class="nav" style="position: static; opacity: 1; top: 0px; left: 0px; z-index: 4;margin-top:-20px;">
+				<div class="mainCol padding15px clearfix">
+					
+					<div class="navtabs">
+						<a href="<{:U('programme')}>?id=<{$p['id']}>">主页</a>
+						<a href="<{:U('learnProgramme')}>?id=<{$p['id']}>&l=<{$p['sort']}>">学习资源</a>
+						<a href="<{:U('shouluList')}>?id=<{$p['id']}>&l=<{$p['sort']}>">精彩收录</a>
+						<a href="<{:U('aboutQuestion')}>?id=<{$p['id']}>&l=<{$p['sort']}>" class="root">相关问答</a>
+						<a href="<{:U('propit')}>?id=<{$p['id']}>&l=<{$p['sort']}>">知识图谱</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 主体结束 -->
+	<div class="mainCol padding15px addcolor">
+		<div class="kn_left w850px c13">
+
+<!-- 相关问答 -->
+	<div class="kn_column01 clearfix whitebk">
+			<div class="kn_column kn_title">
+				<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;相关问答</span>
+			</div>
+			<div class="kn_column_content clearfix">
+				<ul class="listul">
+					<!-- 一个收录 -->
+					<if condition="!$list">
+					<li align="center">还没有相关问答,快来<br>
+					<center><a href="<{:U('question/addQuestion')}>" class="layerbtn getstructorimgbtn backgroundcolor" target="_blank">发布相关问答</a></center></li>
+				<else/>
+				<!-- 一个收录 -->
+				<volist name="list" id="vv">
+					<li class="clearfix">
+						<span class="tu">
+							<a href="<{:U('question/wenti')}>?id=<{$vv.qid}>" target="_blank"><img src="__PUBLIC__/Uploads/head/<{$vv.headimg}>" width="35" height="35" data-bd-imgshare-binded="1"></a>
+						</span>
+						<div class="csdn-tracking-statistics" data-mod="popu_229_lib_13">
+							<a knid="271" contentid="8610" href="<{:U('question/wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" class="title" target="_blank"><{$vv.qtitle}></a>
+							<span class="ding number">
+								<i class="fa fa-eye"></i><{$vv.sight}>
+							</span>
+						</div>
+					</li>
+				</volist>
+				</if>
+					<!-- 一个收录结束 -->
+					
+				</ul>
+				<div class="csdn-pagination hide-set page1" id="page">
+				    <span class="page-nav">
+					    <{$show}>
+				    </span>
+				</div>
+			</div>
+		</div>
+</div>
+
+		<div class="blank_10px"></div>
+
+<!-- 这里开始是右边的 -->
+<style>
+    .bd_weixin_popup {
+        height: 260px !important;
+    }
+    .bd_weixin_popup_foot {
+        display: none;
+    }
+</style>
+<script>
+	clMenuOn = "type_on";
+	eleMenus = $("#tab_title a");
+	parentTab = $("#tab_title");
+	pageMenus = $("#page a");
+</script>
+				
+
+		<div class="kn_right w270px c13">
+			<style>
+	.sr-bdimgshare{
+		display:none !important;
+	}
+</style>
+<div class="kn_column01 clearfix whitebk">
+	<div class="kn_column_content">
+		<div class="divtop csdn-tracking-statistics" data-mod="popu_234">
+			<a href="<{:U('propit')}>?id=<{$p['id']}>&l=<{$p['sort']}>" target="_blank">
+				<img src="__PUBLIC__/Uploads/programme/<{$p['bgimg']}>" width="231" height="106" alt="" data-bd-imgshare-binded="1">
+			</a>
+		</div>
+		<div class="divbottom">
+			<div class="title">
+				<a href="<{:U('propit')}>?id=<{$p['id']}>&l=<{$p['sort']}>" target="_blank"><{$p['title']}> 知识图谱</a>
+			</div>
+		</div>
+	</div>
+</div>
+			<div class="blank_10px"></div>
+			<div class="kn_column01 clearfix whitebk c13 knlayer">
+    <div class="kn_column_content addgetstructor">
+        <p class="layerptext" style="cursor: default;">一起为编程库增加内容吧!</p>
+        <div class="blank_20px"></div>
+        <a href="<{:U('Community/addQuestion')}>" class="layerbtn getstructorimgbtn backgroundcolor" target="_blank">发布精彩收录</a>
+    </div>
+</div>
+	<div class="blank_10px"></div>
+		<div class="kn_column01 clearfix whitebk c13 knlayer">
+    <div class="kn_column_content addgetstructor">
+        <p class="layerptext" style="cursor: default;">我有相关问题怎么办?快来编程库求救!</p>
+        <div class="blank_20px"></div>
+        <a href="<{:U('Question/addQuestion')}>" class="layerbtn getstructorimgbtn backgroundcolor" target="_blank">发布相关问题</a>
+    </div>
+</div>
+			<div class="blank_10px"></div>
+			<div class="kn_column01 clearfix whitebk">
+	<div class="kn_column kn_title">
+		<span class="title" style="cursor: default;"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;热门知识</span>
+	</div>
+	<div class="kn_column_content">
+		<div class="alltabs csdn-tracking-statistics" data-mod="popu_233_lib_13">
+			<volist name="learn" id="vv">
+				<a target="_blank" href="http://lib.csdn.net/java/knowledge/218" class="tabtn"><{$vv.course}></a>
+			</volist>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>

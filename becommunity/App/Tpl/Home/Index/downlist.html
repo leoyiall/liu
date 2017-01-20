@@ -1,0 +1,75 @@
+{__NOLAYOUT__} 
+<include file="Public:head" />
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/down.css">
+
+<!-- 流程布局内容 -->
+<div class="container">
+	<div class="row">	
+	<!-- 面包屑导航 -->
+		<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+			<ol class="breadcrumb">
+			  <li>当前位置: 
+			  <a href="<{:U('index')}>">首页</a></li>
+			  <li><a href="<{:U('Index/down')}>">软件下载</a></li>
+			  <li class="active"><{$info}></li>
+			</ol>
+		</div>
+	</div>
+	<!-- 文章列表 -->
+	<div class="row">
+		<div class="col-log-9 col-md-9 col-sm-9 col-xs-12" style="border:1px solid #ddd;">
+	    <ul>
+			<!-- 第一个块 -->
+	<volist name="lists" id="vo">
+	      <li> 
+	        <div class="down_kuan">
+	            <div class="down_intro">
+	            <h3><a href="<{:U('downpage')}>?id=<{$vo.id}>"><{$vo.title}></a></h3>
+	              <p style="color:#888;">发布时间：<{$vo.date}> / 分类：<{$vo.sort}> / 发布人:<{$vo.nicheng}></p>
+	              <p>
+  		<b style="color:#ff4400">软件关键词:</b><{$vo.keywords}>
+	              </p>
+	              <div class="down_div">
+	                    <p><{$vo.introduce}></p>
+	                    <span class="good_say fl">好评:<{$vo.perfect}>个赞 / 大小:<{$vo.softbig}></span>
+	                    <a href="<{$vo.link}>" class="btn btn-info fr" title="立即下载">立即下载</a>
+	              </div>
+	            </div>
+	        </div>
+	      </li>
+	</volist>
+			<!-- 块结束 -->
+
+	    </ul>
+	    <div class="list_page text-center">
+			<nav class="index-page text-center">
+			    <{$show}>	
+			</nav>
+	    </div>
+
+		</div>
+	<!-- 右侧推荐+广告 -->
+		<div class="col-log-3 col-md-3 col-sm-3 col-xs-12 right-box" >
+		  <!-- 切换卡 -->
+		<div id="news_tj" style="border:1px solid #ddd;padding:5px;">
+		    <ul id="news_ul">
+		      <li class="liactive">推荐软件</li>
+		    </ul>
+		    <div style="display:block">
+		          <ul class="news_more">
+		          <!-- 软件推荐下载 -->
+	          <volist name="tj" id="vo">
+		            <li><span class="num_square num_color">★</span><a href="<{:U('downpage')}>?id=<{$vo.id}>" title="<{$vo.title}>"><{$vo.title}></a></li>
+	           </volist>
+		          </ul>
+		      </div>
+		</div>
+			<!-- 广告 -->
+		<div class="adv-list" style="border:1px solid #ddd;padding:5px;">
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+		</div>
+</div>
+</div>
+<include file="Public:footer" />

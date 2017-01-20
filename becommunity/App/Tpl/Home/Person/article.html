@@ -1,0 +1,316 @@
+{__NOLAYOUT__} 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .userinfo form input[type='text']{
+    border:1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    outline: none;
+    width: 200px;
+  }
+  .userinfo form input[type='submit']{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 60px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    cursor:pointer;
+  }
+.blogitem h2{
+  text-align: center;
+  height:40px;
+  line-height: 40px;
+  margin-top:20px;
+  border-bottom: 1px solid #ccc;
+}
+.blogitem .intro{
+  color:#9c9c9c;
+  height:30px;
+  line-height: 30px;
+}
+.content{
+  padding:10px 20px;
+  font-size:14px;
+  border-bottom: 1px solid #ccc;
+}
+.content a{
+  color:#3AB3FF;
+}
+.content a:hover{
+  text-decoration: underline;
+}
+#comment{
+  width:100%;
+  padding:20px 10px;
+}
+#comment .left{
+  float:left;
+  padding:10px 0;
+}
+#comment .right_say{
+  width:85%;
+  padding:10px;
+  font-size:12px;
+  float:left;
+}
+#comment li{
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  *zoom:1;
+}
+#comment li a{
+  color:#333;
+}
+#comment li a:hover{
+  color:#3BB5FF;
+}
+#comment h1{
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  font-family: "微软雅黑";
+  color:#333;
+  font-size:16px;
+  padding-bottom: 10px;
+}
+.times{
+  font-size: 12px;
+  color:#666;
+  float: right;
+  margin-right: 10px;
+  margin-top:20px;
+}
+.reAnswer{
+  width:100%;
+  overflow: hidden;
+  *zoom:1;
+  color:#666;
+  padding:5px;
+}
+.reForm input[type='text']{
+  width:80%;
+  margin:0 auto;
+  height:30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border:1px solid #eee;
+  outline: none;
+ border-radius: 3px;
+}
+.subOn{
+  padding:0 10px;
+  outline: none;
+  border:1px solid #ccc;
+  background-color: #fff;
+  height:30px;
+  line-height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reForm .subOn:hover{
+  background-color: #fafafa;
+}
+#myForm{
+  margin-top:20px;
+}
+#myForm textarea{
+  font-size:14px;
+  padding-left: 5px;
+}
+.content img{
+  width:100%;
+  height:100%;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<include file="head" />
+<div class="mainContent2">
+    <aside>
+      <div class="avatar">
+      <if condition="$ilist['arcimg']">
+          <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+      </if>
+        <a href="<{:U('about')}>/id/<{$id}>"><span><{$li['nicheng']}></span></a>
+      </div>
+      <section class="topspaceinfo">
+      <!-- 昵称 -->
+        <h1>
+          <if condition="$li['nicheng']">
+            <{$li['nicheng']}>
+          <else />
+            <{$id}>
+          </if>
+        </h1>
+        <p><{$li['introduce']}></p>
+      </section>
+    
+      <section class="taglist">
+    <if condition="$idnum">
+         <h2>全部分类</h2>
+    </if>
+         <ul>
+         <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>?id=<{$id}>&cid=<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem">
+      <h2><{$bb['title']}></h2>
+    <div class="intro">
+      <center>
+        <span>时间:<?php echo date("Y-m-d H:i:s",$bb['sendTime']);?></span>
+        <span>浏览:<{$bb['sight']}></span>
+        <span>分类:<a href="<{:U('arclist')}>?id=<{$id}>&cid=<{$bb['cate_id']}>"><{$bb['category']}></a></span>
+        <span>赞:<{$bb['perfect']}></span>
+      </center>
+    </div>
+      <div class="content">
+          <p><{$bb['content']}></p>
+      </div>
+      <!-- 评论框 -->
+      <div id="comment">
+      <h1>文章评论区</h1>
+      <!-- 评论框 -->
+      <div class="commentBox">
+      <form action="<{:U('saveComment')}>" method="post" id="myForm">
+        <textarea name="comment" cols="98" rows="6" placeholder="看完后有什么想法跟我说说...." id="pl"></textarea><br>
+        <center>
+    <input type="hidden" name="arc_id" value="<{$lid}>">
+    <input type="hidden" name="ids" value="<{$id}>">
+          <input type="button" id="sub"  value="评论"  class="subOn">
+        </center>
+      </form>
+      </div>
+          <ul class="commentList">
+          <if condition="!$cc">
+            <li style="text-align:center;padding:20px 0;">还没有留言,快来坐沙发吧。</li>
+          </if>
+      <volist name="cc" id="vo">
+        <if condition="$vo['arc_id'] eq $lid">
+            <li>
+              <div class="quote">
+                <div class="left">
+                  <a href="<{:U('index')}>?id=<{$vo.cwho}>" style="color:#333;">
+        <img src="__PUBLIC__/Uploads/<{$vo.arcimg}>" width="60" height="60" alt="">
+                  </a>
+                </div>
+                <div class="right_say">
+        <b><a href="<{:U('index')}>?id=<{$vo.cwho}>"><{$vo.nicheng}></a></b>回复说:<br>
+                  <{$vo.comment}>
+                <span class="times">
+                  <if condition="$idnum eq $id && $idnum!=''">
+                    <a href="javascript:void(0);" link="<{:U('delComment')}>?id=<{$idnum}>&cid=<{$vo.cid}>&lid=<{$vo.lid}>" onclick="delMessage(this)" style='color:#8BDBFF'>删除</a>
+                  </if>
+                  <?php echo date("Y-m-d H:i:s",$vo['sendTime']);?>
+                </span>
+                </div>
+                  <!-- <div class="reAnswer">
+                  <form action="<{:U('saveAnswer')}>" method="post" class="reForm" id="answerForm"> 
+                    <input type="text" class="reAnswerBox" name="respone" placeholder="您想对我也说点什么?" id="answer">
+                    <input type="hidden" name="mwho" value="<{$vv.person_id}>">
+                    <input type="hidden" name="bm_id" value="<{$vv.mid}>">
+                    <input type="hidden" name="id" value="<{$id}>">
+                    <input type="button" value="回复" onclick="saveAnswer(this)" class="subOn">
+                  </form> 
+                  </div> -->
+               <!--  <volist name="answer" id="vo">
+                  <if condition="$vo['bm_id'] eq $vv['mid']">
+                   <div class="reAnswer">
+                      <div class="left">
+                        <b><a href="<{:U('index')}>?id=<{$vo.person_id}>" style="color:#333;"><{$vo.nicheng}></a></b>回复说:
+                      </div>
+                      <div class="right_say">
+                        <{$vo.message}>
+                      <span class="times">
+                        2019-2-22
+                      </span>
+                      </div>
+                   </div>
+                  </if>
+                </volist> -->
+              </div>
+            </li>
+          </if>
+        </volist>
+          </ul>
+      </div>
+    </div>
+ </div>
+<!-- 底部 -->
+<include file="footer" />
+ <script type="text/javascript">
+  function carehim(){
+    $.get("<{:U('careHim')}>?id=<{$id}>",'',function(e){
+      alert(e.info);
+      $("#careHim").html("已关注");
+    });
+  }
+ </script>
+<script type="text/javascript">
+  function del(obj){
+    if(confirm("是否要删除该文章?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }
+  }
+  function modify(obj){
+    if(confirm("是否要编辑该文章?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }
+  }
+  // 发布留言
+  $("#sub").on("click",function(){
+    if($("#pl").val()==''){
+      alert("评论内容不能为空!");
+      return;
+    }
+    <if condition="!$idnum">
+      alert('请登录!');
+      window.location.href="<{:U('Common/login')}>";
+      return;
+    </if>
+    $("#myForm").submit();
+  });
+  // 执行删除留言
+  function delMessage(obj){
+    if(confirm("是否删除该评论?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }    
+  }
+</script>
+</body>
+</html>

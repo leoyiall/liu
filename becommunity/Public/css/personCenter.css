@@ -1,0 +1,64 @@
+.inner{
+	overflow: hidden;
+	*zoom:1;
+}
+.topWidth{
+	width:100%;
+}
+.topWidth .topImg{
+	width:100px;
+	height:100px;
+	margin:0 auto;
+	border-radius: 50%;
+	background: url("../images/defined.jpg")no-repeat;
+	border:1px double #eee;
+	box-shadow: 0 0 10px #ccc;
+	margin-top:10px;
+	overflow: hidden;
+}
+.topWidth .topImg img{
+	width: 100px;
+	height:100px;
+}
+.topWidth .topImg:hover{
+	box-shadow: 0 0 10px #ff4400;
+	transition:1s linear;
+}
+.floor span{
+	margin-right:10px;
+}
+.color{
+	color:#ff4400;
+}
+.unstyled a:hover{
+	text-decoration: underline;
+}
+#questionList ul{
+	overflow: hidden;
+	*zoom:1;
+	border-bottom: 1px solid #ccc;
+	margin-left: 2px;
+}
+#questionList ul li{
+	list-style-type: none;
+	float:left;
+	width:226px;
+	height:50px;
+	line-height: 50px;
+	text-align: center;
+}
+#questionList ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color:#333;
+}
+#questionList ul li a:hover{
+	background: #4ACA6D;
+	color: #fff;
+}
+.messActive{
+	background: #4ACA6D;
+	color: #fff;	
+}

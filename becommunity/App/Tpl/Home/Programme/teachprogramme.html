@@ -1,0 +1,148 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+<style type="text/css">
+  #page a{
+	padding:3px 10px;
+  }
+  .vedio_list{
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-family: "微软雅黑";
+	height:560px;
+	overflow: auto;
+  }
+  .vedio_list h4{
+  	color:#999;
+  }
+  .vedio_list .v_title{
+  	font-size: 16px;
+	padding:10px 0;
+	color:#999;
+  }
+  .vedio_list .v_li{
+	line-height: 25px;
+  }
+  .vedio_list .v_li a{
+	color:#333;
+	color:#999;
+  }
+  .vedio_list .v_li a:hover{
+  	color:#2B81A9;
+  }
+  .v_active{
+	color:#2B81A9;
+  }
+</style>
+<!-- 主体内容 -->
+			<div class="header_top addcolor" >
+		<div class="module_div c13">
+			<div class="banner_div curindex">
+				<div class="mainCol padding15px clearfix">
+					<div class="banner_top_img">
+					</div>
+					<div class="banner_middle" style="cursor:default">
+						<div class="banner_log" style="margin-top:80px;">
+							<span><img src="__PUBLIC__/Uploads/programme/<{$p['logo']}>" width="80" height="80" alt="" data-bd-imgshare-binded="1"></span><em><{$p['title']}> </em>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="nav" class="nav" style="position: static; opacity: 1; top: 0px; left: 0px; z-index: 4;margin-top:-20px;">
+				<div class="mainCol padding15px clearfix">
+					
+					<div class="navtabs">
+						<a href="<{:U('programme')}>?id=<{$p['id']}>">主页</a>
+						<a href="<{:U('learnProgramme')}>?id=<{$p['id']}>&l=<{$p['sort']}>" class="root">学习资源</a>
+						<a href="<{:U('shouluList')}>?id=<{$p['id']}>&l=<{$p['sort']}>">精彩收录</a>
+						<a href="<{:U('aboutQuestion')}>?id=<{$p['id']}>&l=<{$p['sort']}>">相关问答</a>
+						<a href="<{:U('propit')}>?id=<{$p['id']}>&l=<{$p['sort']}>">知识图谱</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 主体结束 -->
+	<div class="mainCol padding15px addcolor" style="margin-bottom:50px;">
+		
+	<div class="kn_column01 clearfix whitebk" style="overflow:hidden;*zoom:1;">
+			<div class="kn_column kn_title">
+				<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;<{$kc.course}>&nbsp;&nbsp;<{$nkc.zname}>:<{$nkc.kname}>&nbsp;&nbsp;<{$nkc.cname}></span>
+			</div>
+			<div class="kn_column_content clearfix">
+<div class="kn_left w850px" style="box-shadow:none;">
+	<div class="kn_column01 clearfix " style="box-shadow:none;min-width:850px;min-height:580px;overflow:auto;margin-bottom:20px;background:#2B2B2B;">
+	<if condition="$nkc['chose'] eq 1">
+		<{$nkc['content']}>
+	<else/>
+		 <video src="__PUBLIC__/Vedio/<{$nkc['content']}>" width="850" height="580" controls loop>
+	</if>
+
+	 </div>
+</div>
+<div class="kn_left w270px" style="box-shadow:none;">
+	<div class="kn_column01 clearfix" style="box-shadow:none;min-height:584px;margin-bottom:20px;background:#2B2B2B;border:none;margin-top:1px;">
+		<ul class="vedio_list">
+			<li><h4>课程目录</h4></li>
+
+	<volist name="klist" id="vo">
+		<li class="v_title"><{$key}></li>
+	<volist name="vo" id="vv">
+		<li class="v_li"><a href="<{:U('programme/teachProgramme')}>?id=<{$p['id']}>&kid=<{$vv.pid}>&cid=<{$vv.id}>" class="v_active"><{$vv.cname}></a></li>
+	</volist>
+	</volist>
+		</ul>
+	</div>
+</div>	
+			</div>
+		</div>
+
+	<!-- 左侧课程介绍 -->
+<div class="kn_left w850px c13" style="margin-top:20px;">
+ 	
+	<div class="kn_column01 clearfix whitebk">
+		<div class="kn_column kn_title">
+			<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;课程介绍</span>
+		</div>
+		<div class="kn_column_content clearfix" style="font-size:14px;">
+			<{$kc.cintroduce}>
+		</div>
+		<div class="kn_column kn_title">
+			<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;课程目标</span>
+		</div>
+		<div class="kn_column_content clearfix" style="font-size:14px;">
+			<{$kc.target}>
+		</div>
+		<div class="kn_column kn_title">
+			<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;课程计划</span>
+		</div>
+		<div class="kn_column_content clearfix" style="font-size:14px;">
+			<{$kc.plan}>
+		</div>
+	</div>
+</div>
+<!-- 左侧课程介绍结束 -->
+
+<!-- 右侧老师介绍 -->
+<div class="kn_right w270px c13" style="margin-top:20px;">
+	<div class="kn_column01 clearfix whitebk">
+		<div class="kn_column kn_title">
+			<span class="title"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;老师介绍</span>
+		</div>
+		<div class="kn_column_content clearfix">
+			<h4 align="center"><{$kc.teacher}>老师</h4>
+		<div style="font-size:14px;">
+			<{$kc.introduce}>
+			<p style="margin-top:10px;color:#bbb;">
+				课程发布时间:
+		<?php echo date("Y-m-d H:i",$kc['sendTime']);?>
+			</p>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- 左侧课程介绍结束 -->
+
+		<div class="blank_10px"></div>
+
+</div>
+</div>

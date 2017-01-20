@@ -1,0 +1,48 @@
+<div class='navbar' style="background:#0663C0;border-bottom:1px solid #044E97;">
+  <div class='navbar-inner'>
+    <div class='container'>
+      <a class='brand' href="__ROOT__/index.php">
+          <img src="__PUBLIC__/images/logo.png" width="100" height="30"/>
+      </a>
+
+<!--       <form id='search_form' class='navbar-search' action="<{:U('search')}>" style="margin-left:10px;">
+  <input type='text' id='q' name='q' class='search-query span3' value='' style="height:26px;">
+</form> -->
+      <ul class='nav pull-left'>
+        <li><a href='__ROOT__/index.php' style="color:#fff;">首页</a></li>
+        
+        <li><a href="<{:U('Blog/index')}>" style="color:#fff;">博客</a></li>
+        <li><a href='<{:U("question/index")}>' style="color:#fff;">问答</a></li>
+        
+        <li><a href="<{:U('Community/index')}>" style="color:#fff;">社区</a></li>
+        <li><a href="<{:U('Index/index')}>"  style="color:#fff;">资讯</a></li>
+        <li><a href="<{:U('Programme/index')}>" style="color:#fff;">编程库</a></li>
+        <li><a href="<{:U('Code/index')}>"  style="color:#fff;">源码</a></li>
+        <li><a href="<{:U('Index/down')}>"  style="color:#fff;">软件</a></li>
+         </ul>
+         <ul class='nav pull-right'>
+            <if condition="$idnumber" >
+               <li>
+               <if condition="$ll['nicheng']">
+                 <a href="<{:U('personCenter')}>?id=<{$idnumber}>" style="color:#fff;"><{$ll['nicheng']}></a>
+               <else />
+           <a href="<{:U('personCenter')}>?id=<{$idnumber}>" style="color:#fff;"><{$idnumber}></a>
+               </if>
+               </li>
+               <li><a href="<{:U('addQuestion')}>?id=<{$idnumber}>" style="color:#fff;">发布话题</a></li>
+               <li><a href="<{:U('Common/logout')}>" style="color:#fff;">退出</a></li>
+               <!-- <li><a href="<{:U('xiaoxi')}>?id=<{$idnumber}>">消息(<span class="color">0</span>)</a></li> -->
+             <else />
+                 <li><a href="<{:U('Common/login')}>?l=community" style="color:#fff;">登录</a></li>
+                 <li><a href="<{:U('Common/reg')}>" style="color:#fff;">注册</a></li>
+             </if>
+           
+         </ul>
+      <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.logo-text{line-height:50px;font-size:16px;font-family:'微软雅黑';}
+@media screen and (max-width: 768px) {
+	.top-box{
+		display:none;
+	}
+  .right-box{
+    display:none;
+  }
+}
+
+  input{margin:0;padding:0;}
+  .top-box{margin-bottom:10px;}
+  .search_bar{
+	width:210px;
+	height:35px;line-height: 35px;
+	border:1px solid #ccc;
+	outline: none;
+	padding-left:2px;
+  }
+.search_bar:focus{
+	border:1px solid #35A9EF;
+}
+.search_btn{
+  	margin:0;
+  	padding:0;
+  	width:70px;
+  	height:35px;
+  	border:1px solid #269EE4;
+  	border:none;
+  	outline: none;
+  	background-color:#35A9EF;
+  	color:#fff;
+  	margin-left:-6px;
+  	margin-top:10px;
+  }
+  .search_btn:hover{
+  	color:#fff;
+  	background-color:#40B2F5;
+  }

@@ -1,0 +1,38 @@
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+/*最醒目的颜色提醒*/
+.color-notice{font-size:16px;color:#FF463E;}
+/*友情链接*/
+.down_box{width:100%;margin-top:10px;border:1px solid #ddd;margin-bottom:20px;overflow: hidden;*zoom:1;background-color: #fff;}
+.friend_link{width:100%;clear:both;}
+.friend_link ul{padding-bottom: 30px;}
+.friend_title{text-align: center;font-weight: bold;font-family: "微软雅黑";color:#F9264C;}
+.friend_title h3{margin:10px auto;}
+.friend_link ul li{float: left;list-style: none;padding-left: 10px;padding-right:10px;line-height: 20px;font-size:13px;}
+.friend_link ul li a{color:#333;}
+.friend_link ul li a:hover{color:#E32213;}
+/*底部版权*/
+.footer{height:180px;border-top:2px solid #000;background-color: #272822;}
+.footer-intro{font-size:14px;color:#fff;}
+.footer-intro img{margin:10px auto;}
+.footer-intro a{color:#fff;}
+.footer-intro a:hover{color:#ff4400;}
+.footer-copyright{color:#ccc;}
+/*返回顶部*/
+.returnTop{
+	position:fixed;
+	right:30px;
+	bottom:20px;
+	width:50px;
+	height:50px;
+	color:#fff;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 50px;
+	font-size:25px;
+	background-color: rgba(100,100,100,0.5);
+}
+.returnTop:hover{
+	background-color: rgba(150,150,150,0.8);
+}

@@ -1,0 +1,189 @@
+{__NOLAYOUT__} 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .userinfo form input[type='text']{
+    border:1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    outline: none;
+    width: 200px;
+  }
+  .userinfo form input[type='submit']{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 60px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    cursor:pointer;
+  }
+  .rightBox a{
+    float: right;
+    border-radius: 3px;
+    border:1px solid #ccc;
+    margin-top:10px;
+    margin-right: 30px;
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color:#333;
+    background-color: #fff;
+  }
+  .rightBox a:hover{
+    color:#ff4400;
+  } 
+.blogList{
+  width:100%;
+  position: relative;
+  overflow: hidden;
+  *zoom:1;
+}
+.blogList h2{
+  float: left;
+}
+.blogList .rightTime{
+  float: right;
+  position: absolute;
+  top:50px;
+  right: 10px;
+}
+.blogList .rightTime span{
+  color:#9c9c9c;
+}
+.blogList .rightTime a{
+  color:#3AB3FF;
+}
+.blogList .rightTime a:hover{
+  text-decoration: underline;
+}
+.cate_list li a{
+  color:#598DD3;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<include file="head" />
+<div class="mainContent2">
+    <aside>
+      <div class="avatar">
+      <if condition="$ilist['arcimg']">
+          <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+      </if>
+        <a href="<{:U('about')}>/id/<{$id}>"><span><{$li['nicheng']}></span></a>
+      </div>
+      <section class="topspaceinfo">
+      <!-- 昵称 -->
+        <h1>
+          <if condition="$li['nicheng']">
+            <{$li['nicheng']}>
+          <else />
+            <{$id}>
+          </if>
+        </h1>
+        <p><{$li['introduce']}></p>
+      </section>
+  <if condition="$idnum eq $id && $idnum!=''">  
+      <div class="userinfo"> 
+        <h3 align="center">添加文章分类</h3>
+      <form action="<{:U('addCategory')}>" method="post">
+        <input type="text" placeholder="请输入文章分类" autofocus name="category">
+        <input type="hidden" name="user_id" value="<{$idnum}>">
+        <input type="submit" value="添加分类">
+      </form>
+      <ul class="cate_list">
+        <volist name="cate" id="vv">
+           <li style="overflow:hidden;*zoom:1;color:#333;"><{$vv.category}>
+            <a href="<{:U('delCategory')}>?id=<{$id}>&cid=<{$vv.caid}>" style="float:right;">删除</a>
+           </li>
+         </volist>
+      </ul>
+      </div>
+  </if>
+      <section class="taglist">
+    <if condition="$idnum eq $id && $idnum!=''">
+         <h2>全部分类</h2>
+    </if>
+         <ul>
+         <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>?id=<{$id}>&cid=<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem">
+    <div class="rightBox">
+      <if condition="$idnum eq $id && $idnum!=''">
+       <h3><a href="<{:U('addarc')}>/id/<{$idnum}>">发布博文</a></h3>
+      </if>
+    </div>
+      <volist name="bool" id="vv">
+    <div class="blogList">
+        <h2 class="title" style="width:480px;overflow:hidden;">
+        <a href="<{:U('article')}>?id=<{$id}>&lid=<{$vv.lid}>"> <if condition="$vv.prev eq 1">
+          [技术前沿]
+        </if>
+    <{$vv.title}></a></h2>
+        <div class="rightTime">
+          <span><?php echo date("Y-m-d",$vv['sendTime']); ?></span>
+          <span>(<{$vv.sight}>)</span>
+          <if condition="$idnum eq $id && $idnum!=''">
+            <a href="javascript:void(0);" link="<{:U('modifyBlog')}>?id=<{$vv.user_id}>&bid=<{$vv.lid}>" onclick="modify(this)">编辑</a>
+            <a href="javascript:void(0);" link="<{:U('deleteBlog')}>?idnum=<{$vv.user_id}>&bid=<{$vv.lid}>" onclick='del(this)'>删除</a>
+          </if>
+        </div>
+    </div>
+      </volist>
+      <div class="pages" style="padding-top:20px;">
+        <{$show}>
+      <!-- <span>1</span><a href="/" hidefocus="">2</a><a href="/" hidefocus="">3</a><a href="/" class="next">下一页&gt;&gt;</a> --></div>
+    </div>
+ </div>
+<!-- 底部 -->
+<include file="footer" />
+<script type="text/javascript">
+  function del(obj){
+    if(confirm("是否要删除该文章?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }
+  }
+  function modify(obj){
+    if(confirm("是否要编辑该文章?")){
+      var link = obj.getAttribute("link");
+      window.location.href=link;
+    }
+  }
+</script>
+</body>
+</html>

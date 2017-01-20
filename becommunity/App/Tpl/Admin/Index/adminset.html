@@ -1,0 +1,141 @@
+<body  style="background:#fafafa;">
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="#">首页</a></li>
+  <li class="active">资讯管理</li>
+</ol>
+<div class="alert alert-info" role="alert">
+ <span class="hot-color" style="font-size:16px;">文章审核开启功能：</span>用于文章的审核开启，开启后，文章需要审核才能够发表。<br>
+  <span class="hot-color" style="font-size:16px;">软件审核开启功能：</span>用于软件的审核开启，开启后，软件需要审核才能够发表。<br>
+  <span class="hot-color" style="font-size:16px;">博客审核开启功能：</span>用于博客的审核开启，开启后，博客需要审核才能够发表。<br>
+ 如果使用过程中遇到问题可以查阅帮助手册。
+</div>
+  <div class="col-md-10 text-center">
+    <h3 class="">系统设置</h3>
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1" style="float:left;margin-left:300px;font-size:16px;">文章审核开启</label>
+      <label>
+      <if condition="$list[0]['a_on'] eq 0">
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" id="aon">
+      <else/>
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" checked="checked" id="aon">
+      </if>
+      </label>
+  </div>
+  </form>
+  <div class="form-group">
+    <label for="exampleInputEmail1" style="float:left;margin-left:300px;font-size:16px;">软件审核开启</label>
+      <label>
+      <if condition="$list[0]['s_on'] eq 0">
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" id="son">
+      <else/>
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" checked="checked" id="son">
+      </if>
+      </label>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1" style="float:left;margin-left:300px;font-size:16px;">博客审核开启</label>
+      <label>
+      <if condition="$list[0]['b_on'] eq 0">
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" id="bon">
+      <else/>
+      <input class="mui-switch" type="checkbox" style="float:right;line-height:30px;" checked="checked" id="bon">
+      </if>
+      </label>
+  </div>
+  </form>
+
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  var ms=mdtool.messager();
+  $("#aon").click(function(){
+    // is如果是true就是选中，如果是false就是没有选中
+    if($("#aon").is(':checked')){
+      // 是选中
+      var aon = 1;
+    }else{
+      var aon = 0;
+    }
+    // var son = $("#son").is(':checked');
+      $.ajax({
+        url:'<{:U("Index/modifyAdminSet")}>',
+        type:'post',
+        datatype:'json',
+        data:{
+          id:<{$list[0]['id']}>,
+          aon:aon
+        },
+        success:function(e) {
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(e) {
+          console.log(e);
+          ms.send(e);
+        }
+      });
+  });
+  // 判断软件审核是否开启
+  $("#son").click(function(){
+    // is如果是true就是选中，如果是false就是没有选中
+    if($("#son").is(':checked')){
+      // 是选中
+      var son = 1;
+    }else{
+      var son = 0;
+    }
+      $.ajax({
+        url:'<{:U("Index/modifyAdminSet")}>',
+        type:'post',
+        datatype:'json',
+        data:{
+          id:<{$list[0]['id']}>,
+          son:son
+        },
+        success:function(e) {
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(e) {
+          console.log(e);
+          ms.send(e);
+        }
+      });
+
+  });
+  $("#bon").click(function(){
+    // is如果是true就是选中，如果是false就是没有选中
+    if($("#bon").is(':checked')){
+      // 是选中
+      var bon = 1;
+    }else{
+      var bon = 0;
+    }
+    // var son = $("#son").is(':checked');
+      $.ajax({
+        url:'<{:U("Index/modifyAdminSet")}>',
+        type:'post',
+        datatype:'json',
+        data:{
+          id:<{$list[0]['id']}>,
+          bon:bon,
+          b:1 //修改博客
+        },
+        success:function(e) {
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(e) {
+          console.log(e);
+          ms.send(e);
+        }
+      });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+[ 2016-09-03T10:03:42+08:00 ] ERR: (ThinkException) 模板不存在[./App/Tpl/Admin/Index/adminsendnews.html]
+[ 2016-09-03T10:06:17+08:00 ] ERR: (ThinkException) 非法操作:ueditor
+[ 2016-09-03T10:06:20+08:00 ] ERR: (ThinkException) 模板不存在[./App/Tpl/Admin/Index/adminsendsoft.html]
+[ 2016-09-03T10:06:45+08:00 ] ERR: (ThinkException) 非法操作:ueditor
+[ 2016-09-03T10:06:47+08:00 ] ERR: (ThinkException) 模板不存在[./App/Tpl/Admin/Index/adminsendcategory.html]
+[ 2016-09-03T10:08:44+08:00 ] ERR: (ThinkException) 非法操作:ueditor

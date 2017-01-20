@@ -1,0 +1,67 @@
+{__NOLAYOUT__} 
+<!-- 这里是头部 -->
+<header>
+  <nav id="nav">
+    <div style="float:left;">
+      <a href="" style="float:left;"><img src="__PUBLIC__/images/ico.png" width="38" height="38"></a>
+      <h1 id="blogo">博客</h1>
+      <ul id="b-link">
+        <li><a href="__ROOT__/index.php">Be程序员首页</a></li>
+        <li><a href="<{:U('Blog/index')}>">博客首页</a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+    <div id="right-box">
+    <if condition="$idnumber" >
+    <ul>
+      <li>
+      <if condition="$list['nicheng']">
+        <a href="<{:U('index')}>?id=<{$list['idnumber']}>"><{$list['nicheng']}></a>
+      <else />
+  <a href="<{:U('index')}>?id=<{$idnumber}>"><{$idnumber}></a>
+      </if>
+      </li>
+      <li><a href="<{:U('Common/logout')}>">退出</a></li>
+      <li><a href="<{:U('addarc')}>?id=<{$idnumber}>">发布博文</a></li>
+      <li><a href="<{:U('xiaoxi')}>?id=<{$id}>">消息(<span class="color">0</span>)</a></li>
+      <li><a href="<{:U('base')}>?id=<{$idnumber}>">修改博客</a></li>
+      <li><a href=""></a></li>
+    </ul>
+    <else />
+      <ul>
+        <li><a href="<{:U('Common/login')}>?l=blog">登录</a></li>
+        <li><a href="<{:U('Common/reg')}>">注册</a></li>
+      </ul>
+    </if>
+    </div>
+  </nav>
+</header>
+<div class="mainContent">
+  <div class="ulist">
+      <ul>
+        <h2 style="font-weight:normal;font-family='微软雅黑'"><a href="#">
+      <if condition="!$ilist['blogTitle']">
+        Be程序员博客</a>
+      <else />
+        <{$ilist['blogTitle']}></a>
+      </if>
+      </h2>
+        <p><{$ilist['blogIntroduce']}></p>
+      </ul>
+  </div>
+</div>
+<div class="mainContent2">
+  <header>
+    <nav id="nav">
+      <ul>
+        <li><a href="<{:U('index')}>?id=<{$id}>" target="_self">博客首页</a></li>
+        <li><a href="<{:U('arclist')}>?id=<{$id}>" target="_self">博文</a></li>
+        <li><a href="<{:U('message')}>?id=<{$id}>"  target="_self">留言板</a></li>
+        <li><a href="<{:U('friend')}>?id=<{$id}>"  target="_self">我的博友</a></li>
+        <li><a href="<{:U('about')}>?id=<{$id}>" target="_self">关于我</a></li>
+      </ul>
+      <script src="__PUBLIC__/1/js/silder.js"></script><!--获取当前页导航 高亮显示标题--> 
+    </nav>
+  </header>
+</div>
+<!-- 头部结束 -->

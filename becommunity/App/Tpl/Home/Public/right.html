@@ -1,0 +1,95 @@
+<style type="text/css">
+  .unstyled li a:hover{
+    text-decoration: underline;
+  }
+</style>
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>积分排行榜>><a href="<{:U('statistic')}>?tab=jifen">前100名</a></span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="jlist" id="vv">
+        <li>
+          <div><san style="margin-right:10px;"><{$vv.jifen}></san><a class='dark topic_title' href="#" title="<{$vv.nicheng}>" style="font-size:12px;">
+          <{$vv.nicheng}></a>
+          </div>
+        </li>
+    </volist>
+      </ul>
+
+    </div>
+  </div>
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>金币排行榜>><a href="<{:U('statistic')}>?tab=money">前100名</a></span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+  <volist name="mlist" id="vv">
+        <li>
+          <div><san style="margin-right:10px;"><{$vv.bmoney}></san><a class='dark topic_title' href="#" title="<{$vv.nicheng}>" style="font-size:12px;">
+          <{$vv.nicheng}></a>
+          </div>
+        </li>
+  </volist>
+      </ul>
+
+    </div>
+  </div>    
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未解决问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="nlist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li>
+    </volist>    
+      </ul>
+      
+    </div>
+  </div>
+  <!-- 公告 -->
+ <!--  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未回答的问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="alist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li> 
+    </volist>          
+      </ul>
+      
+    </div>
+  </div> -->
+  <!-- 公告 -->
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>公告</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+        <li>
+          <div><a class='dark topic_title' href="" title="等级介绍" style="font-size:12px;">等级介绍</a>
+          </div>
+        </li>
+        <li>
+          <div><a class='dark topic_title' href="" title="积分介绍" style="font-size:12px;">积分介绍</a>
+          </div>
+        </li> 
+        <li>
+          <div><a class='dark topic_title' href="" title="金币介绍" style="font-size:12px;">金币介绍</a>
+          </div>
+        </li>                    
+      </ul>
+      
+    </div>
+  </div>

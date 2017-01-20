@@ -1,0 +1,76 @@
+{__NOLAYOUT__}
+<layout name="layout/community" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/personCenter.css">
+<style type="text/css">
+  input{outline: none;border:none;box-shadow: none;}
+  input[name='know']{
+    width:20px;
+    height:20px;
+  }
+</style>
+
+<!-- 主体内容 -->
+  <div class="panel">
+    <div class="header">
+        <ul class='breadcrumb'>
+          <li><a href='<{:U("personCenter")}>?id=<{$idnumber}>'>主页</a>
+          <span class='divider'>&nbsp;</span></li>
+          <li class='active'>修改资料</li>
+        </ul>
+    </div>
+<!-- 问题列表 -->
+    <div class="inner no-padding">
+      <div id="topic_list" style="width:500px;margin:0 auto;margin-top:20px;padding-bottom:50px;">
+    <form action="<{:U('modifyZiliao')}>" method="post" enctype="multipart/form-data">
+          <table>
+            <tr>
+              <td align="right">头像:&nbsp;&nbsp;</td>
+              <td align="left">
+                <if condition="$ll['headimg']">
+                  <img src="__PUBLIC__/Uploads/head/<{$ll['headimg']}>" width="100" height="100" alt="<{$ll['nicheng']}>" style="border:1px solid #eee;">
+                  <input type="hidden" name="headimg" value="<{$ll['headimg']}>">
+                </if>
+                <input type="file" name="photo" style="outline:none;border:none;">
+              </td>
+            </tr>
+            <tr>
+              <td align="right">昵称:&nbsp;&nbsp;</td>
+              <td align="left">
+                <input type="text" name="nicheng" class="form-control" style="height:35px;line-height:35px;margin-top:10px;" value="<{$ll['nicheng']}>">
+                <input type="hidden" name="usid" class="form-control" style="height:35px;line-height:35px;margin-top:10px;" value="<{$ll['usid']}>">
+              </td>
+            </tr> 
+            <tr>
+              <td align="right">自我介绍:&nbsp;&nbsp;</td>
+              <td align="left">
+                <textarea name="about" rows="5" cols="10" class="form-control" style="font-size:12px;"><{$ll['about']}></textarea>
+              </td>
+            </tr>
+<!--             <tr>
+    <td>最擅长的领域:&nbsp;&nbsp;</td>
+    <td>
+        <volist name="ly" id="vv">
+          <if condition="$vv['tid'] eq 5">
+            <input type="radio" name="know" value="<{$vv.tid}>" checked="true"><{$vv.typename}>
+          <else/>
+            <input type="radio" name="know" value="<{$vv.tid}>" checked="false"><{$vv.typename}>
+          </if>
+        </volist>
+    </td> 
+  </tr>  -->  
+            <tr>
+              <td colspan="2">
+              <center>
+                <input type="submit" value="修改资料" class="btn btn-info"  style="margin-top:30px;">
+              </center>
+              </td>
+            </tr>         
+          </table>
+    </form>
+       </div>
+    </div>
+
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,306 @@
+{__NOLAYOUT__} 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$ilist['blogTitle']}>--Be程序员博客</title>
+<meta name="keywords" content="Be程序员博客" />
+<meta name="description" content="Be程序员博客" />
+<link href="__PUBLIC__/1/css/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="__PUBLIC__/images/ico.png" type="image/x-icon" />
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<style type="text/css">
+body{
+  font-family: "微软雅黑";
+}
+  #blogo{
+    float:left;line-height:45px;margin-left:5px;font-size:22px;font-family:'幼圆';color:#ff4400;
+  }
+  #b-link{
+    float:left;
+  }
+  #b-link li{float:left;}
+  #right-box{float:right;}
+  #right-box li{float:left;}
+  .color{color:#ff4400;font-weight: bold;}
+  .blogitem table{
+    width:400px;
+    padding-top:30px;
+    margin-left:60px;
+    text-align: left;
+    font-size:14px;
+    padding-bottom: 200px;
+  }
+.blogitem table tr{
+  height:30px;
+  line-height: 30px;
+}
+.modifyAbout{
+  padding-left:10px;
+  padding-right:10px;
+  height:35px;
+  line-height: 35px;
+  border-radius: 5px;
+  background-color: #eee;
+  display: inline-block;
+  color:#ff4400;
+  border:1px solid #ccc;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+.modifyAbout:hover{
+  background-color: #96CEB4;
+  color:#333;
+}
+.input_style{
+	width:200px;
+	height:25px;
+	line-height: 25px;
+	outline: none;
+	border:1px solid #ccc;
+	padding-left:2px;
+}
+#topintroduce{
+  width:148px;
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  margin:0 auto;
+}
+#topintroduce a{
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  color:#333;
+  font-weight: bold;
+  float: left;
+}
+#topintroduce a:hover{
+  color:#ff4400;
+}
+#friendList{
+  width:100%;
+  overflow: hidden;
+  *zoom:1;
+}
+#friendList #searchbox{
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  border-top: 1px solid #ccc;
+}
+#friendList #searchbox form{
+  float: right;
+  margin-right: 10px;
+}
+#friendList #searchbox input[type='text']{
+  height:25px;
+  width: 140px;
+  border-radius: 5px;
+  outline: none;
+  border:1px solid #ccc;
+  line-height: 25px;
+  font-size: 12px;
+  padding-left: 2px;
+}
+#friendList #searchbox input[type='submit']{
+  padding-left: 10px;
+  padding-right: 10px;
+  height:28px;
+  background-color: #fff;
+  color:#333;
+  cursor:pointer;
+  outline: none;
+  border:1px solid #ccc;
+  border-radius: 5px;
+}
+#friendList #searchbox input[type='submit']:hover{
+  background-color: #fafafa;
+}
+#friendList ul{
+  width:100%;
+}
+#friendList ul li{
+  overflow: hidden;
+  *zoom:1;
+  padding:10px 20px 10px 20px;
+  border-bottom: 1px solid #ccc;
+}
+#friendList ul li #left{
+  float: left;
+}
+#friendList ul li #left img{
+  border-radius: 50%;
+  padding-right: 10px;
+}
+#friendList ul li #right{
+  width:85%;
+  float: left;
+}
+#friendList ul li #right a{
+  color:#333;
+}
+#friendList ul li #right a:hover{
+  color:#ff4400;
+}
+#friendList ul li #right .sex_boy{
+  font-size: 14px;
+  color:#96CEB4;
+  font-weight: bolder;
+}
+#friendList ul li #right .sex_girl{
+  font-size: 14px;
+  color:#FF7481;
+  font-weight: bolder;
+}
+#friendList ul li #right dl{
+  width:85%;
+}
+#friendList ul li #right dd{
+  font-size: 14px;
+  height:25px;
+  line-height: 25px;
+  color:#808080;
+}
+#friendList ul li #right dl dd span{
+  color:#333;
+}
+i{
+  font-style: normal;
+}
+.fans_color{
+  font-weight: bold;
+  color:#FF71AD;
+}
+.your_color{
+  font-weight: bold;
+  color:#6CC6FC;
+}
+.relative{
+  color:#ff4400
+}
+.seeHim{
+  width:100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff;
+  border:1px solid #ccc;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.seeHim:hover{
+  background-color: #fafafa;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<include file="head" />
+<div class="mainContent2">
+    <aside>
+    
+      <section class="taglist">
+         <h2>全部分类</h2>
+         <ul>
+         <volist name="cate" id="vv">
+           <li><a href="<{:U('arclist')}>?id=<{$id}>&cid=<{$vv.caid}>"><{$vv.category}></a></li>
+         </volist>
+        </ul>
+      </section>
+    </aside>
+    <div class="blogitem" style="min-height:600px;">
+      <div id="myfriend">
+         <div class="avatar">
+             <if condition="$ilist['arcimg']">
+          <img src="__PUBLIC__/Uploads/<{$ilist['arcimg']}>" width="160" height="160">
+      </if>
+        <a href="<{:U('about')}>?id=<{$id}>"><span><{$li['nicheng']}></span></a>
+          </div>
+      </div>
+   
+      <div id="topintroduce">
+        <a href="<{:U('friend')}>?id=<{$id}>&fans=tofans">关注<span id="look"><if condition="$cares">
+            <{$cares}>
+          <else/>0
+          </if>
+          </span></a>
+        <a href="<{:U('friend')}>?id=<{$id}>">粉丝<span id="look">
+          <if condition="$fans">
+            <{$fans}>
+          <else/>0
+          </if>
+        </span></a>
+      </div>
+      <div id="friendList">
+      <div id="searchbox">
+      <h3 style="float:left;padding-left:15px;">
+    <if condition="$ff">
+      我关注的人
+    <else/>
+      我的粉丝
+    </if>
+      </h3>
+     <!--  <form action="<{:U('searchFriend')}>" method="post">
+        <input type="text" name="soso" placeholder="请按昵称进行搜索">
+        <input type="hidden" name="ids" value="<{$id}>">
+        <input type="submit" value="搜索">
+      </form> -->
+      </div>
+        <ul>
+        <if condition="!$see">
+          <li><center>还没有发现Ta的博友哦!</center></li>
+        </if>
+        <volist name="see" id="vv">
+          <li>
+            <div id="left">
+              <a href=""><img src="__PUBLIC__/Uploads/<{$vv.arcimg}>" alt="<{$vv.nicheng}>" width="50" height="50"></a>
+            </div>
+            <div id="right">
+              <h3><a href="<{:U('index')}>?id=<{$vv.fans_id}>"><{$vv.nicheng}></a>
+            <if condition="$vv['sex'] eq 1">
+              <span class="sex_boy">♂</span>
+            <else />
+              <span class="sex_girl">♀</span>
+            </if>
+              </h3>
+              <div class="intro">
+<!--                   <dl>
+  <dd>关注:<a href="">852</a></dd>
+  <dd>粉丝:<a href="">852</a></dd>
+</dl>  -->
+                  <dl>
+                    <dd>常居住地:<span><{$vv.live}></span></dd>
+                  </dl>
+                  <dl>
+                    <dd style="height:50px;">自我介绍:
+                    <span><{$vv.introduce}></span></dd>
+                  </dl>
+                  <dl>
+                    <dd>
+                      关系:
+                    <if condition="$ff">
+                      <i class="your_color">您关注了Ta</i>
+                      <else/>
+                      <i class="fans_color">您的粉丝</i>
+<!--                       <span>
+                        <input type="button" class="seeHim" value="关注Ta">
+                      </span> -->
+                    </if>  
+                      <!-- <i class="relative">互相关注</i> -->
+                    </dd>
+                  </dl>
+              </div>
+            </div>
+          </li>
+        </volist>
+        </ul>
+      </div>
+    </div>  
+  </div>
+<!-- 底部 -->
+<include file="footer" />
+</body>
+</html>

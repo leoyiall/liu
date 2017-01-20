@@ -1,0 +1,39 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+
+<div class="header_top">
+	<div class="banner">
+		<p class="text">
+			编程库，你身边的编程百科全书
+		</p>
+	</div>
+</div>
+<div class="mainCol clearfix padding15px">
+	
+	<div class="kn_cloumn ">
+		<ul class="list01 clearfix">
+			<!-- 一个知识库开始 -->
+			<volist name="all" id="vv">
+				<li>
+				<div class="spantop bk0">
+					<div class="imgtop">
+						<img src="__PUBLIC__/Uploads/programme/<{$vv.bgimg}>" width="360" height="94">
+					</div>
+					<span>
+						<a href="<{:U('programme')}>?id=<{$vv.id}>" target="_blank"><img src="__PUBLIC__/Uploads/programme/<{$vv.logo}>" width="80" height="80" ></a>
+					</span>
+				</div>
+				<p>
+					<a href="<{:U('programme')}>?id=<{$vv.id}>" class="title" target="_blank"><{$vv.title}></a><span class="content"><{$vv.introduce}></span>
+				</p>
+				</li>
+			</volist>
+			<!-- 一个知识库结束 -->		
+		</ul>
+	</div>	
+	</div>	
+    <div class="csdn-pagination hide-set page1" id="page">
+        <span class="page-nav">
+          <{$show}>
+        </span>
+    </div>

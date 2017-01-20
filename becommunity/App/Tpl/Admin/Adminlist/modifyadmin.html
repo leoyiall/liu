@@ -1,0 +1,58 @@
+{__NOLAYOUT__}
+<layout name="layout/adminlist" />
+<script type="text/javascript">
+  var ms=mdtool.messager(); 
+</script>
+<div class="alert alert-info" role="alert"><b>注意:</b>点击文字即可进行修改，再点下表单外即可修改分类。</div>
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">修改管理员</li>
+</ol>
+  <div class="col-md-12">
+  <form action="doModifyAdmin" method="post" class="form-horizontal" id="subForm">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">用户名:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputEmail3"  value="<{$l['user']}>" disabled="true">
+          <input type="hidden"  value="<{$l['id']}>" name='ids'>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">密码:</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" id="inputEmail3" name="password" >
+          <input type="hidden" name="pass" value="<{$l['pass']}>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">权限</label>
+        <div class="col-sm-6">
+      <select class="form-control" name="power">
+      <if condition="$l['power'] eq 0" >
+        <option value='0'>信息员</option>
+        <else/>
+         <option value='1'>管理员</option>
+      </if>
+       <option value='0'>信息员</option>
+        <option value='1'>管理员</option>
+      </select>
+      </div>
+      </div>
+
+      <input type="button" value="修改管理员" class="btn btn-default" id="sub" style="margin-left:300px;">
+  </form>
+  
+  </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ $("#sub").click(function(){
+     $("#subForm").submit();  
+ });
+</script>

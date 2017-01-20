@@ -1,0 +1,58 @@
+<script type="text/javascript">
+  var ms=mdtool.messager();
+ 
+</script>
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">修改密码</li>
+</ol>
+<div class="col-md-12">
+  <form action="<{:U('doModifyPass')}>" method="post" class="form-horizontal" enctype="multipart/form-data" id="tForm">
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">旧密码</label>
+    <div class="col-sm-5">
+<input type="password" class="form-control" id="inputEmail3" placeholder="旧密码" name="oldpass">
+  </div>
+  </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">新密码</label>
+      <div class="col-sm-5">
+  <input type="password" class="form-control" id="inputEmail3" placeholder="新密码" name="newpass">
+    </div>
+    </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
+        <div class="col-sm-5">
+    <input type="password" class="form-control" id="inputEmail3" placeholder="确认密码" name="renewpass">
+      </div>
+      </div>
+      <input type="button" class="btn btn-default" value="修改密码" id="sub" style="margin-left:300px;">
+ </form>
+ </div>
+
+</div>
+</div>
+<script type="text/javascript">
+	$("#sub").click(function(){
+		if($("input[name='oldpass']").val()==''){
+			ms.send("旧密码不能为空!");
+			return ;
+		}
+		if($("input[name='newpass']").val()==''){
+			ms.send("新密码不能为空!");
+			return ;
+		}
+		if($("input[name='renewpass']").val()==''){
+			ms.send("确认密码不能为空!");
+			return ;
+		}
+		if($("input[name='newpass']").val() != $("input[name='renewpass']").val()){
+			ms.send("新密码和确认密码不一致!");
+			return ;
+		}
+		$("#tForm").submit();
+	});
+</script>

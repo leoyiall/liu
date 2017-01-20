@@ -1,0 +1,78 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+<style type="text/css">
+  #page a{
+  padding:3px 10px;
+  }
+</style>
+<!-- 主体内容 -->
+      <div class="header_top addcolor">
+    <div class="module_div c13">
+      <div class="banner_div curindex">
+        <div class="mainCol padding15px clearfix">
+          <div class="banner_top_img">
+          </div>
+          <div class="banner_middle" style="cursor:default">
+            <div class="banner_log" style="margin-top:80px;">
+              <span><img src="__PUBLIC__/Uploads/programme/<{$p['logo']}>" width="80" height="80" alt="" data-bd-imgshare-binded="1"></span><em><{$p['title']}> </em>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="nav" class="nav" style="position: static; opacity: 1; top: 0px; left: 0px; z-index: 4;margin-top:-20px;">
+        <div class="mainCol padding15px clearfix">
+          
+          <div class="navtabs">
+            <a href="<{:U('programme')}>?id=<{$p['id']}>">主页</a>
+            <a href="<{:U('learnProgramme')}>?id=<{$p['id']}>&l=<{$p['sort']}>" class="root">学习资源</a>
+            <a href="<{:U('shouluList')}>?id=<{$p['id']}>&l=<{$p['sort']}>">精彩收录</a>
+            <a href="<{:U('aboutQuestion')}>?id=<{$p['id']}>&l=<{$p['sort']}>">相关问答</a>
+            <a href="<{:U('propit')}>?id=<{$p['id']}>&l=<{$p['sort']}>">知识图谱</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 主体结束 -->
+	<div class="mainCol clearfix padding15px">
+		
+		<div class="kn_cloumn ">
+    <if condition="!$list">
+        <center><h3>暂未收录学习视频</h3></center>
+    <else/>
+			<ul class="list01 clearfix">
+				<!-- 一个知识库开始 -->
+      <volist name="list" id="vv">
+        <li>
+        <div class="spantop bk0">
+          <div class="imgtop">
+            <center>
+              <a href="<{:U('programme/teachProgramme')}>?id=<{$p['id']}>&kid=<{$vv.id}>" class="title" target="_blank"><img src="__PUBLIC__/Uploads/learn/<{$vv.logo}>" width="350" height="160" style="padding:5px;"></a> 
+            </center>
+          </div>
+          <div class="imgtop" style="padding:10px;font-size:14px;">
+          <center>
+            <a href="<{:U('programme/teachProgramme')}>?id=<{$p['id']}>&kid=<{$vv.id}>" class="title" target="_blank" style="font-size:20px;text-align:center;color:#333;font-weight:bold;"><{$vv.course}></a>
+          <br><br>
+            教师:<b><{$vv.teacher}></b>
+            浏览量:<b><{$vv.sight}></b>
+            发布时间:
+             <b><?php echo date("Y-m-d",$vv['sendTime']);?></b>
+            </center>
+          </div>
+        </div>
+        </li>
+      </volist>
+      <!-- 一个知识库结束 -->
+			</ul>
+        </if>
+		</div>	
+		</div>	
+    <div class="csdn-pagination hide-set page1" id="page">
+        <span class="page-nav">
+          <{$show}>
+        </span>
+    </div>
+
+</body>
+</html>

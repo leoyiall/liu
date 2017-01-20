@@ -1,0 +1,71 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">知识导图管理</li>
+</ol>
+<table class="table table-hover">
+<tr>
+  <th colspan="7">
+<form action="<{:U('index')}>" method="post">
+    <input type="submit" value="搜索" class="btn btn-default" style="float:right;margin-left:5px;">
+    <input type="text" name="so" class="form-control" placeholder="对知识导图进行搜索..." style="width:200px;float:right;">
+  </form>  
+  </th>
+</tr>
+  <tr>
+    <th>头像</th>
+    <th>用户</th>
+    <th>导图</th>
+    <th>标题</th>
+    <th>分类</th>
+    <th>时间</th>
+  	<th>操作</th>
+  </tr>
+<volist name="list" id="vo">
+   <tr>
+  	<td><a href="__ROOT__/index.php/Question/wenti?id=<{$vo.qid}>" target="_blank"><img src="<{$vo.headimg}>" width="30" height="30" alt="<{$vo.nicheng}>"></a></td>
+  	<td><a href="__ROOT__/index.php/Question/wenti?id=<{$vo.qid}>" target="_blank"><{$vo.nicheng}>(<{$vo.user}>)</a></td>
+    <td><a href="__ROOT__/index.php/Question/wenti?id=<{$vo.qid}>" target="_blank"><img src="__PUBLIC__/Uploads/learn/<{$vo.pit}>" width="30" height="30" alt="<{$vo.nicheng}>"></a></td>
+    <td><a href="__ROOT__/index.php/Programme/propit?id=<{$vo.bid}>" target="_blank"><{$vo.title}></a></td>
+    <td><{$vo.typename}></td>
+    
+    <td><?php echo date('Y-m-d H:i:s',$vo['sendTime']); ?></td>
+  	<td>
+      <a href="javascript:void(0);" delId="<{$vo.id}>" class="admin-modify admin-del" >删除</a>
+  	</td>
+  </tr>
+</volist>
+
+</table>
+  <nav class="pages">
+    <{$show}>
+  </nav>
+</div>
+</div>
+<script type="text/javascript">
+$(".admin-del").on("click",function(){
+    if(confirm("是否删除该知识导图?")){
+      var del = $(this);
+      var ms=mdtool.messager();
+      var aid = del.attr("delId");
+       $.ajax({
+        url : "<{:U('deleteLearn')}>?id="+aid,
+        type:'get',
+        datatype:'json',
+        success:function(e){
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(){
+          ms.send(e);
+        }
+      });
+       setTimeout("window.location.reload()",1000);
+    }
+});
+</script>

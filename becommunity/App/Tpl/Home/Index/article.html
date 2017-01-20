@@ -1,0 +1,180 @@
+{__NOLAYOUT__} 
+<include file="Public:head" />
+
+<!-- 流程布局内容 -->
+<div class="container">
+<div class="row">	
+<!-- 面包屑导航 -->
+	<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+		<ol class="breadcrumb">
+		  <li>当前位置: 
+		  <a href="<{:U('index')}>">首页</a></li>
+		  <li class="active"><{$list['category']}></li>
+		</ol>
+	</div>
+</div>
+	<div class="row">	
+	<!-- 左侧部分 -->
+	<div class="col-log-9 col-md-9 col-sm-12 col-xs-12">
+		 <div class="pro_content">
+            <h3><{$list['title']}></h3>
+            <p class="pro_intro">发布时间：<{$list['date']}> / 分类：<a href="<{:U('lists')}>?id=<{$list['cid']}>" style="color:#2776B3"><{$list['category']}></a> / 来源:
+            <a href="<{$list['from']}>" target="_blank" style="color:#2776B3"><{$list['from_title']}></a> /作者:<{$list['author']}></p>
+            <hr/>
+        <div class="pro-all">
+            <{$list['content']}>
+	    </div>
+            <div class="pro_footer">
+              <div class="pro_intro" style="float:right;">本文来源：<{$list['from_title']}> &nbsp;&nbsp;责任编辑：<{$list['author']}></div>
+                  <!-- 赞一下 -->
+              <div class="pro_share text-center">
+              
+                <a href="javascript:void(0);" class="btn btn-outline-inverse btn-lg btnin" style="border:1px solid #ccc;color:#000;" onclick="ajaxZan(1)"><span id="perfectOne">赞一个(<{$list['perfect']}>)</span></a>
+                <a herf="javascript:void(0);" class="btn btn-outline-inverse btn-lg btnin" style="border:1px solid #ccc;color:#000;" onclick="ajaxZan(2)"><span id="lowOne">踩一个(<{$list['low']}>)</span></a>
+              </div>              
+                  <!-- 分享到 -->
+              <div class="pro_share">
+                <p class="pro_intro">
+                <span>分享到:</span>
+                  <span>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                  </span>
+                </p>
+             <!-- 版权声明 -->
+              <div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+          <img src="__PUBLIC__/images/ewm.png" alt="Be程序员官方微信" >
+          <p class="text-center">扫码关注<b>Be程序员</b>微信公众号，<b class="color-notice">第一时刻</b>看到<b class="color-notice">最新</b>的程序员资讯。</p>
+              	<h4>版权声明：</h4>
+             	<b class="color-notice">部分内容转自其他网站，并且有声明来源，若有侵权请联系我们，我们将第一时间删除，并感到抱歉。</b>
+              </div>
+              </div>
+                  <!-- 上下篇文章 -->
+              <div class="pro_share">
+                <nav>
+                  <ul class="pager">
+    <if condition="$pre">
+	    <li><{$pre[title]}><a href="<{:U('article')}>?id=<{$pre['id']}>" style="color:#337AB7">上一篇</a></li>
+    <else/>
+	    <li>没有上一篇文章了<a  style="color:#337AB7">上一篇</a></li>
+    </if>
+    <if condition="$next">
+	    <li><a href="<{:U('article')}>?id=<{$next['id']}>" style="color:#337AB7">下一篇</a><{$next[title]}></li>
+    <else/>
+	    <li><a href="#" style="color:#337AB7">下一篇</a>没有下一篇文章了</li>
+    </if>
+                  </ul>
+                </nav>
+              </div>
+              <hr>
+              <div class="pro_adv">
+                  <a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-responsive"></a>
+              </div>
+            </div>
+          </div>
+            <!-- 评论框 -->
+            <div class="pro_pinglun">
+             <div class="ds-thread" data-thread-key="www.searchbiji/index/article?id=<{$list['id']}>" data-title="<{$list['author']}>" data-url="www.searchbiji.com/searchbiji/index/article?id=<{$list['id']}>"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"leo2016"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+					</script>
+              <!-- 多说公共JS代码 end -->
+            </div>
+<!-- 左侧的滚动+热点新闻结束 -->
+	</div>	
+	
+	<!-- 右侧推荐+广告 -->
+		<div class="col-log-3 col-md-3 col-sm-3 col-xs-12 right-box">
+		<div class="hot-news">
+			<h4><span style="padding-bottom:13px;">推荐资讯</span></h4>
+		</div>
+			<ul class="news-list">
+			<volist name="recommend" id="vo">
+				<li>
+					<span class="number-list">▷</span>
+					<a href="<{:U('article')}>?id=<{$vo.id}>"><{$vo.title}></a>
+				</li>
+			</volist>
+			</ul>	
+			<!-- 广告 -->
+		<div class="adv-list">
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+		</div>
+		
+		<!-- 关注我们 -->
+		<div class="about-us">
+			<h3>关注我们</h3>
+			<div class="about-quote">
+			<center>
+			<img src="__PUBLIC__/images/ewm.png" alt="adv" class="img-responsive">
+			</center>
+			<h4>官方微信:<b>bechengxuyuan</b></h4>
+				<ul>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wx.png" alt="微信订阅"><br>
+							<span>微信订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wb.png" alt="微博订阅"><br>
+							<span>微博订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/yx.png" alt="邮箱订阅"><br>
+							<span>邮箱订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/rss.png" alt="RSS订阅"><br>
+							<span>RSS订阅</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+
+</div><!-- container结束 -->
+
+<script type="text/javascript">
+function ajaxZan(num){
+	var id = "<{$list['id']}>";
+	$.ajax({
+		url:"<{:U('ajaxZan')}>",
+		dataType:"json",
+		type:"post",
+		data:{
+			'id':id,
+			'num':num
+		},
+		success:function(e){
+			if(num == 1){
+			$("#perfectOne").html("赞一个("+e+")");
+			}else if(num ==2){
+			$("#lowOne").html("踩一个("+e+")");
+			}
+		}
+	});
+}
+
+</script>
+
+<!-- 底部 -->
+<include file="Public:footer" />

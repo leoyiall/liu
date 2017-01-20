@@ -1,0 +1,92 @@
+{__NOLAYOUT__}
+<layout name="layout/blog" />
+
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">评论管理</li>
+</ol>
+<table class="table table-hover">  
+<tr>
+  <th colspan="6">
+<form action="<{:U('commentManage')}>" method="post">
+    <input type="submit" value="搜索" class="btn btn-default" style="float:right;margin-left:5px;">
+    <input type="text" name="so" class="form-control" placeholder="对评论进行搜索..." style="width:200px;float:right;">
+  </form>  
+  </th>
+</tr>
+  <tr>
+    <th>头像</th>
+    <th>用户</th>
+    <th>标题</th>
+    <th>评论</th>
+    <th>时间</th>
+  	<th>审核/操作</th>
+  </tr>
+<volist name="list" id="vo">
+   <tr>
+  	<td><a href="__ROOT__/index.php/Person/index?id=<{$vo.user_id}>" target="_blank"><img src="__PUBLIC__/Uploads/<{$vo.arcimg}>" width="30" height="30" alt="<{$vo.nicheng}>"></a></td>
+  	<td><a href="__ROOT__/index.php/Person/index?id=<{$vo.user_id}>" target="_blank"><{$vo.nicheng}></a></td>
+    <td><a href="__ROOT__/index.php/Person/article?id=<{$vo.user_id}>&lid=<{$vo.lid}>" target="_blank">《<{$vo.title}>》</a></td>
+    <td><{$vo.comment}></td>
+  	<td><?php echo date('Y-m-d H:i:s',$vo['sendTime']); ?></td>
+  	<td>
+    <if condition="$vo['pass'] eq 0">
+      <a href="javascript:void(0);" objId="<{$vo.cid}>" class="admin-modify admin-pass" >审核</a>
+
+    </if>
+  		<a href="javascript:void(0);" delId="<{$vo.cid}>" class="admin-modify admin-del" >删除</a>
+  	</td>
+  </tr>
+</volist>
+
+</table>
+  <nav class="pages">
+    <{$show}>
+  </nav>
+</div>
+</div>
+<script type="text/javascript">
+$(".admin-del").on("click",function(){
+    if(confirm("是否删除该文章?")){
+      var del = $(this);
+      var ms=mdtool.messager();
+      var aid = del.attr("delId");
+       $.ajax({
+        url : "<{:U('deleteComment')}>?id="+aid,
+        type:'get',
+        datatype:'json',
+        success:function(e){
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(){
+          ms.send(e);
+        }
+      });
+       setTimeout("window.location.reload()",1000);
+    }
+});
+$(".admin-pass").on("click",function(){
+    if(confirm("该文章是否通过审核?")){
+      var del = $(this);
+      var ms=mdtool.messager();
+      var aid = del.attr("objId");
+       $.ajax({
+        url : "<{:U('passComment')}>?id="+aid,
+        type:'get',
+        datatype:'json',
+        success:function(e){
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(){
+          ms.send(e);
+        }
+      });
+       setTimeout("window.location.reload()",1000);
+    }
+});
+</script>

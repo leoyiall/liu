@@ -1,0 +1,74 @@
+{__NOLAYOUT__}
+<layout name="layout/question" />
+<!-- 主体内容 -->
+  <div class="panel">
+   <div class='header'>
+      <ul class='breadcrumb'>
+        <li><a href='<{:U("index")}>'>主页</a><span class='divider'>/</span></li>
+        <li class='active'>Top100 
+          <if condition="$tab eq 'money'">
+              金币排行榜
+            <else/>
+              积分排行榜
+          </if>
+        </li>
+      </ul>
+    </div>
+<!-- 问题列表 -->
+  <div class="inner">
+<table class='table table-condensed table-striped'>
+        <thead>
+          <th>#</th>
+          <th>用户名</th>
+          <th><if condition="$tab eq 'money'">
+              金币
+            <else/>
+              积分
+          </if></th>
+          <th>等级</th>
+          <th>经验</th>
+        </thead>
+        <tbody>
+<for start="1" end="count($list)">
+<volist name="list" id="vv">
+<tr>
+  <td><b><{$i}></b></td>
+  <td>
+    <a class='user_avatar' href="">
+      <img src="__PUBLIC__/Uploads/head/<{$vv.headimg}>" title="<{$vv.nicheng}>"/>
+    </a>
+    <span class='sp10'></span>
+    <a href=''><{$vv.nicheng}></a></td>
+  <td>
+  <if condition="$tab eq 'money'">
+      <{$vv.bmoney}>
+    <else/>
+      <{$vv.jifen}>
+  </if>
+  </td>
+  <td><{$vv.level}></td>
+  <td><{$vv.exp}></td>
+</tr>
+</volist>
+</for>
+</tbody>
+</table>
+  </div>
+<!-- <div class='pagination' current_page='1'>
+  <ul> 
+    <li class='disabled'><a>«</a></li>
+    <li class='disabled'><a>1</a></li> 
+    <li><a href='/?tab=all&amp;page=2'>2</a></li> 
+    <li><a href='/?tab=all&amp;page=3'>3</a></li>
+    <li><a href='/?tab=all&amp;page=4'>4</a></li>
+    <li><a href='/?tab=all&amp;page=5'>5</a></li>
+    <li><a>...</a></li>
+    <li><a href='/?tab=all&amp;page=455'>»</a></li> 
+  </ul>
+</div> -->
+
+
+    </div>
+    
+  </div>
+</div>

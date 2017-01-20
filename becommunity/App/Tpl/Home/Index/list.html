@@ -1,0 +1,98 @@
+{__NOLAYOUT__} 
+<include file="Public:head" />
+
+<!-- 流程布局内容 -->
+<div class="container">
+	<div class="row">	
+	<!-- 面包屑导航 -->
+		<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+			<ol class="breadcrumb">
+			  <li>当前位置: 
+			  <a href="<{:U('index')}>">首页</a></li>
+			  <li class="active"><{$lists[0]['category']}></li>
+			</ol>
+		</div>
+	</div>
+	<!-- 文章列表 -->
+	<div class="row">
+		<div class="col-log-9 col-md-9 col-sm-9 col-xs-12">
+		<div class="hot-news" style="margin:20px auto;">
+			<h4><span style="padding-bottom:13px;"><{$lists[0]['category']}></span></h4>
+		</div>
+		<!-- 一个新闻块 -->
+		<volist name="lists" id="vo">
+			<div class="col-log-12 col-md-12 col-sm-12 col-xs-12 news-col">
+				<h3><a href="<{:U('article')}>?id=<{$vo.id}>" target="_blank"><{$vo.title}></a></h3>
+			</div>
+			<div class="col-log-12 col-md-12 col-sm-12 col-xs-12 news-intro">
+				<span class="">发布时间：<{$vo.date}> / 分类：<{$vo.category}> / <{$vo.sight}> 人浏览 /</span>
+			</div>
+		<div class="row news-box">
+			<div class="col-log-3 col-md-4 col-sm-5 col-xs-5">
+				<a href="" target="_blank"><img src="<{$vo.arcimg}>" alt="adv" class="img-thumbnail news-img" ></a>
+			</div>
+			<div class="col-log-9 col-md-8 col-sm-7 col-xs-7 news-summary">
+				<{$vo.summary}>
+			</div>
+		</div>
+		</volist>
+	<!-- 一个新闻块结束 -->
+		
+<!-- 页码 -->
+<div class="row">
+	<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+		<nav class="index-page text-center" style="margin-bottom:50px;margin-top:30px;">
+			<{$show}>
+		</nav>
+	</div>
+</div>
+		</div>
+	<!-- 右侧推荐+广告 -->
+		<div class="col-log-3 col-md-3 col-sm-3 col-xs-12 right-box">
+			<!-- 广告 -->
+		<div class="adv-list">
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+		</div>
+
+		<!-- 关注我们 -->
+		<div class="about-us">
+			<h3>关注我们</h3>
+			<div class="about-quote">
+			<center>
+			<img src="__PUBLIC__/images/ewm.png" alt="adv" class="img-responsive">
+			</center>
+			<h4>官方微信:<b>bechengxuyuan</b></h4>
+				<ul>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wx.png" alt="微信订阅"><br>
+							<span>微信订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wb.png" alt="微博订阅"><br>
+							<span>微博订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/yx.png" alt="邮箱订阅"><br>
+							<span>邮箱订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/rss.png" alt="RSS订阅"><br>
+							<span>RSS订阅</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- 引用底部 -->
+<include file="Public:footer" />

@@ -1,0 +1,162 @@
+<script type="text/javascript">
+  var ms=mdtool.messager();
+<if condition="$info">
+  ms.send("<{$info}>");
+</if> 
+</script>
+<div class="alert alert-info" role="alert"><b>注意:</b>点击文字即可进行修改，再点下表单外即可修改状态。</div>
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('Index/index')}>">首页</a></li>
+  <li class="active">友情链接管理</li>
+</ol>
+<table class="table table-hover">
+  <tr>
+    <th>条数</th>
+    <th>友情链接名称</th>
+  	<th>链接</th>
+  	<th>操作</th>
+  </tr>
+   <tr>
+   <td></td>
+    <td><input type="text" name="title" class="form-control" placeholder="友情链接名称"  autofocus="autofocus"></td>
+  	<td><input type="text" name="link" class="form-control" placeholder="链接"  autofocus="autofocus"></td>
+
+  	<td>
+  		<a href="javascript:void(0);" class="admin-modify" style="line-height:35px;"  id="addState">添加</a>
+  	</td>
+  </tr>
+  <foreach name="list" item="vo" >
+  <tr>
+    <td><{$vo.id}></td>
+    <td class="caname" objId="<{$vo.id}>"><{$vo.title}></td>
+    <td class="canames" objId="<{$vo.id}>"><{$vo.link}></td>
+    <td><a href="<{:U('delLink')}>?id=<{$vo.id}>" class='admin-modify' objId='<{$vo.id}>' onclick="confirm('确定删除该友情链接吗?')">删除</a></td>
+  </tr>
+  </foreach>
+</table>
+  <nav class="pages">
+    <{$show}>
+  </nav>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  var ms=mdtool.messager();
+  $("#addState").click(function(){
+    // 如果发布的信息为空
+    if($("input[name='title']").val()==""){
+      ms.send("友情链接名称不能为空!");
+      return;
+    }
+    if($("input[name='link']").val()==""){
+      ms.send("链接不能为空!");
+      return;
+    }
+
+    $("#addState").disabled=true;  //发布成功后，禁止
+     // 发布后的信息
+    var title = $("input[name='title']").val();
+    var link = $("input[name='link']").val();
+    $.ajax({
+      url : "<{:U('Index/addLink')}>",
+      type:'post',
+      datatype:'json',
+      data:{
+        'title':title,
+        'link':link
+      },
+      success:function(e){
+        console.log(e);
+      ms.send(e);
+  $("<tr class='xiaoguo'><td></td><td class='caname' objId='e.id'>"+title+"</td><td objId='e.id'>"+link+"</td><td><a href='<{:U('delLink')}>' class='admin-modify' objId='0' >删除</a></td></tr>").appendTo($(".table"));
+        // 清空发表框
+        $("input[name='title']").val('');
+        $("input[name='link']").val('');
+        setTimeout("window.location.reload()",1000);
+      },
+      error:function(e){
+        console.log(e);
+        ms.send(e);
+      }
+    });      
+  }); 
+      $(function() { 
+  //获取class为caname的元素 
+  $(".caname").click(function() { 
+  var td = $(this); 
+  var txt = td.text(); 
+  var input = $("<input type='text'value='" + txt + "'/>"); 
+  td.html(input); 
+  input.click(function() { return false; }); 
+  //获取焦点 
+  input.trigger("focus"); 
+  //文本框失去焦点后提交内容，重新变为文本 
+  input.blur(function() { 
+  var newtxt = $(this).val(); 
+  //判断文本有没有修改 
+  if (newtxt != txt) { 
+  td.html(newtxt); 
+  
+  var id = td.attr("objId"); 
+  //ajax异步更改数据库,加参数date是解决缓存问题 
+  var url = "<{:U('modifyLink')}>?id="+id+"&con="+newtxt; 
+  //使用get()方法打开一个一般处理程序，data接受返回的参数（在一般处理程序中返回参数的方法 context.Response.Write("要返回的参数");） 
+  //数据库的修改就在一般处理程序中完成 
+  $.get(url, function(data) { 
+
+    ms.send(data); 
+    td.html(newtxt); 
+  }); 
+ 
+  } 
+  else 
+  { 
+    ms.send(data);
+    td.html(newtxt); 
+  } 
+  }); 
+  }); 
+  }); 
+      // 链接的
+    $(function() { 
+      //获取class为caname的元素 
+      $(".canames").click(function() { 
+      var td = $(this); 
+      var txt = td.text(); 
+      var input = $("<input type='text'value='" + txt + "'/>"); 
+      td.html(input); 
+      input.click(function() { return false; }); 
+      //获取焦点 
+      input.trigger("focus"); 
+      //文本框失去焦点后提交内容，重新变为文本 
+      input.blur(function() { 
+      var newtxt = $(this).val(); 
+      //判断文本有没有修改 
+      if (newtxt != txt) { 
+      td.html(newtxt); 
+      
+      var id = td.attr("objId"); 
+      //ajax异步更改数据库,加参数date是解决缓存问题 
+      var url = "<{:U('modifyLinks')}>?id="+id+"&con="+newtxt; 
+      //使用get()方法打开一个一般处理程序，data接受返回的参数（在一般处理程序中返回参数的方法 context.Response.Write("要返回的参数");） 
+      //数据库的修改就在一般处理程序中完成 
+      $.get(url, function(data) { 
+
+        ms.send(data); 
+        td.html(newtxt); 
+      }); 
+      
+      } 
+      else 
+      { 
+        ms.send(data);
+        td.html(newtxt); 
+      } 
+      }); 
+      }); 
+      }); 
+}); 
+</script>

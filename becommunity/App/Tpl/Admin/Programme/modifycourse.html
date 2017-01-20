@@ -1,0 +1,98 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">修改课程</li>
+</ol>
+
+</div>
+  <div class="row  admin-box">
+  <div class="col-md-12">
+    <h4 class="text-center">修改课程</h4>
+    <form action="<{:U('doModifyCourse')}>" method="post" class="form-horizontal" enctype="multipart/form-data" id="subForm">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">课程名称：</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputEmail3" name="title" placeholder="课程名称" autofocus="autofocus" value="<{$c['course']}>">
+          <input type="hidden" class="form-control" name="ids"  value="<{$c['id']}>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">课程图片：</label>
+        <div class="col-sm-6">
+          <input type="file" name="photo1">
+          <input type="hidden" name="pho" value="<{$c['logo']}>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">所属编程库</label>
+        <div class="col-sm-6">
+      <select class="form-control" name="pid">
+      <option value='<{$c.pid}>'><{$c.title}></option>
+     <volist name="list" id="vv"> 
+       <option value='<{$vv.id}>'><{$vv.title}></option>
+     </volist>
+      </select>
+      </div>
+      </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">上课老师</label>
+          <div class="col-sm-5">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="老师名字" name="teacher" value='<{$c.teacher}>'>
+        </div>
+        </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">教师介绍</label>
+        <div class="col-sm-6">
+      <textarea class="form-control" rows="3"  placeholder="教师介绍" name="introduce"><{$c.introduce}></textarea>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">课程介绍</label>
+        <div class="col-sm-6">
+      <textarea class="form-control" rows="3"  placeholder="课程介绍" name="cintroduce"><{$c.cintroduce}></textarea>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">课程目标</label>
+        <div class="col-sm-6">
+      <textarea class="form-control" rows="3"  placeholder="课程目标" name="target"><{$c.target}></textarea>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">课程计划</label>
+        <div class="col-sm-6">
+      <textarea class="form-control" rows="3"  placeholder="课程计划" name="plan"><{$c.plan}></textarea>
+      </div>
+    </div>
+     <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">发布时间:</label>
+        <div class="col-sm-6">
+        <p style="margin-top:7px;">
+        <?php echo date("Y-m-d H:i:s"); ?>
+        </p>
+      </div>
+    </div>
+    
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="button" class="btn btn-default"style="margin-left:200px;" id="sub">修改课程</button>
+          <button type="reset" class="btn btn-default" style="margin-left:20px;">重写</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div><!-- col-md-12结束 -->
+</div>
+<script type="text/javascript">
+  $("#sub").click(function(){
+      if(confirm("是否发布该课程？")){
+          $("#subForm").submit();
+       }
+  })
+</script>

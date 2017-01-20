@@ -1,0 +1,38 @@
+<style type="text/css">
+  .unstyled li a:hover{
+    text-decoration: underline;
+  }
+</style>  
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未解决问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="nlist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li>
+    </volist>    
+      </ul>
+      
+    </div>
+  </div>
+  <!-- 公告 -->
+ <!--  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未回答的问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="alist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="#" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li> 
+    </volist>          
+      </ul>
+      
+    </div>
+  </div> -->

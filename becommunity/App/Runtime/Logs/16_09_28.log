@@ -1,0 +1,6 @@
+[ 2016-09-28T14:52:16+08:00 ] ERR: (ThinkException) 非法操作:wenti
+[ 2016-09-28T14:57:02+08:00 ] ERR: (ThinkException) Action:common您所请求的方法不存在！
+[ 2016-09-28T15:08:48+08:00 ] ERR: (ThinkException) Action:getOneQuestion您所请求的方法不存在！
+[ 2016-09-28T15:09:12+08:00 ] ERR: (ThinkException) Model:getOneQuestion您所请求的方法不存在！
+[ 2016-09-28T15:10:17+08:00 ] ERR: (ThinkException) 非法操作:该页面丢失!
+[ 2016-09-28T16:53:18+08:00 ] ERR: (ThinkException) Action:getUserMessage您所请求的方法不存在！

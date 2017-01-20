@@ -1,0 +1,152 @@
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">发布软件</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<span class="hot-color">提示：</span>软件标签需要填写，只有这样才能查询到对应的软件安装和软件教程。<span class="hot-color">注意区分软件来源。</span><br>如果使用过程中遇到问题可以查阅帮助手册。
+</div>
+</div>
+	<div class="row  admin-box">
+	<div class="col-md-12">
+		<h4 class="text-center">发布软件</h4>
+		<form action="<{:U('modifySoft')}>" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="<{$list[0][id]}>">
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">软件名称：</label>
+		    <div class="col-sm-6">
+		      <input type="text" class="form-control" id="inputEmail3" name="title" placeholder="软件名称" autofocus="autofocus" value="<{$list[0][title]}>">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">软件分类</label>
+		    <div class="col-sm-6">
+			<select class="form-control" name="sort">
+		<option value='<{$list[0][sort]}>'><{$list[0][sort]}></option>
+		   <option value='开发工具'>开发工具</option>
+			  <option value='编辑器'>编辑器</option>
+			  <option value='辅助工具'>辅助工具</option>
+			</select>
+		  </div>
+		  </div>
+  		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">语言</label>
+		    <div class="col-sm-6">
+				<select class="form-control" name="language">
+				  <option value='<{$list[0]['language']}>'><{$list[0]['language']}></option>
+				  <option value='中文'>中文</option>
+				  <option value='英文'>英文</option>
+				  <option value='其他'>其他</option>
+				</select>
+		  </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">授权</label>
+		    <div class="col-sm-6">
+				<select class="form-control" name="give">
+				<if condition="$list[0]['give'] eq '免费'">
+				  <option value='免费'>免费</option>
+				  <option value='收费'>收费</option>
+				  <else/>
+				  <option value='免费'>免费</option>
+				  <option value='收费'>收费</option>
+				</if>
+				  
+				  
+				</select>
+		  </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">状态</label>
+		    <div class="col-sm-6">
+				<select class="form-control" name="sid">
+	<volist name="slist" id="vo">
+				<if condition="$vo.id eq $list[0]['sid']">
+				<option value="<{$vo.id}>"><{$vo.state}></option>
+					<else/>
+			  <option value='<{$vo.id}>'><{$vo.state}></option>
+				  </if>
+		</volist>
+				</select>
+		  </div>
+		  </div>
+
+  		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">来源</label>
+		        <div class="col-sm-10">
+		    		<label >
+		    		   <input type="radio" name="soft_id" value="0"  style="width:20px;height:20px;" id="onit" checked="checked" >
+		    		   该软件存于百度云，提供下载
+		    		   <input type="radio" name="soft_id" value="1" style="width:20px;height:20px;" id="onit2"> 官方下载
+		    		<div id="outit" style="position:relative;">
+    		   		  <input type="text" class="form-control" id="inputEmail3" style="margin:5px auto;" placeholder="下载链接" name="link" value="<{$list[0][link]}>">
+    		   		  <input type="text" class="form-control" id="inputEmail3" style="margin:5px auto;" placeholder="文件大小" name="softbig" value="<{$list[0][softbig]}>">
+    		   		   <span style="float:right;position:absolute;right:-160px;top:45px;color:red;">*勿忘输入软件大小单位</span>
+    		   		</div>
+		    		<!--    <input type="radio" style="margin:10px auto;width:20px;height:20px;" name="soft_id" value="2" id="onit3">Be程序员提供下载
+					<input type="file" name="file" id="wenjian" style="display:none"/> -->
+		    		 </label>
+		    	</div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">软件介绍</label>
+		    <div class="col-sm-6">
+			<textarea class="form-control" rows="3"  placeholder="软件介绍" name="introduce"><{$list[0][introduce]}></textarea>
+		  </div>
+		</div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">软件关键字</label>
+		    <div class="col-sm-5">
+		<input type="text" class="form-control" id="inputEmail3" placeholder="软件关键字" name="keywords" value="<{$list[0][keywords]}>">
+		  </div>
+		  	<div class="col-sm-2" style="color:red;line-height:40px;">
+		  		*关键字逗号相隔
+		  	</div>
+		  </div>
+  		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">软件公司</label>
+		    <div class="col-sm-5">
+		<input type="text" class="form-control" id="inputEmail3" placeholder="软件公司" name="from" value="<{$list[0][from]}>">
+		  </div>
+		  </div>
+
+		 <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">发布时间:</label>
+		    <div class="col-sm-6">
+				<p style="margin-top:7px;">
+				<?php echo date("Y-m-d H:i:s"); ?>
+				</p>
+		  </div>
+		</div>
+		
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-default"style="margin-left:200px;">发布文章</button>
+		      <button type="reset" class="btn btn-default" style="margin-left:20px;">重写</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+	</div><!-- col-md-12结束 -->
+</div>
+<script type="text/javascript">
+/*	$("#onit").on("click",function(){
+		$("#outit").show();
+		$("#wenjian").hide();
+	});
+	$("#onit2").on("click",function(){
+		// alert('h1');
+		$("#outit").show();
+		$("#wenjian").hide();
+	});
+
+	$("#onit3").on("click",function(){
+		// alert('h1');
+		$("#outit").hide();
+		$("#wenjian").show();
+	});
+*/
+</script>

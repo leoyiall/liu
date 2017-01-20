@@ -1,0 +1,17 @@
+body{background-color: #f1f1f1;}
+.top-box{border-bottom:1px solid #ccc;background-color:#fff;box-shadow: 0 0 5px #ccc;}
+.login-box{
+	margin:0 auto;
+	margin-top:50px;
+	width:380px;
+}
+.login-quote{position: relative;}
+.login-box h1{font-size:60px;font-family: "微软雅黑";color:#67DB95;}
+.login-box span{float:left;font-size:16px;font-weight: bold;line-height: 35px;}
+.login-input{width:250px;}
+.login-yzm{width:80px;float:left;margin-right:5px;}
+.login-btn{margin-top:15px;width:200px;background-color: #8FD84E;border:1px solid #3AD820;font-weight: bold;}
+.login-btn:hover{color:#000;width:200px;background-color: #48B817;transition:1s ease;-moz-transition:1s ease;-o-transition:1s ease;-webkit-transition:1s ease;}
+.copyright{color:#333;margin-top:50px;}
+.notice{color:red;float:left;position: absolute;top:2px;right:0px;}
+

@@ -1,0 +1,78 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">课程管理</li>
+</ol>
+<table class="table table-hover">
+<tr>
+  <th colspan="7">
+<form action="<{:U('courseList')}>" method="post">
+    <input type="submit" value="搜索" class="btn btn-default" style="float:right;margin-left:5px;">
+    <input type="text" name="so" class="form-control" placeholder="对课程进行搜索..." style="width:200px;float:right;">
+  </form>  
+  </th>
+</tr>
+  <tr>
+    <th>课程图</th>
+    <th>课程名</th>
+    <th>教师</th>
+    <th>编程库</th>
+    <th>分类</th>
+    <th>时间</th>
+  	<th>操作</th>
+  </tr>
+<volist name="list" id="vo">
+   <tr>
+    <td><a href="__ROOT__/index.php/Programme/teachProgramme.shtml?id=<{$vo.pid}>&kid=<{$vo.id}>" target="_blank"><img src="__PUBLIC__/Uploads/learn/<{$vo.logo}>" width="30" height="30" alt="<{$vo.course}>"></a></td>
+  	<td><a href="__ROOT__/index.php/Programme/teachProgramme.shtml?id=<{$vo.pid}>&kid=<{$vo.id}>" target="_blank"><{$vo.course}></a></td>
+  	<td><{$vo.teacher}></td>
+    <td><{$vo.title}></td>
+    <td><{$vo.typename}></td>
+    
+    <td><?php echo date('Y-m-d H:i:s',$vo['sendTime']); ?></td>
+  	<td>
+      <a href="<{:U('modifyCourse')}>?id=<{$vo.id}>" delId="<{$vo.qid}>" class="admin-modify" >修改</a>
+      <a href="javascript:void(0);" delId="<{$vo.id}>" bs='del' class="admin-modify admin-del" >删除</a>
+    <if condition="$vo.isOver eq 0">
+  		<a href="javascript:void(0);" delId="<{$vo.id}>" bs='ov' class="admin-modify admin-del" >完课</a>
+    <else/>
+      <a href="javascript:void(0);" delId="<{$vo.id}>" bs='nov' class="admin-modify admin-del" >取消结课</a>
+    </if>
+  	</td>
+  </tr>
+</volist>
+
+</table>
+  <nav class="pages">
+    <{$show}>
+  </nav>
+</div>
+</div>
+<script type="text/javascript">
+$(".admin-del").on("click",function(){
+    if(confirm("是否进行该操作?")){
+      var del = $(this);
+      var ms=mdtool.messager();
+      var aid = del.attr("delId");
+      var bs = del.attr("bs");
+       $.ajax({
+        url : "<{:U('toDoIt')}>?id="+aid+"&bs="+bs,
+        type:'get',
+        datatype:'json',
+        success:function(e){
+          console.log(e);
+          ms.send(e);
+        },
+        error:function(){
+          ms.send(e);
+        }
+      });
+       setTimeout("window.location.reload()",1000);
+    }
+});
+</script>

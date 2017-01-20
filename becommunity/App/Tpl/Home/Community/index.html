@@ -1,0 +1,97 @@
+{__NOLAYOUT__}
+<layout name="layout/community" />
+<style type="text/css">
+  .color{
+    color:#FDC73E;
+  }
+  #topic_list a{
+    color:#333;
+  }
+</style>
+<!-- 主体内容 -->
+  <div class="panel">
+    <div class="header" id="questionList">
+       <a href="<{:U('index')}>?tab=all" class="topic-tab">全部</a>
+        <a href="<{:U('index')}>?tab=hot" class="topic-tab">热门</a>
+        <a href="<{:U('index')}>?tab=new" class="topic-tab">最新</a>
+    </div>
+<!-- 问题列表 -->
+    <div class="inner no-padding">
+      <div id="topic_list">
+<volist name="queslist" id="vv"> 
+  <div class='cell'>
+    <a class="user_avatar pull-left" href="<{:U('wenti')}>?id=<{$vv.qid}>">
+      <img src="__PUBLIC__/Uploads/head/<{$vv.headimg}>"  title="<{$vv.nicheng}>" />
+    </a>
+
+    <span class="reply_count pull-left">
+      <span class="count_of_replies" title="回复数">
+        0
+      </span>
+      <span class="count_seperator">/</span>
+      <span class="count_of_visits" title='点击数'>
+        <{$vv.sight}>
+      </span>
+    </span>
+
+    <a class='last_time pull-right' href="">
+      <span class="last_active_time">
+      <?php echo date("Y-m-d H:i:s",$vv['sendTime']);?>
+      </span>
+    </a>
+
+    <div class="topic_title_wrapper"> 
+       <if condition="$vv.state neq 0">
+         <span class="put_top"><{$vv.typename}></span>
+      <else/>
+        <span class="topiclist-tab"><{$vv.typename}></span>
+      </if>
+      <a class='topic_title' href='<{:U("wenti")}>?id=<{$vv.qid}>' title='<{$vv.qtitle}>' style="color:#333;">
+        <{$vv.qtitle}>
+      </a>
+    <if condition="$vv.xid neq 1">
+      <a class='topic_title' style="text-decoration:none;"><span class="color" style="margin-left:10px;"><{$vv.xname}></span></a>
+    </if>
+    </div>
+  </div>
+</volist>
+
+</div>
+<div class='pagination' current_page='1'>
+<ul>
+  <li><{$show}></li>
+</ul>
+
+</div>
+<script>
+ $(document).ready(function () {
+    var link = window.location.href;
+    var arr= [];
+    arr=link.split("?tab=");
+    console.log(arr[1]);
+    switch(arr[1]){
+      case "all":
+        $("#questionList a").eq(0).addClass("current-tab");
+        break;
+      case 'hot':
+        $("#questionList a").eq(1).addClass("current-tab");
+        break;
+      case 'new':
+        $("#questionList a").eq(2).addClass("current-tab");
+        break;
+      default:
+        $("#questionList a").eq(0).addClass("current-tab");
+        break;
+    }
+  });
+ $("#questionList a").each(function(){
+    $(this).click(function(){
+      window.location.reload();
+    })
+ })
+</script>
+
+    </div>
+    
+  </div>
+</div>

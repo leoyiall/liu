@@ -1,0 +1,72 @@
+/*软件下载首页页面css*/
+.down_zx h3{font-weight: bold;font-size:18px;border-bottom:1px solid #ccc;padding-top:10px;padding-bottom:10px;font-family: "微软雅黑";color:#FA6666;}
+.down_zx h3 a{color:#FA6666;}
+.down_zx ul,li{list-style-type: none;}
+.down_zx ul li{width:100%;height:28px;line-height:28px;overflow: hidden;}
+.down_zx ul li a{font-size:14px;font-family: "微软雅黑";}
+.zx_a a{color:#999;}
+.zx_a a:hover{color:#999;}
+.down_gk a{color:#333;}
+.down_gk a:hover{color:#bc0001;}
+.down_list{float:left;}
+.fl{float:left;}
+.fr{float:right;}
+.fr a{color:#337AB7;}
+.down_list h3{border-bottom:1px solid #ccc;padding-bottom:10px;text-align: center;font-family: "微软雅黑";}
+.down_list h3 a{color:#333;}
+.down_list h3 span{border-bottom: 2px solid #ff4400;padding-bottom: 8px;}
+.down_list h3 a:hover{color:#ff4400;text-decoration: none;}
+.down_list ul li{border-bottom: 1px dashed #ccc;transition:0.5s linear;-webkit-transition:0.5s linear;-o-transition:0.5s linear;-moz-transition:1s linear;line-height: 40px;}
+.down_list ul li:hover{background-color: #f1f1f1;}
+.down_list ul li a{font-size:14px;font-family: "微软雅黑";}
+.down_list ul li a:hover{color:#ff4400;}
+.down_list ul li:hover div{display: block;background-color: #fff;}
+.down_gg{font-size:16px;font-weight: bold;}
+.down_gg a{color:red;}
+/*下载分类页*/
+.down_p{padding:0 3px;}
+.down_div{padding-bottom: 10px;font-size:15px;line-height:25px;overflow: hidden;*zoom:1;}
+.good_say{color:#ff4400;font-size:15px;line-height: 40px;font-family: "微软雅黑";}
+.down_kuan{border-bottom: 1px dashed #ddd;}
+/*切换卡css*/
+#news_tj ul{list-style: none;margin:0;padding:0;}
+#news_ul li{width:50%;height:30px;line-height: 30px;font-size:16px;color:#333;font-family:"微软雅黑";
+background-color: #ccc;float:left;text-align: center;cursor: pointer;}
+#news_ul .liactive{background-color: #499CE0;color:#fff;}
+.news_more li{clear:both;overflow: hidden;border-bottom:1px dashed #ccc;height:35px;line-height: 35px;}
+.news_more li a{color:#555;}
+.news_more li a:hover{color:#bc0001;}
+.news_more li .num_square{text-align:center;font-size:18px;color:#fff;margin-right:5px;}
+.num_color{background-color: #ff4400;}
+.num_other{background-color: #ccc;}
+
+/*下载页面css*/
+.down_top{overflow: hidden;*zoom:1;}
+.down_top h3{text-align:left;padding-left:10px;}
+.down_message dl{width:435px;color:#000;overflow: hidden;*zoom:1;}
+.down_message dl dt{font-weight: bold;margin-right:5px;}
+.down_message dl dt,dd{float:left;font-size:16px;}
+.down_message dl dd{margin-right:10px;}
+.down_message dl span{padding:0 10px;}
+.info_action{color:#ff4400;}
+.say_good a{color:#333;}
+.say_good a:hover{color:#ff4400;}
+.adv_li img{width:100%;height:100px;margin:10px 0;}
+.down_nav{width:100%;margin-top:30px;overflow: hidden;*zoom:1;}
+.down_nav ul li{border:1px solid #ecebed;}
+.down_nav ul li{width:25%;height:50px;line-height: 50px;font-family:"微软雅黑";background-color: #f8f8f8;font-weight:bold;font-size:16px;float:left;text-align: center;}
+.down_nav ul li a{height:48px;color:#333;display:block;width:100%;}
+.down_nav ul li a:hover{color:#333;color:#ff4400;background-color: #fff;text-decoration: none;}
+.lactive{background-color: #fff;}
+.lactive{color:#ff4400;background-color: #fff;}
+.lactive a:hover{color:#ff4400;text-decoration: none;}
+.soft_all{margin-top:20px;position: relative;}
+.soft_all h4{border-bottom: 1px solid #ccc;height:50px;line-height: 50px;font-weight: bold;font-family: "微软雅黑";}
+.soft_all p{line-height: 30px;font-family: "微软雅黑";font-size: 16px;}
+.soft_all h4 a{color:#333;border-bottom: 3px solid #ff4400;padding-bottom:11px;}
+.soft_all h4 a:hover{color:#333;}
+.div_top{margin-bottom:30px;}
+#soft_con{height:0;opacity: 0;filter:alpha(opacity:0);}
+#soft_con2{height:0;opacity: 0;filter:alpha(opacity:0);}
+#soft_con3{height:0;opacity: 0;filter:alpha(opacity:0);}
+.cur_a{cursor: pointer;}

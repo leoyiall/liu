@@ -1,0 +1,99 @@
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>我的信息</span>
+    </div>
+    <div class='inner'>
+      <div class='user_card'>
+  <div>
+   
+    <span class='user_name'>
+      <img src="__PUBLIC__/Uploads/head/<{$qlist['headimg']}>" width="50" height="50"  title="<{$qlist['nicheng']}>">
+    <if condition="$qlist['nicheng'] neq ''">
+          <{$qlist['nicheng']}>
+      <else/>
+          <{$qlist['user_id']}>
+      </if>
+    </span>
+    <div class="board clearfix">
+      <span class="big">
+      等级:LV<{$qlist['lev']}><br>
+     
+    </div>
+    <div class='board clearfix'>
+      <div class='floor'>
+        <span class='big'>积分: <{$qlist['jifen']}> </span>
+        <span class='big'>金币: <{$qlist['bmoney']}> </span>
+      </div>
+    </div>
+    <div class="space clearfix"></div>
+    <span class="signature" style="font-family:'微软雅黑';">
+      <if condition="$qlist['about'] neq ''">
+          <{$qlist['about']}>
+      <else/>
+          “这家伙很懒，什么个性签名都没有留下。”
+      </if>
+    </span>
+  
+  </div>
+</div>
+
+    </div>
+  </div>
+ 
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未解决问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="nlist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li>
+    </volist>    
+      </ul>
+      
+    </div>
+  </div>
+  <!-- 公告 -->
+ <!--  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>未回答的问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="alist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li> 
+    </volist>          
+      </ul>
+      
+    </div>
+  </div> -->
+  
+  <!-- 公告 -->
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>公告</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+        <li>
+          <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="等级介绍" style="font-size:12px;">等级介绍</a>
+          </div>
+        </li>  
+        <li>
+          <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="积分介绍" style="font-size:12px;">积分介绍</a>
+          </div>
+        </li>  
+       <li>
+         <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="金币介绍" style="font-size:12px;">金币介绍</a>
+         </div>
+       </li>                
+      </ul>
+      
+    </div>
+  </div>

@@ -1,0 +1,90 @@
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>我的信息</span>
+    </div>
+    <div class='inner'>
+      <div class='user_card'>
+  <div>
+   
+    <span class='user_name'>
+    <if condition="$ll['nicheng'] neq ''">
+          <{$ll['nicheng']}>
+      <else/>
+          <{$idnumber}>
+      </if>
+    </span>
+    <div class="board clearfix">
+      <span class="big">
+      等级:<img src="__PUBLIC__/images/ico/<{$ll['limg']}>" width="30" height="30" alt="LV<{$ll['lev']}>" title="LV<{$ll['lev']}>">LV<{$ll['lev']}> <span class="color" style="margin-left:10px;">[<{$ll['exp']}>/<{$ll['experience']}>]</span> 
+      </span><br>
+      <span class="big">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<{$ll['exp']}>" aria-valuemin="0" aria-valuemax="<{$ll['experience']}>" id="jindu">
+            <script type="text/javascript">
+              var count = parseInt((<{$ll['exp']}>/<{$ll['experience']}>)*100);
+              $("#jindu").css("width",count+"%");
+            </script>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class='board clearfix'>
+      <div class='floor'>
+        <span class='big'>积分: <{$ll['jifen']}> </span>
+        <span class='big'>金币: <{$ll['bmoney']}> </span>
+      </div>
+    </div>
+    <div class="space clearfix"></div>
+    <span class="signature" style="font-family:'微软雅黑';">
+      <if condition="$ll['about'] neq ''">
+          <{$ll['about']}>
+      <else/>
+          “这家伙很懒，什么个性签名都没有留下。”
+      </if>
+    </span>
+    <div style="padding-top:10px;"><a href="<{:U('modifyZiliao')}>?id=<{$idnumber}>" class="btn btn-info">修改资料</a></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+    
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>我的未解决问题</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="noList" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li>
+    </volist>      
+      </ul>
+      
+    </div>
+  </div>
+  <!-- 公告 -->
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>公告</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+        <li>
+          <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="等级介绍" style="font-size:12px;">等级介绍</a>
+          </div>
+        </li>  
+        <li>
+          <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="积分介绍" style="font-size:12px;">积分介绍</a>
+          </div>
+        </li>  
+       <li>
+         <div><a class='dark topic_title' href="/topic/57e287a43af3942a3aa3b959" title="金币介绍" style="font-size:12px;">金币介绍</a>
+         </div>
+       </li>                
+      </ul>
+      
+    </div>
+  </div>

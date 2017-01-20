@@ -1,0 +1,64 @@
+<style type="text/css">
+  .unstyled li a:hover{
+    text-decoration: underline;
+  }
+</style>
+  <div class='panel'>
+    <div class='header'>
+       参与社区
+    </div>
+    <div class='inner'>
+        Together to join us:<a href="<{:U('addQuestion')}>?id=<{$idnumber}>" class="btn btn-info">发布话题</a>
+    </div>
+  </div>
+ <div class='panel'>
+   <div class='header'>
+      话题搜索
+   </div>
+   <div class='inner' style="height:60px;">
+      <form id='search_form' class='navbar-search' action="<{:U('search')}>" style="margin-left:10px;">
+        <input type='text' id='q' name='q' class='search-query span3' value='' style="height:26px;">
+      </form>
+   </div>
+ </div>   
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>热门文章Top 10</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+    <volist name="nlist" id="vv">
+        <li>
+          <div><a class='dark topic_title' href="<{:U('wenti')}>?id=<{$vv.qid}>" title="<{$vv.qtitle}>" style="font-size:12px;"><{$vv.qtitle}></a>
+          </div>
+        </li>
+    </volist>    
+      </ul>
+      
+    </div>
+  </div>
+  
+  <!-- 公告 -->
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>社区活动</span>
+    </div>
+    <div class='inner'>
+      <ul class="unstyled">
+        <li>
+          <div><a class='dark topic_title' href="" title="在线编程大赛" style="font-size:12px;">在线编程大赛</a>
+          </div>
+        </li>
+        <li>
+          <div><a class='dark topic_title' href="" title="金币赚翻天" style="font-size:12px;">金币赚翻天</a>
+          </div>
+        </li> 
+        <li>
+          <div><a class='dark topic_title' href="" title="猜猜乐" style="font-size:12px;">猜猜乐</a>
+          <div><a class='dark topic_title' href="" title="每日抽奖" style="font-size:12px;">每日抽奖</a>
+          </div>
+        </li>                    
+      </ul>
+      
+    </div>
+  </div>

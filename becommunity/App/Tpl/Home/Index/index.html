@@ -1,0 +1,157 @@
+{__NOLAYOUT__} 
+<include file="Public:head" />
+  <script>
+      $(function(){
+          $('#silder').imgSilder({
+  			s_width:'100%', //容器宽度
+  			s_height:350, //容器高度
+  			is_showTit:true, // 是否显示图片标题 false :不显示，true :显示
+  			s_times:8000, //设置滚动时间
+  			css_link:'__PUBLIC__/css/changepit.css'
+  		});
+  	});
+  </script>
+
+<!-- 流程布局内容 -->
+<div class="container">
+	<div class="row">	
+	<!-- 左侧部分 -->
+	<div class="col-log-9 col-md-9 col-sm-12 col-xs-12">
+	<!-- 左侧的滚动+热点新闻 -->
+<div class="row">
+	<div class="col-log-7 col-md-7 col-sm-7 col-xs-12">
+		<!-- 切换条功能开始 -->
+			<div class="silder" id="silder">
+			  <ul class="silder_list" id="silder_list">
+		  <volist name="playNews" id="vo">
+		    <li><a href="<{:U('article')}>/id/<{$vo.id}>"><img src="<{$vo.arcimg}>" border="0" alt="<{$vo.title}>"></a></li>
+		  </volist>
+			  </ul>
+			</div>	
+  		<!-- 切换卡结束地方 -->
+  	</div>
+  	<!-- 热点新闻 -->
+  	<div class="col-log-5 col-md-5 col-sm-5 col-xs-12">
+
+		<!-- 一个热点新闻 -->
+	<volist name="headNews" id="vo">
+		<div class="hot-title">
+			<h4 class="text-center"><a href="<{:U('article')}>?id=<{$vo.id}>"><{$vo.title}></a></h4>
+		</div>
+		<div class="hot-summary">
+		<{$vo.summary}>
+		</div>
+	</volist>
+		<div class="hot-lists">
+			<ul>
+			<volist name="recommendNews" id="vo">
+				<li>
+					<a href="<{:U('article')}>?id=<{$vo.id}>"><{$vo.title}></a>
+				</li>
+			</volist>				
+			</ul>
+		</div>
+  	</div>
+</div>
+<!-- 左侧的滚动+热点新闻结束 -->
+		</div>
+		<!-- 右侧部分 -->
+		<div class="col-log-3 col-md-3 col-sm-3 col-xs-12 right-box">
+		<div class="hot-news">
+			<h4><span>热点资讯</span></h4>
+		</div>
+			<ul class="news-list" style="overflow:hidden;">
+		<for start="1" end="count($hotNews)">
+			<volist name="hotNews" id="vo">	
+				<li style="margin:5px;line-height:25px;overflow:hidden;">
+					<span style="display:inline-block;width:15px;text-align:center;background:#fca37c;color:#fff;"><{$i}></span> <a href="<{:U('article')}>?id=<{$vo.id}>"><{$vo.title}></a>
+				</li>
+			</volist>
+		</for>				
+			</ul>
+		</div>
+	</div>
+	<!-- 文章列表 -->
+	<div class="row">
+		<div class="col-log-9 col-md-9 col-sm-9 col-xs-12">
+		<div class="hot-news" style="margin:20px auto;">
+			<h4><span>资讯列表</span></h4>
+		</div>
+		<!-- 一个新闻块 -->
+		<volist name="lists" id="vo">
+			<div class="col-log-12 col-md-12 col-sm-12 col-xs-12 news-col">
+				<h3><a href="<{:U('article')}>?id=<{$vo.id}>"><{$vo.title}></a></h3>
+			</div>
+			<div class="col-log-12 col-md-12 col-sm-12 col-xs-12 news-intro">
+				<span class="">发布时间：<{$vo.date}> / 分类：<{$vo.category}> / <{$vo.sight}> 人浏览 /</span>
+			</div>
+		<div class="row news-box">
+			<div class="col-log-3 col-md-4 col-sm-5 col-xs-5">
+				<a href="<{:U('article')}>?id=<{$vo.id}>"><img src="<{$vo.arcimg}>" alt="adv" class="img-thumbnail news-img" ></a>
+			</div>
+			<div class="col-log-9 col-md-8 col-sm-7 col-xs-7 news-summary">
+				<{$vo.summary}>
+			</div>
+		</div>
+	</volist>
+	<!-- 一个新闻块结束 -->
+
+<!-- 页码 -->
+<div class="row">
+	<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+		<nav class="index-page text-center">
+		    <{$show}>	
+		</nav>
+	</div>
+</div>
+		</div>
+	<!-- 右侧推荐+广告 -->
+		<div class="col-log-3 col-md-3 col-sm-3 col-xs-12 right-box">
+			<!-- 广告 -->
+		<div class="adv-list">
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+			<a href=""><img src="__PUBLIC__/images/1.jpg" alt="adv" class="img-thumbnail"></a>
+		</div>
+
+		<!-- 关注我们 -->
+		<div class="about-us">
+			<h3>关注我们</h3>
+			<div class="about-quote">
+			<center>
+			<img src="__PUBLIC__/images/ewm.png" alt="adv" class="img-responsive">
+			</center>
+			<h4>官方微信:<b>bechengxuyuan</b></h4>
+				<ul>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wx.png" alt="微信订阅"><br>
+							<span>微信订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/wb.png" alt="微博订阅"><br>
+							<span>微博订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/yx.png" alt="邮箱订阅"><br>
+							<span>邮箱订阅</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="__PUBLIC__/images/rss.png" alt="RSS订阅"><br>
+							<span>RSS订阅</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<!-- 引用底部 -->
+<include file="Public:footer" />

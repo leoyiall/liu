@@ -1,0 +1,71 @@
+{__NOLAYOUT__} 
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="title" content="Be程序员——一个置身于打造全民互联网资讯的资讯网。" />
+	<meta name="keywords" content="准程序员，编程知识，编程，Javascript,html,css,html5,css3,极客，互联网新闻，编程软件，辅助软件，下载" />
+	<meta name="description" content="一个集合多方面发展的一个社区。不只是可以了解到最新的互联网新闻，还可以在这里学习到编程知识和探讨未知的知识。" />
+	<title>Be程序员——程序员身边的资讯</title>
+	<link rel="icon" href="__PUBLIC__/images/ico.png">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/collapse.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/common.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/head.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/news.css">
+<!-- 返回顶部滚动效果 -->
+	<script type="text/javascript" src="__PUBLIC__/js/returntop.js"></script>
+<!-- 滚动效果相关文件 -->
+  <script type="text/javascript" src="__PUBLIC__/js/sport.js"></script>
+  </head>
+  <body>
+  	<!-- 头部图片和搜索 -->
+  <div class="container top-box">
+    <!-- <div class="navbar-header"> -->
+  	<div class="row">
+  		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+  			<a href="__ROOT__/index.php" style="float:left;">
+  				<img src="__PUBLIC__/images/logo.png" alt="logo">
+  			</a>
+  			<span class="logo-text" style="line-height:60px;margin-left:10px;">程序员身边的资讯</span>
+  		</div>
+  		<div class="col-log-5 col-md-5 col-sm-5 col-xs-0 " id="search_box">
+  		<form action="<{:U('search')}>" method="get">
+  			<input type="text" name="soso" class="search_bar" placeholder="搜索">
+  			<input type="submit" value="搜索" class="search_btn">
+  		</form>
+  		</div>
+  	</div>
+  	<!-- </div> -->
+  </div>
+
+  <!-- 导航条部分 -->
+  <nav class="navbar-default navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="__ROOT__/index.php">Be程序员</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="<{:U('index')}>">资讯首页 <span class="sr-only">(current)</span></a></li>
+          <volist name="clist" id="vo">
+  	        <li><a href="<{:U('lists')}>?id=<{$vo.id}>"><{$vo.category}></a></li>
+  		</volist>
+  			<li><a href="<{:U('down')}>">软件下载</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Be程序员——后台首页</title>
+<link rel="icon" href="__PUBLIC__/images/ico.png">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/MDtool.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/collapse.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css">
+<link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.min.css">
+<style type="text/css">
+	.adminDing{width:100%;}
+	.adminMain{overflow: hidden;*zoom:1;}
+	.adminLeft{width:210px;float:left;}
+	.adminRight{width:84%;float:right;}
+</style>
+</head>
+<body  style="background:#fafafa;">
+<header class="adminDing">
+	<include file="Public:head" />
+</header>
+<div class="adminMain">
+	<aside class="adminLeft">
+		<include file="Public:questionleft" />
+	</aside>
+	<aside class="adminRight">
+		{__CONTENT__}
+	</aside>
+</div>	 
+</body>
+</html>

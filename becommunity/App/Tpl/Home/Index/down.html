@@ -1,0 +1,164 @@
+{__NOLAYOUT__} 
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="title" content="Be程序员——一个置身于打造全民互联网资讯的资讯网。——<{$lists['category']}>" />
+	<meta name="keywords" content="准程序员，编程知识，编程，Javascript,html,css,html5,css3,极客，互联网新闻，编程软件，辅助软件，下载" />
+	<meta name="description" content="一个集合多方面发展的一个社区。不只是可以了解到最新的互联网新闻，还可以在这里学习到编程知识和探讨未知的知识。" />
+	<title>Be程序员——软件下载</title>
+	<link rel="icon" href="__PUBLIC__/images/ico.png">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/collapse.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/down.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/common.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/head.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/news.css">
+<!-- 返回顶部滚动效果 -->
+	<script type="text/javascript" src="__PUBLIC__/js/returntop.js"></script>
+<!-- 滚动效果相关文件 -->
+  <script type="text/javascript" src="__PUBLIC__/js/sport.js"></script>
+  <script>
+      $(function(){
+          $('#silder').imgSilder({
+  			s_width:'100%', //容器宽度
+  			s_height:300, //容器高度
+  			is_showTit:true, // 是否显示图片标题 false :不显示，true :显示
+  			s_times:3000, //设置滚动时间
+  			css_link:'__PUBLIC__/css/changepit.css'
+  		});
+  	});
+  </script>
+</head>
+<body>
+	<!-- 头部图片和搜索 -->
+<div class="container top-box">
+  <!-- <div class="navbar-header"> -->
+	<div class="row">
+		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<a href="" style="float:left;">
+				<img src="__PUBLIC__/images/logo.png" alt="logo">
+			</a>
+<!-- 			<span class="logo-text" >程序员身边的资讯</span> -->
+		</div>
+		<div class="col-log-5 col-md-5 col-sm-5 col-xs-0 " id="search_box">
+		<form action="<{:U('search')}>" method="get">
+			<input type="text" name="soso" class="search_bar" placeholder="搜索">
+			<input type="submit" value="搜索" class="search_btn">
+		</form>
+		</div>
+	</div>
+	<!-- </div> -->
+</div>
+
+<!-- 导航条部分 -->
+<nav class="navbar-default navbar">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<{:U('index')}>">Be程序员</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="<{:U('index')}>">资讯首页 <span class="sr-only">(current)</span></a></li>
+        <volist name="clist" id="vo">
+	        <li><a href="<{:U('lists')}>?id=<{$vo.id}>"><{$vo.category}></a></li>
+		</volist>
+			<li><a href="<{:U('down')}>">软件下载</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 流程布局内容 -->
+<div class="container">
+	<div class="row">
+	<!-- 面包屑导航 -->
+	<div class="col-log-12 col-md-12 col-sm-12 col-xs-12">
+			<ol class="breadcrumb" style="font-size:14px;">
+			  <li>当前位置: 
+			  <a href="<{:U('index')}>" style="color:#337AB7">首页</a></li>
+			  <li class="active">软件下载</li>
+			</ol>
+		</div>
+	</div>
+
+	<!-- 左侧的滚动+热点新闻 -->
+<div class="row" style="padding:5px;border:1px solid #ddd;padding-bottom:10px;">
+	<div class="col-log-4 col-md-4 col-sm-4 col-xs-12">
+		<!-- 切换条功能开始 -->
+			<div class="silder" id="silder">
+			  <ul class="silder_list" id="silder_list">
+			   <volist name="playTech" id="vo">
+			    <li><a href="<{:U('article')}>?id=<{$vo.id}>"><img src="<{$vo.arcimg}>" border="0" alt="<{$vo.title}>"></a></li>
+			   </volist>
+			  </ul>
+			</div>	
+  		<!-- 切换卡结束地方 -->
+  	</div>
+  	<!-- 软件教程 -->
+<div class="down_zx col-log-4 col-md-4 col-sm-4 col-xs-12">
+	  	  <h3><a href="<{:U('lists')}>?id=10">软件教程</a></h3>
+	  	  <ul>
+	  	  <volist name="softTech" id="vo">
+	  	    <li><span class="zx_a">☆</span> <a href="<{:U('article')}>?id=<{$vo.id}>" title="600"><{$vo.title}></a></li>
+  	      </volist>
+	  	  </ul>
+  	</div>
+  	<!-- 安装教程 -->
+<div class="down_zx col-log-4 col-md-4 col-sm-4 col-xs-12">
+  	  <h3><a href="<{:U('lists')}>?id=11">软件安装</a></h3>
+  	  <ul class="down_gk">
+   	  	  <volist name="softInstall" id="vo">
+	  	    <li><span class="zx_a" style="float:left;">☆</span> <a href="<{:U('article')}>?id=<{$vo.id}>" title="600"><{$vo.title}></a></li>
+  	      </volist>
+  	  </ul>
+	</div>
+</div>
+<!-- 左侧的滚动+热点新闻结束 -->	
+<div class="row" style="border:1px solid #ddd;margin-top:10px;padding-top:30px;">
+		<div class="col-log-4 col-md-4 col-sm-4 col-xs-12 down_list">
+		  <h3><a href="<{:U('downlist')}>?id=1"><span>开发工具</span></a></h3>
+		  <ul>
+		  <volist name="kfgj" id="vo">
+		    <li><span>▷</span><a href="<{:U('downpage')}>?id=<{$vo.id}>"><{$vo.title}></a><span class="fr"><a href="<{$vo.link}>">下载</a></span></li>
+		  </volist>  
+
+		  </ul>
+		</div>
+		<!-- 编辑器 -->
+		<div class="col-log-4 col-md-4 col-sm-4 col-xs-12 down_list">
+		  <h3><a href="<{:U('downlist')}>?id=2"><span>编辑器</span></a></h3>
+		  <ul>
+		  <volist name="bjq" id="vo">
+		    <li><span style="margin-rihgt:5px;">▷</span><a href="<{:U('downpage')}>?id=<{$vo.id}>"><{$vo.title}></a><span class="fr"><a href="<{$vo.link}>">下载</a></span></li>
+		  </volist> 
+
+		  </ul>
+		</div>
+		<!-- 辅助工具 -->
+		<div class="col-log-4 col-md-4 col-sm-4 col-xs-12 down_list">
+		  <h3><a href="<{:U('downlist')}>?id=3"><span>辅助工具</span></a></h3>
+		  <ul>
+   		  <volist name="fzgj" id="vo">
+		    <li><span style="margin-rihgt:5px;">▷</span><a href="<{:U('downpage')}>?id=<{$vo.id}>"><{$vo.title}></a><span class="fr"><a href="<{$vo.link}>">下载</a></span></li>
+		  </volist> 
+		  </ul>
+		</div>
+		
+	</div>
+	
+	<!-- 引用底部 -->
+<include file="Public:footer" />

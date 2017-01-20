@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Be程序员——问答社区</title>
+<link rel="icon" href="__PUBLIC__/images/ico.png">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/MDtool.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+<!-- 问答社区的样式 -->
+<link rel="stylesheet" href="__PUBLIC__/css/question.css" media="all" />
+<script src="__PUBLIC__/js/question.js"></script>
+
+</head>
+<body  style="background:#fafafa;">
+<header class="adminDing">
+	<include file="Public:questionHead" />
+</header>
+<!-- 主体内容区域 -->
+<div id='main'>
+  <div id='sidebar'>
+    <include file="Public:addright" />
+  </div><!-- slider结束 -->
+<!-- 内容列表框 -->
+<div id="content">
+	{__CONTENT__}
+</div><!-- content结束 -->
+
+<div id='backtotop'>回到顶部</div>
+</div>
+
+<!-- 底部代码开始 -->
+ <div id="footer">
+ 	<include file="Public:questionFooter" />
+ </div>
+<!-- 底部代码结束 -->
+</body>
+</html>

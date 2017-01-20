@@ -1,0 +1,111 @@
+{__NOLAYOUT__}
+<layout name="layout/community" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/personCenter.css">
+<style type="text/css">
+  input{outline: none;border:none;box-shadow: none;}
+  input[name='know']{
+    width:20px;
+    height:20px;
+  }
+</style>
+<!-- 编辑器的引用 -->
+ <link rel="stylesheet" type="text/css" href="__PUBLIC__/simditor/styles/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/simditor/styles/simditor.css" />
+
+<script type="text/javascript" src="__PUBLIC__/simditor/scripts/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/simditor/scripts/js/module.js"></script>
+<script type="text/javascript" src="__PUBLIC__/simditor/scripts/js/uploader.js"></script>
+<script type="text/javascript" src="__PUBLIC__/simditor/scripts/js/simditor.js"></script>
+<script type="text/javascript">
+  var ms = mdtool.messager();
+</script>
+
+<!-- 主体内容 -->
+  <div class="panel">
+    <div class="header">
+        <ul class='breadcrumb'>
+          <li><a href='<{:U("index")}>'>主页</a>
+          <span class='divider'>&nbsp;</span></li>
+          <li class='active'>发布话题</li>
+        </ul>
+    </div>
+<!-- 话题列表 -->
+    <div class="inner no-padding">
+      <div id="topic_list" style="padding-left:125px;margin:0 auto;margin-top:20px;padding-bottom:50px;">
+    <form action="<{:U('sendQuestion')}>" method="post" id="myForm">
+          <table width="710">
+            <tr>
+              <td width="70">话题标题:</td>
+              <td><input type="text" name="title" placeholder="请输入您的话题" style="height:35px;line-height:35px;margin-top:10px;width:300px;" autofocus></td>
+            </tr>   
+            <tr>
+              <td>话题领域:</td>
+              <td>
+                <select  name="qtype" style="margin-top:10px;">
+                  <volist name="qlist" id="vv">
+                    <option value="<{$vv.tid}>"><{$vv.typename}></option>
+                  </volist>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>话题描述:</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+      <textarea id="editor" name="content" style="width:699px;"></textarea>
+      <script type="text/javascript">
+        var editor = new Simditor({
+          textarea: $('#editor')
+        });
+      </script>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+      <span class="color">*一篇文章奖励10经验,50积分,5金币</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+              <center>
+                <input type="button" class="btn btn-info" value="发布话题" style="margin-top:30px;" id="sub">
+              </center>
+              </td>
+            </tr>
+          </table>
+    </form>
+       </div>
+    </div>
+
+    </div>
+    
+  </div>
+</div>
+<script type="text/javascript">
+$("#sub").click(function(){
+  if(confirm("是否要发布该话题?")){
+    if($("input[name='title']").val()<1){
+      ms.send("话题标题不能为空!");
+      return;
+    }
+    if($("#editor").val()<1){
+      ms.send("话题描述标题不能为空!");
+      return;
+    }
+    var money = $("#money option:selected").val();
+    if( money > <{$ll.bmoney}>){
+      ms.send("您的金币不足!");
+      return;
+    }
+    $("#myForm").submit();
+  }
+});
+$("#money").change(function(){
+  var money = $("#money option:selected").val();
+  if( money > <{$ll.bmoney}>){
+    alert("您的金币不足!");
+  }
+});
+</script>

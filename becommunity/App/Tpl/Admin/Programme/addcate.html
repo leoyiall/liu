@@ -1,0 +1,121 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+<script type="text/javascript">
+  var ms=mdtool.messager();
+<if condition="$info">
+  ms.send("<{$info}>");
+</if> 
+</script>
+<div class="alert alert-info" role="alert"><b>注意:</b>点击文字即可进行修改，再点下表单外即可修改章节。</div>
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('Question/index')}>">首页</a></li>
+  <li class="active">课程章节</li>
+</ol>
+<table class="table table-hover">
+  <tr>
+    <th>条数</th>
+    <th>章节名称</th>
+    <th>操作</th>
+  </tr>
+   <tr>
+   <td></td>
+    <td><input type="text" name="state" class="form-control" placeholder="章节名称"  autofocus="autofocus"></td>
+    <td>
+      <a href="javascript:void(0);" class="admin-modify" style="line-height:35px;"  id="addState">添加</a>
+    </td>
+  </tr>
+<for start="1" end="count($list)"></for>
+  <volist name="list" id="vo" >
+  <tr>
+    <td><{$i}></td>
+    <td class="caname" objId="<{$vo.id}>"><{$vo['zname']}></td>
+    <td><a href="<{:U('delCategory')}>?id=<{$vo.id}>" class='admin-modify' objId='<{$vo.id}>' onclick="confirm('确定删除该分类吗?')">删除</a></td>
+  </tr>
+  </volist>
+
+</table>
+  <nav class="pages">
+    <{$show}>
+  </nav>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  var ms=mdtool.messager();
+  $("#addState").click(function(){
+    // 如果发布的信息为空
+    if($("#stateMessage").val()==""){
+      ms.send("章节不能为空!");
+      return;
+    }
+    $("#addState").disabled=true;  //发布成功后，禁止
+     // 发布后的信息
+    var message = $("input[name='state']").val();
+    $.ajax({
+      url : "<{:U('programme/doAddSort')}>",
+      type:'post',
+      datatype:'json',
+      data:{
+        'state':message
+      },
+      success:function(e){
+        console.log(e);
+      ms.send(e['info']);
+  $("<tr class='xiaoguo'><td></td><td class='caname' objId='e.id'>"+message+"</td><td><a href='<{:U('delState')}>' class='admin-modify' objId='0' >删除</a></td></tr>").appendTo($(".table"));
+        // 清空发表框
+        $("input[name='state']").val('');
+        setTimeout("window.location.reload()",1000);
+      },
+      error:function(e){
+        console.log(e);
+        ms.send(e['info']);
+      }
+    });      
+  }); 
+      $(function() { 
+  //获取class为caname的元素 
+  $(".caname").click(function() { 
+  var td = $(this); 
+  var txt = td.text(); 
+  var input = $("<input type='text'value='" + txt + "'/>"); 
+  td.html(input); 
+  input.click(function() { return false; }); 
+  //获取焦点 
+  input.trigger("focus"); 
+  //文本框失去焦点后提交内容，重新变为文本 
+  input.blur(function() { 
+  var newtxt = $(this).val(); 
+  //判断文本有没有修改 
+  if (newtxt != txt) { 
+  td.html(newtxt); 
+  
+  var id = td.attr("objId"); 
+  //ajax异步更改数据库,加参数date是解决缓存问题 
+  var url = "<{:U('modifyCategory')}>?id="+id+"&con="+newtxt; 
+  //使用get()方法打开一个一般处理程序，data接受返回的参数（在一般处理程序中返回参数的方法 context.Response.Write("要返回的参数");） 
+  //数据库的修改就在一般处理程序中完成 
+  $.get(url, function(data) { 
+  if(data=="1") 
+  { 
+    ms.send("该章节已存在！"); 
+    td.html(txt); 
+    return; 
+  } 
+    ms.send(data); 
+    td.html(newtxt); 
+  }); 
+ 
+  } 
+  else 
+  { 
+    ms.send(data);
+    td.html(newtxt); 
+  } 
+  }); 
+  }); 
+  }); 
+}); 
+</script>

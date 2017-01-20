@@ -1,0 +1,45 @@
+<div class='navbar'>
+  <div class='navbar-inner'>
+    <div class='container'>
+      <a class='brand' href='/'>
+          <img src="__PUBLIC__/images/logo.png" width="100" height="30"/>
+      </a>
+
+      <form id='search_form' class='navbar-search' action="<{:U('search')}>" style="margin-left:10px;">
+  <input type='text' id='q' name='q' class='search-query span3' value='' style="height:26px;">
+</form>
+      <ul class='nav pull-right'>
+        <li><a href='__ROOT__/index.php'>首页</a></li>
+        
+        <li><a href="<{:U('Blog/index')}>" target="_blank">博客</a></li>
+        <li><a href='<{:U("question/index")}>'>问答</a></li>
+        
+        <li><a href="<{:U('Community/index')}>" target="_blank" target="_blank">社区</a></li>
+        <li><a href="<{:U('Index/index')}>" target="_blank">资讯</a></li>
+        <li><a href="<{:U('Programme/index')}>" target="_blank">编程库</a></li>
+        <li><a href="<{:U('Code/index')}>" target="_blank">源码</a></li>
+        <li><a href="<{:U('Index/down')}>" target="_blank">软件</a></li>
+         <if condition="$idnumber" >
+            <li>
+            <if condition="$ll['nicheng']">
+              <a href="<{:U('personCenter')}>?id=<{$idnumber}>"><{$ll['nicheng']}></a>
+            <else />
+        <a href="<{:U('personCenter')}>?id=<{$idnumber}>"><{$idnumber}></a>
+            </if>
+            </li>
+            <li><a href="<{:U('addQuestion')}>?id=<{$idnumber}>">发布问题</a></li>
+            <li><a href="<{:U('Common/logout')}>">退出</a></li>
+            <!-- <li><a href="<{:U('xiaoxi')}>?id=<{$idnumber}>">消息(<span class="color">0</span>)</a></li> -->
+          <else />
+              <li><a href="<{:U('Common/login')}>?l=question">登录</a></li>
+              <li><a href="<{:U('Common/reg')}>">注册</a></li>
+          </if>
+         </ul>
+      <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+  </div>
+</div>

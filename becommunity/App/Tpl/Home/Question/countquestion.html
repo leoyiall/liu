@@ -1,0 +1,72 @@
+{__NOLAYOUT__}
+<layout name="layout/questionCenter" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/personCenter.css">
+<style type="text/css">
+  input{outline: none;border:none;box-shadow: none;}
+  input[name='know']{
+    width:20px;
+    height:20px;
+  }
+</style>
+
+<!-- 主体内容 -->
+  <div class="panel">
+    <div class="header">
+        <ul class='breadcrumb'>
+          <li><a href='<{:U("personCenter")}>?id=<{$idnumber}>'>主页</a>
+          <span class='divider'>&nbsp;</span></li>
+          <li class='active'>我的统计</li>
+        </ul>
+    </div>
+<!-- 问题列表 -->
+    <div class="inner no-padding" >
+          <div id="countMe" style="margin:20px auto;width: 900px;height:400px;"></div>
+          <center><h1>我的提问统计</h1></center>
+           <script src="__PUBLIC__/echarts/echarts.min.js"></script>
+           <script type="text/javascript">
+               // 基于准备好的dom，初始化echarts实例
+               var myChart = echarts.init(document.getElementById('countMe'));
+
+              $.get('getQuestions',{id:<{$idnumber}>}).done(function (data) {
+                  console.log(data);
+                  myChart.setOption({
+                      series : [
+                          {
+                            name: '我的提问统计',
+                            type: 'pie',
+                            radius: '80%',
+                            data:[
+                                {value:5, name:'java开发'},
+                                {value:4, name:'PHP开发'},
+                                {value:1, name:'node.js开发'},
+                                {value:2, name:'安卓开发'},
+                                {value:1, name:'JavaScript开发'}
+                            ]
+                          }
+                      ]
+                  });
+                });
+                 /* option = {
+                      series : [
+                          {
+                              name: '访问来源',
+                              type: 'pie',
+                              radius: '100%',
+                              data:[
+                                  {value:235, name:'视频广告'},
+                                  {value:274, name:'联盟广告'},
+                                  {value:310, name:'邮件营销'},
+                                  {value:335, name:'直接访问'},
+                                  {value:400, name:'搜索引擎'}
+                              ]
+                          }
+                      ]
+                  };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);*/
+           </script>
+       </div>
+    </div>
+    
+  </div>
+</div>

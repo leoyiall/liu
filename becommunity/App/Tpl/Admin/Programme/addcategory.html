@@ -1,0 +1,61 @@
+{__NOLAYOUT__}
+<layout name="layout/programme" />
+
+<div class="container-fluid">
+<div class="row">
+<!-- 导航条 -->
+<ol class="breadcrumb">
+  <li><a href="<{:U('index')}>">首页</a></li>
+  <li class="active">添加课程章节</li>
+</ol>
+
+</div>
+  <div class="row  admin-box">
+  <div class="col-md-12">
+    <h4 class="text-center">添加课程章节</h4>
+    <form action="<{:U('doAddChapter')}>" method="post" class="form-horizontal" enctype="multipart/form-data" id="subForm" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">章节名称：</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputEmail3" name="title" placeholder="章节名称" autofocus="autofocus">
+        </div>
+      </div>
+
+       <div class="form-group">
+         <label for="inputPassword3" class="col-sm-2 control-label">课程选择</label>
+         <div class="col-sm-6">
+       <select class="form-control" name="pid">
+      <volist name="list" id="vv"> 
+        <option value='<{$vv.id}>'><{$vv.course}></option>
+      </volist>
+       </select>
+       </div>
+       </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">章节选择</label>
+        <div class="col-sm-6">
+      <select class="form-control" name="zid">
+     <volist name="lz" id="vv"> 
+       <option value='<{$vv.id}>'><{$vv.zname}></option>
+     </volist>
+      </select>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="button" class="btn btn-default"style="margin-left:200px;" id="sub">添加章节名称</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div><!-- col-md-12结束 -->
+</div>
+<script type="text/javascript">
+  $("#sub").click(function(){
+      if(confirm("是否添加该章节？")){
+          $("#subForm").submit();
+       }
+  })
+</script>

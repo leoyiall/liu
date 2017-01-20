@@ -1,0 +1,87 @@
+<div class="container-fluid">
+<div class="row">
+	<div class="admin-welcome col-md-4  admin-box">
+		<img src="<{$data[0][headimg]}>" class="thumbnail" width="100" height="100" alt="xxx">
+		<p style="margin-top:10px;">欢迎您，<{$data[gly]}>：<b><{$data[0]['nicheng']}></b></p>
+		<p><span class="glyphicon glyphicon-pencil"></span> <{$data[0]['introduce']}></p>
+	</div>
+	<div class="admin-welcome col-md-4 admin-send admin-box" style="margin-left:10px;">
+		<a href="<{:U('adminArticlelist')}>">
+			<span class='glyphicon glyphicon-list-alt'></span>
+			我发布的文章
+		</a>
+		<a href="<{:U('adminSoftlist')}>">
+			<span class='glyphicon glyphicon-open'></span>
+			我发布的软件
+		</a>
+	</div>
+	<div class="admin-welcome col-md-3 admin-send admin-box" style="margin-left:10px;height:110px;line-height:110px;">
+		<b>今天是：</b><?php echo date('Y年m月d日',time());?>
+		<span id="week"></span>		
+	</div>
+</div>
+	<!-- 我发布的文章列表 -->
+	<div class="row" >
+		<div class="col-md-6 admin-box">
+		<div class="panel text-center"><h4>文章列表</h4></div>
+			<table class="table ">
+				<tr>
+					<th>条数</th>
+					<th>标题</th>
+				</tr>
+			<volist name="alist" id="vo">
+				<tr>
+					<td><{$vo.id}></td>
+					<td><a href="__ROOT__/index.php/Index/article/id/<{$vo.id}>" target="_blank"><{$vo.title}></a></td>
+				</tr>
+			</volist>
+
+			</table>
+		</div>
+		<div class="col-md-6 admin-box">
+		<div class="panel text-center"><h4>软件列表</h4></div>
+			<table class="table ">
+				<tr>
+					<th>条数</th>
+					<th>标题</th>
+				</tr>
+			<volist name="slist" id="vv">
+				<tr>
+					<td><{$vv.id}></td>
+					<td><a href="__ROOT__/index.php/Index/downpage/id/<{$vo.id}>" target="_blank"><{$vv.title}></a></td>
+				</tr>
+			</volist>
+				
+			</table>
+		</div>
+<!-- 		<div class="col-md-4 admin-box">
+				<div class="text-center">
+					<h4>公告</h4>
+				</div>
+				<ul class="admin-uls">
+					<li><a href="">Be程序员上线了</a> <span class="fr">2016-3-10</span></li>
+				</ul>
+		</div> -->
+
+
+<!-- 		<div class="col-md-4 admin-box">
+	<div class="text-center">
+		<h3>系统信息</h3>
+	</div>
+	<ul class="admin-uls" style="padding-bottom:5px;">
+		<li><b>系统版本:</b>Be程序员社区1.0</li>
+		<li><b>运行环境:</b>appache+php+mysql</li>
+		<li><b>操作系统:</b>win7,win8,win xp</li>
+		<li><b>上传限制:</b>20M</li>
+		<li><b>版权所有:</b>Be程序员社区所有</li>
+	</ul>	
+</div> -->
+</div>
+<script type="text/javascript">
+window.onload=function(){
+	var weeks =new Array('星期日','星期一','星期二','星期三','星期四','星期五','星期六');
+	var now = new Date();
+	var wk=document.getElementById('week');
+	wk.innerHTML=weeks[now.getDay()];
+}
+</script>
